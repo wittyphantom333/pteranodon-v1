@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin\Jexactyl;
+namespace Pteranodon\Http\Requests\Admin\Pteranodon;
 
-use Jexactyl\Http\Requests\Admin\AdminFormRequest;
+use Pteranodon\Http\Requests\Admin\AdminFormRequest;
 
 class AdvancedFormRequest extends AdminFormRequest
 {
@@ -12,27 +12,27 @@ class AdvancedFormRequest extends AdminFormRequest
     public function rules(): array
     {
         return [
-            'jexactyl:auth:2fa_required' => 'required|integer|in:0,1,2',
+            'pteranodon:auth:2fa_required' => 'required|integer|in:0,1,2',
 
             'recaptcha:enabled' => 'required|in:true,false',
             'recaptcha:secret_key' => 'required|string|max:191',
             'recaptcha:website_key' => 'required|string|max:191',
-            'jexactyl:guzzle:timeout' => 'required|integer|between:1,60',
-            'jexactyl:guzzle:connect_timeout' => 'required|integer|between:1,60',
+            'pteranodon:guzzle:timeout' => 'required|integer|between:1,60',
+            'pteranodon:guzzle:connect_timeout' => 'required|integer|between:1,60',
 
-            'jexactyl:client_features:allocations:enabled' => 'required|in:true,false',
-            'jexactyl:client_features:allocations:range_start' => [
+            'pteranodon:client_features:allocations:enabled' => 'required|in:true,false',
+            'pteranodon:client_features:allocations:range_start' => [
                 'nullable',
-                'required_if:jexactyl:client_features:allocations:enabled,true',
+                'required_if:pteranodon:client_features:allocations:enabled,true',
                 'integer',
                 'between:1024,65535',
             ],
-            'jexactyl:client_features:allocations:range_end' => [
+            'pteranodon:client_features:allocations:range_end' => [
                 'nullable',
-                'required_if:jexactyl:client_features:allocations:enabled,true',
+                'required_if:pteranodon:client_features:allocations:enabled,true',
                 'integer',
                 'between:1024,65535',
-                'gt:jexactyl:client_features:allocations:range_start',
+                'gt:pteranodon:client_features:allocations:range_start',
             ],
         ];
     }
@@ -43,11 +43,11 @@ class AdvancedFormRequest extends AdminFormRequest
             'recaptcha:enabled' => 'reCAPTCHA Enabled',
             'recaptcha:secret_key' => 'reCAPTCHA Secret Key',
             'recaptcha:website_key' => 'reCAPTCHA Website Key',
-            'jexactyl:guzzle:timeout' => 'HTTP Request Timeout',
-            'jexactyl:guzzle:connect_timeout' => 'HTTP Connection Timeout',
-            'jexactyl:client_features:allocations:enabled' => 'Auto Create Allocations Enabled',
-            'jexactyl:client_features:allocations:range_start' => 'Starting Port',
-            'jexactyl:client_features:allocations:range_end' => 'Ending Port',
+            'pteranodon:guzzle:timeout' => 'HTTP Request Timeout',
+            'pteranodon:guzzle:connect_timeout' => 'HTTP Connection Timeout',
+            'pteranodon:client_features:allocations:enabled' => 'Auto Create Allocations Enabled',
+            'pteranodon:client_features:allocations:range_start' => 'Starting Port',
+            'pteranodon:client_features:allocations:range_end' => 'Ending Port',
         ];
     }
 }

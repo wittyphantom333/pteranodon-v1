@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Providers;
+namespace Pteranodon\Providers;
 
-use Jexactyl\Models;
+use Pteranodon\Models;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
-use Jexactyl\Extensions\Themes\Theme;
+use Pteranodon\Extensions\Themes\Theme;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -58,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Only load the settings service provider if the environment
         // is configured to allow it.
-        if (!config('jexactyl.load_environment_only', false) && $this->app->environment() !== 'testing') {
+        if (!config('pteranodon.load_environment_only', false) && $this->app->environment() !== 'testing') {
             $this->app->register(SettingsServiceProvider::class);
         }
 

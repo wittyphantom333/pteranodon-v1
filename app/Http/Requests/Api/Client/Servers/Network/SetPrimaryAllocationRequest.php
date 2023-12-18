@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Servers\Network;
+namespace Pteranodon\Http\Requests\Api\Client\Servers\Network;
 
 class SetPrimaryAllocationRequest extends UpdateAllocationRequest
 {

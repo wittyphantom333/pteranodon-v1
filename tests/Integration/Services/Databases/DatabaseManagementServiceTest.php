@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Databases;
+namespace Pteranodon\Tests\Integration\Services\Databases;
 
 use Mockery\MockInterface;
-use Jexactyl\Models\Database;
-use Jexactyl\Models\DatabaseHost;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Repositories\Eloquent\DatabaseRepository;
-use Jexactyl\Services\Databases\DatabaseManagementService;
-use Jexactyl\Exceptions\Repository\DuplicateDatabaseNameException;
-use Jexactyl\Exceptions\Service\Database\TooManyDatabasesException;
-use Jexactyl\Exceptions\Service\Database\DatabaseClientFeatureNotEnabledException;
+use Pteranodon\Models\Database;
+use Pteranodon\Models\DatabaseHost;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Repositories\Eloquent\DatabaseRepository;
+use Pteranodon\Services\Databases\DatabaseManagementService;
+use Pteranodon\Exceptions\Repository\DuplicateDatabaseNameException;
+use Pteranodon\Exceptions\Service\Database\TooManyDatabasesException;
+use Pteranodon\Exceptions\Service\Database\DatabaseClientFeatureNotEnabledException;
 
 class DatabaseManagementServiceTest extends IntegrationTestCase
 {
@@ -23,7 +23,7 @@ class DatabaseManagementServiceTest extends IntegrationTestCase
     {
         parent::setUp();
 
-        config()->set('jexactyl.client_features.databases.enabled', true);
+        config()->set('pteranodon.client_features.databases.enabled', true);
 
         $this->repository = $this->mock(DatabaseRepository::class);
     }
@@ -43,7 +43,7 @@ class DatabaseManagementServiceTest extends IntegrationTestCase
      */
     public function testExceptionIsThrownIfClientDatabasesAreNotEnabled()
     {
-        config()->set('jexactyl.client_features.databases.enabled', false);
+        config()->set('pteranodon.client_features.databases.enabled', false);
 
         $this->expectException(DatabaseClientFeatureNotEnabledException::class);
 

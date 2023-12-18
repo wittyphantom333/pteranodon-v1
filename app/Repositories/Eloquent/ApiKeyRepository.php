@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Repositories\Eloquent;
+namespace Pteranodon\Repositories\Eloquent;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\ApiKey;
+use Pteranodon\Models\User;
+use Pteranodon\Models\ApiKey;
 use Illuminate\Support\Collection;
-use Jexactyl\Contracts\Repository\ApiKeyRepositoryInterface;
+use Pteranodon\Contracts\Repository\ApiKeyRepositoryInterface;
 
 class ApiKeyRepository extends EloquentRepository implements ApiKeyRepositoryInterface
 {

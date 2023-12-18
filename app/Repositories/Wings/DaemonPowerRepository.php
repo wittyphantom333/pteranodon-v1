@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Repositories\Wings;
+namespace Pteranodon\Repositories\Wings;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Webmozart\Assert\Assert;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\TransferException;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class DaemonPowerRepository extends DaemonRepository
 {
     /**
      * Sends a power action to the server instance.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function send(string $action): ResponseInterface
     {

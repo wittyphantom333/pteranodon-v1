@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Maintenance;
+namespace Pteranodon\Console\Commands\Maintenance;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;

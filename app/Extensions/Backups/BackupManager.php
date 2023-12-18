@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Extensions\Backups;
+namespace Pteranodon\Extensions\Backups;
 
 use Closure;
 use Aws\S3\S3Client;
@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
 use Illuminate\Foundation\Application;
 use League\Flysystem\FilesystemAdapter;
-use Jexactyl\Extensions\Filesystem\S3Filesystem;
+use Pteranodon\Extensions\Filesystem\S3Filesystem;
 use League\Flysystem\InMemory\InMemoryFilesystemAdapter;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 

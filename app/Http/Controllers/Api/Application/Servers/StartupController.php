@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Servers;
+namespace Pteranodon\Http\Controllers\Api\Application\Servers;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\Server;
-use Jexactyl\Services\Servers\StartupModificationService;
-use Jexactyl\Transformers\Api\Application\ServerTransformer;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
-use Jexactyl\Http\Requests\Api\Application\Servers\UpdateServerStartupRequest;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Server;
+use Pteranodon\Services\Servers\StartupModificationService;
+use Pteranodon\Transformers\Api\Application\ServerTransformer;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Http\Requests\Api\Application\Servers\UpdateServerStartupRequest;
 
 class StartupController extends ApplicationApiController
 {
@@ -23,9 +23,9 @@ class StartupController extends ApplicationApiController
      * Update the startup and environment settings for a specific server.
      *
      * @throws \Illuminate\Validation\ValidationException
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function index(UpdateServerStartupRequest $request, Server $server): array
     {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Notifications;
+namespace Pteranodon\Notifications;
 
-use Jexactyl\Models\User;
-use Jexactyl\Events\Event;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\User;
+use Pteranodon\Events\Event;
+use Pteranodon\Models\Server;
 use Illuminate\Bus\Queueable;
 use Illuminate\Container\Container;
-use Jexactyl\Events\Server\Installed;
+use Pteranodon\Events\Server\Installed;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Jexactyl\Contracts\Core\ReceivesEvents;
+use Pteranodon\Contracts\Core\ReceivesEvents;
 use Illuminate\Contracts\Notifications\Dispatcher;
 use Illuminate\Notifications\Messages\MailMessage;
 

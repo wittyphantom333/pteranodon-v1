@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Servers;
+namespace Pteranodon\Tests\Integration\Services\Servers;
 
 use Mockery\MockInterface;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Jexactyl\Models\Allocation;
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Models\Allocation;
+use Pteranodon\Exceptions\DisplayException;
 use GuzzleHttp\Exception\RequestException;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Services\Servers\BuildModificationService;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Services\Servers\BuildModificationService;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class BuildModificationServiceTest extends IntegrationTestCase
 {
@@ -37,7 +37,7 @@ class BuildModificationServiceTest extends IntegrationTestCase
         $server = $this->createServerModel();
         $server2 = $this->createServerModel();
 
-        /** @var \Jexactyl\Models\Allocation[] $allocations */
+        /** @var \Pteranodon\Models\Allocation[] $allocations */
         $allocations = Allocation::factory()->times(4)->create(['node_id' => $server->node_id, 'notes' => 'Random notes']);
 
         $initialAllocationId = $server->allocation_id;
@@ -84,7 +84,7 @@ class BuildModificationServiceTest extends IntegrationTestCase
     public function testExceptionIsThrownIfRemovingTheDefaultAllocation()
     {
         $server = $this->createServerModel();
-        /** @var \Jexactyl\Models\Allocation[] $allocations */
+        /** @var \Pteranodon\Models\Allocation[] $allocations */
         $allocations = Allocation::factory()->times(4)->create(['node_id' => $server->node_id]);
 
         $allocations[0]->update(['server_id' => $server->id]);
@@ -168,7 +168,7 @@ class BuildModificationServiceTest extends IntegrationTestCase
     public function testNoExceptionIsThrownIfOnlyRemovingAllocation()
     {
         $server = $this->createServerModel();
-        /** @var \Jexactyl\Models\Allocation $allocation */
+        /** @var \Pteranodon\Models\Allocation $allocation */
         $allocation = Allocation::factory()->create(['node_id' => $server->node_id, 'server_id' => $server->id]);
 
         $this->daemonServerRepository->expects('setServer->sync')->andReturnUndefined();
@@ -191,7 +191,7 @@ class BuildModificationServiceTest extends IntegrationTestCase
     public function testAllocationInBothAddAndRemoveIsAdded()
     {
         $server = $this->createServerModel();
-        /** @var \Jexactyl\Models\Allocation $allocation */
+        /** @var \Pteranodon\Models\Allocation $allocation */
         $allocation = Allocation::factory()->create(['node_id' => $server->node_id]);
 
         $this->daemonServerRepository->expects('setServer->sync')->andReturnUndefined();
@@ -210,9 +210,9 @@ class BuildModificationServiceTest extends IntegrationTestCase
     public function testUsingSameAllocationIdMultipleTimesDoesNotError()
     {
         $server = $this->createServerModel();
-        /** @var \Jexactyl\Models\Allocation $allocation */
+        /** @var \Pteranodon\Models\Allocation $allocation */
         $allocation = Allocation::factory()->create(['node_id' => $server->node_id, 'server_id' => $server->id]);
-        /** @var \Jexactyl\Models\Allocation $allocation2 */
+        /** @var \Pteranodon\Models\Allocation $allocation2 */
         $allocation2 = Allocation::factory()->create(['node_id' => $server->node_id]);
 
         $this->daemonServerRepository->expects('setServer->sync')->andReturnUndefined();
@@ -235,7 +235,7 @@ class BuildModificationServiceTest extends IntegrationTestCase
     public function testThatUpdatesAreRolledBackIfExceptionIsEncountered()
     {
         $server = $this->createServerModel();
-        /** @var \Jexactyl\Models\Allocation $allocation */
+        /** @var \Pteranodon\Models\Allocation $allocation */
         $allocation = Allocation::factory()->create(['node_id' => $server->node_id]);
 
         $this->daemonServerRepository->expects('setServer->sync')->andThrows(new DisplayException('Test'));

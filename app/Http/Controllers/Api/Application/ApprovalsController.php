@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application;
+namespace Pteranodon\Http\Controllers\Api\Application;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Http\Response;
 
 class ApprovalsController extends ApplicationApiController
 {
     /**
-     * Render the Jexactyl referrals interface.
+     * Render the Pteranodon referrals interface.
      */
     public function index(): User
     {

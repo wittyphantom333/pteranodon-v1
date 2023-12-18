@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Services\Servers\ServerRenewalService;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Services\Servers\ServerRenewalService;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
 
 class RenewalController extends ClientApiController
 {

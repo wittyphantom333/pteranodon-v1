@@ -1,26 +1,26 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
 use Carbon\Carbon;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Schedule;
-use Jexactyl\Facades\Activity;
-use Jexactyl\Helpers\Utilities;
+use Pteranodon\Models\Schedule;
+use Pteranodon\Facades\Activity;
+use Pteranodon\Helpers\Utilities;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Repositories\Eloquent\ScheduleRepository;
-use Jexactyl\Services\Schedules\ProcessScheduleService;
-use Jexactyl\Transformers\Api\Client\ScheduleTransformer;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Repositories\Eloquent\ScheduleRepository;
+use Pteranodon\Services\Schedules\ProcessScheduleService;
+use Pteranodon\Transformers\Api\Client\ScheduleTransformer;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Jexactyl\Http\Requests\Api\Client\Servers\Schedules\ViewScheduleRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Schedules\StoreScheduleRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Schedules\DeleteScheduleRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Schedules\UpdateScheduleRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Schedules\TriggerScheduleRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Schedules\ViewScheduleRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Schedules\StoreScheduleRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Schedules\DeleteScheduleRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Schedules\UpdateScheduleRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Schedules\TriggerScheduleRequest;
 
 class ScheduleController extends ClientApiController
 {
@@ -47,12 +47,12 @@ class ScheduleController extends ClientApiController
     /**
      * Store a new schedule for a server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function store(StoreScheduleRequest $request, Server $server): array
     {
-        /** @var \Jexactyl\Models\Schedule $model */
+        /** @var \Pteranodon\Models\Schedule $model */
         $model = $this->repository->create([
             'server_id' => $server->id,
             'name' => $request->input('name'),
@@ -95,9 +95,9 @@ class ScheduleController extends ClientApiController
     /**
      * Updates a given schedule with the new data provided.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(UpdateScheduleRequest $request, Server $server, Schedule $schedule): array
     {
@@ -165,7 +165,7 @@ class ScheduleController extends ClientApiController
     /**
      * Get the next run timestamp based on the cron data provided.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     protected function getNextRunAt(Request $request): Carbon
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Tests\Traits\Http;
+namespace Pteranodon\Tests\Traits\Http;
 
 use Closure;
 use Illuminate\Http\Request;

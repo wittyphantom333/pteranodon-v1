@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Services\Deployment;
+namespace Pteranodon\Services\Deployment;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Webmozart\Assert\Assert;
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Jexactyl\Exceptions\Service\Deployment\NoViableNodeException;
+use Pteranodon\Exceptions\Service\Deployment\NoViableNodeException;
 
 class FindViableNodesService
 {
@@ -64,7 +64,7 @@ class FindViableNodesService
      *                       If "null" is provided as the value no pagination will
      *                       be used.
      *
-     * @throws \Jexactyl\Exceptions\Service\Deployment\NoViableNodeException
+     * @throws \Pteranodon\Exceptions\Service\Deployment\NoViableNodeException
      */
     public function handle(int $perPage = null, int $page = null): LengthAwarePaginator|Collection
     {

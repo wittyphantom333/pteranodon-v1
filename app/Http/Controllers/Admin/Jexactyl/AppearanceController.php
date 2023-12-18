@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\Contracts\Config\Repository;
-use Jexactyl\Exceptions\Model\DataValidationException;
-use Jexactyl\Exceptions\Repository\RecordNotFoundException;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Admin\Jexactyl\AppearanceFormRequest;
+use Pteranodon\Exceptions\Model\DataValidationException;
+use Pteranodon\Exceptions\Repository\RecordNotFoundException;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\Pteranodon\AppearanceFormRequest;
 
 class AppearanceController extends Controller
 {
@@ -25,11 +25,11 @@ class AppearanceController extends Controller
     }
 
     /**
-     * Render the Jexactyl settings interface.
+     * Render the Pteranodon settings interface.
      */
     public function index(): View
     {
-        return view('admin.jexactyl.appearance', [
+        return view('admin.pteranodon.appearance', [
             'name' => config('app.name'),
             'logo' => config('app.logo'),
 
@@ -49,8 +49,8 @@ class AppearanceController extends Controller
             $this->settings->set('settings::' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Appearance has been updated.')->flash();
+        $this->alert->success('Pteranodon Appearance has been updated.')->flash();
 
-        return redirect()->route('admin.jexactyl.appearance');
+        return redirect()->route('admin.pteranodon.appearance');
     }
 }

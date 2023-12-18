@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Http\Middleware\Api\Client\Server;
+namespace Pteranodon\Http\Middleware\Api\Client\Server;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
-use Jexactyl\Exceptions\Http\Server\ServerStateConflictException;
+use Pteranodon\Exceptions\Http\Server\ServerStateConflictException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AuthenticateServerAccess
@@ -28,7 +28,7 @@ class AuthenticateServerAccess
      */
     public function handle(Request $request, \Closure $next): mixed
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = $request->user();
         $server = $request->route()->parameter('server');
 

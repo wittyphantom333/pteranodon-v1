@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Nodes;
+namespace Pteranodon\Http\Requests\Api\Application\Nodes;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 
 class UpdateNodeRequest extends StoreNodeRequest
 {

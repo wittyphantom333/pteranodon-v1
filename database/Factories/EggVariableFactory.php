@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Support\Str;
-use Jexactyl\Models\EggVariable;
+use Pteranodon\Models\EggVariable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EggVariableFactory extends Factory

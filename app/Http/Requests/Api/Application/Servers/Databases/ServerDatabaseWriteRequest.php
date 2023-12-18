@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Servers\Databases;
+namespace Pteranodon\Http\Requests\Api\Application\Servers\Databases;
 
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 
 class ServerDatabaseWriteRequest extends GetServerDatabasesRequest
 {

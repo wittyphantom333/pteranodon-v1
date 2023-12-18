@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\Nest;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\Nest;
 use Illuminate\Database\Seeder;
 use Illuminate\Http\UploadedFile;
-use Jexactyl\Services\Eggs\Sharing\EggImporterService;
-use Jexactyl\Services\Eggs\Sharing\EggUpdateImporterService;
+use Pteranodon\Services\Eggs\Sharing\EggImporterService;
+use Pteranodon\Services\Eggs\Sharing\EggUpdateImporterService;
 
 class EggSeeder extends Seeder
 {
@@ -44,7 +44,7 @@ class EggSeeder extends Seeder
         foreach (static::$import as $nest) {
             /* @noinspection PhpParamsInspection */
             $this->parseEggFiles(
-                Nest::query()->where('author', 'support@jexactyl.com')->where('name', $nest)->firstOrFail()
+                Nest::query()->where('author', 'support@pteranodon.com')->where('name', $nest)->firstOrFail()
             );
         }
     }

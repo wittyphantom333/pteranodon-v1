@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Exceptions\Service\Egg\Variable;
+namespace Pteranodon\Exceptions\Service\Egg\Variable;
 
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class BadValidationRuleException extends DisplayException
 {

@@ -26,7 +26,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v4
         with:
-          images: ghcr.io/jexactyl/jexactyl
+          images: ghcr.io/wittyphantom333/pteranodon
           flavor: |
             latest=false
           tags: |

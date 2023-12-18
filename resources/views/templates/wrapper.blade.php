@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ config('app.name', 'Jexactyl') }}</title>
+        <title>{{ config('app.name', 'Pteranodon') }}</title>
 
         @section('meta')
             <meta charset="utf-8">
@@ -22,7 +22,7 @@
         @section('user-data')
             @if(!is_null(Auth::user()))
                 <script>
-                    window.JexactylUser = {!! json_encode(Auth::user()->toVueObject()) !!};
+                    window.PteranodonUser = {!! json_encode(Auth::user()->toVueObject()) !!};
                 </script>
             @endif
             @if(!empty($siteConfiguration))

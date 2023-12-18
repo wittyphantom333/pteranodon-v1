@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Node;
+namespace Pteranodon\Console\Commands\Node;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Console\Command;
 
 class NodeConfigurationCommand extends Command
@@ -17,7 +17,7 @@ class NodeConfigurationCommand extends Command
     {
         $column = ctype_digit((string) $this->argument('node')) ? 'id' : 'uuid';
 
-        /** @var \Jexactyl\Models\Node $node */
+        /** @var \Pteranodon\Models\Node $node */
         $node = Node::query()->where($column, $this->argument('node'))->firstOr(function () {
             $this->error('The selected node does not exist.');
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Traits\Controllers;
+namespace Pteranodon\Traits\Controllers;
 
 use Illuminate\Http\Request;
 

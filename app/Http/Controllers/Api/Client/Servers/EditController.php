@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Services\Servers\ServerEditService;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Servers\EditServerRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Services\Servers\ServerEditService;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Servers\EditServerRequest;
 
 class EditController extends ClientApiController
 {
@@ -27,7 +27,7 @@ class EditController extends ClientApiController
      */
     public function index(EditServerRequest $request, Server $server): JsonResponse
     {
-        if ($this->settings->get('jexactyl::renewal:editing') != 'true') {
+        if ($this->settings->get('pteranodon::renewal:editing') != 'true') {
             throw new DisplayException('Server editing is currently disabled.');
         }
 

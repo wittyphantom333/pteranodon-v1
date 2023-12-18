@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client;
+namespace Pteranodon\Http\Controllers\Api\Client;
 
-use Jexactyl\Models\Server;
-use Jexactyl\Models\Permission;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\Permission;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
-use Jexactyl\Models\Filters\MultiFieldServerFilter;
-use Jexactyl\Transformers\Api\Client\ServerTransformer;
-use Jexactyl\Http\Requests\Api\Client\GetServersRequest;
+use Pteranodon\Models\Filters\MultiFieldServerFilter;
+use Pteranodon\Transformers\Api\Client\ServerTransformer;
+use Pteranodon\Http\Requests\Api\Client\GetServersRequest;
 
 class ClientController extends ClientApiController
 {

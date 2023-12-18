@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Servers\Network;
+namespace Pteranodon\Http\Requests\Api\Client\Servers\Network;
 
-use Jexactyl\Models\Allocation;
-use Jexactyl\Models\Permission;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Models\Allocation;
+use Pteranodon\Models\Permission;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
 
 class UpdateAllocationRequest extends ClientApiRequest
 {

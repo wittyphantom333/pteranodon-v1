@@ -1,22 +1,22 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin;
+namespace Pteranodon\Http\Controllers\Admin;
 
 use Ramsey\Uuid\Uuid;
 use Illuminate\View\View;
-use Jexactyl\Models\Nest;
-use Jexactyl\Models\Mount;
+use Pteranodon\Models\Nest;
+use Pteranodon\Models\Mount;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Location;
+use Pteranodon\Models\Location;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\View\Factory as ViewFactory;
-use Jexactyl\Http\Requests\Admin\MountFormRequest;
-use Jexactyl\Repositories\Eloquent\MountRepository;
-use Jexactyl\Contracts\Repository\NestRepositoryInterface;
-use Jexactyl\Contracts\Repository\LocationRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\MountFormRequest;
+use Pteranodon\Repositories\Eloquent\MountRepository;
+use Pteranodon\Contracts\Repository\NestRepositoryInterface;
+use Pteranodon\Contracts\Repository\LocationRepositoryInterface;
 
 class MountController extends Controller
 {
@@ -45,7 +45,7 @@ class MountController extends Controller
     /**
      * Return the mount view page.
      *
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function view(string $id): View
     {

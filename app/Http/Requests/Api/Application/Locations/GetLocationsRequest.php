@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Locations;
+namespace Pteranodon\Http\Requests\Api\Application\Locations;
 
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class GetLocationsRequest extends ApplicationApiRequest
 {

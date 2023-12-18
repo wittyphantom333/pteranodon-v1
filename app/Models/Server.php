@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Query\JoinClause;
@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Jexactyl\Exceptions\Http\Server\ServerStateConflictException;
+use Pteranodon\Exceptions\Http\Server\ServerStateConflictException;
 
 /**
- * \Jexactyl\Models\Server.
+ * \Pteranodon\Models\Server.
  *
  * @property int $id
  * @property string|null $external_id
@@ -46,29 +46,29 @@ use Jexactyl\Exceptions\Http\Server\ServerStateConflictException;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $installed_at
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\ActivityLog[] $activity
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\ActivityLog[] $activity
  * @property int|null $activity_count
- * @property \Jexactyl\Models\Allocation|null $allocation
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\Allocation[] $allocations
+ * @property \Pteranodon\Models\Allocation|null $allocation
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\Allocation[] $allocations
  * @property int|null $allocations_count
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\Backup[] $backups
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\Backup[] $backups
  * @property int|null $backups_count
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\Database[] $databases
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\Database[] $databases
  * @property int|null $databases_count
- * @property \Jexactyl\Models\Egg|null $egg
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\Mount[] $mounts
+ * @property \Pteranodon\Models\Egg|null $egg
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\Mount[] $mounts
  * @property int|null $mounts_count
- * @property \Jexactyl\Models\Nest $nest
- * @property \Jexactyl\Models\Node $node
+ * @property \Pteranodon\Models\Nest $nest
+ * @property \Pteranodon\Models\Node $node
  * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property int|null $notifications_count
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\Schedule[] $schedules
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\Schedule[] $schedules
  * @property int|null $schedules_count
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\Subuser[] $subusers
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\Subuser[] $subusers
  * @property int|null $subusers_count
- * @property \Jexactyl\Models\ServerTransfer|null $transfer
- * @property \Jexactyl\Models\User $user
- * @property \Illuminate\Database\Eloquent\Collection|\Jexactyl\Models\EggVariable[] $variables
+ * @property \Pteranodon\Models\ServerTransfer|null $transfer
+ * @property \Pteranodon\Models\User $user
+ * @property \Illuminate\Database\Eloquent\Collection|\Pteranodon\Models\EggVariable[] $variables
  * @property int|null $variables_count
  *
  * @method static \Database\Factories\ServerFactory factory(...$parameters)
@@ -358,7 +358,7 @@ class Server extends Model
      * exception is raised. This should be called whenever something needs to make
      * sure the server is not in a weird state that should block user access.
      *
-     * @throws \Jexactyl\Exceptions\Http\Server\ServerStateConflictException
+     * @throws \Pteranodon\Exceptions\Http\Server\ServerStateConflictException
      */
     public function validateCurrentState()
     {

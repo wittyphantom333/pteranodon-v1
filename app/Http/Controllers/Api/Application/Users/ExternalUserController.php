@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Users;
+namespace Pteranodon\Http\Controllers\Api\Application\Users;
 
-use Jexactyl\Models\User;
-use Jexactyl\Transformers\Api\Application\UserTransformer;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
-use Jexactyl\Http\Requests\Api\Application\Users\GetExternalUserRequest;
+use Pteranodon\Models\User;
+use Pteranodon\Transformers\Api\Application\UserTransformer;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Http\Requests\Api\Application\Users\GetExternalUserRequest;
 
 class ExternalUserController extends ApplicationApiController
 {

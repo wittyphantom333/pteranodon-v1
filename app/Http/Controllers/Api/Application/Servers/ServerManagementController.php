@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Servers;
+namespace Pteranodon\Http\Controllers\Api\Application\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
-use Jexactyl\Services\Servers\SuspensionService;
-use Jexactyl\Services\Servers\ReinstallServerService;
-use Jexactyl\Http\Requests\Api\Application\Servers\ServerWriteRequest;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Services\Servers\SuspensionService;
+use Pteranodon\Services\Servers\ReinstallServerService;
+use Pteranodon\Http\Requests\Api\Application\Servers\ServerWriteRequest;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
 
 class ServerManagementController extends ApplicationApiController
 {
@@ -48,9 +48,9 @@ class ServerManagementController extends ApplicationApiController
     /**
      * Mark a server as needing to be reinstalled.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function reinstall(ServerWriteRequest $request, Server $server): Response
     {

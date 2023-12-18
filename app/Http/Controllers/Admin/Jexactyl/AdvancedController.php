@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
 use Illuminate\Contracts\Console\Kernel;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\View\Factory as ViewFactory;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Admin\Jexactyl\AdvancedFormRequest;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\Pteranodon\AdvancedFormRequest;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class AdvancedController extends Controller
@@ -40,15 +40,15 @@ class AdvancedController extends Controller
             $warning = true;
         }
 
-        return $this->view->make('admin.jexactyl.advanced', [
+        return $this->view->make('admin.pteranodon.advanced', [
             'warning' => $warning,
             'logo' => $this->settings->get('settings::app:logo', 'https://avatars.githubusercontent.com/u/91636558'),
         ]);
     }
 
     /**
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(AdvancedFormRequest $request): RedirectResponse
     {
@@ -59,6 +59,6 @@ class AdvancedController extends Controller
         $this->kernel->call('queue:restart');
         $this->alert->success('Advanced settings have been updated successfully and the queue worker was restarted to apply these changes.')->flash();
 
-        return redirect()->route('admin.jexactyl.advanced');
+        return redirect()->route('admin.pteranodon.advanced');
     }
 }

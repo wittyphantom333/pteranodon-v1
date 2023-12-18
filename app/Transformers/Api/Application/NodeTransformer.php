@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Application;
+namespace Pteranodon\Transformers\Api\Application;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use League\Fractal\Resource\Item;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\NullResource;
 
@@ -53,7 +53,7 @@ class NodeTransformer extends BaseTransformer
     /**
      * Return the nodes associated with this location.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeAllocations(Node $node): Collection|NullResource
     {
@@ -73,7 +73,7 @@ class NodeTransformer extends BaseTransformer
     /**
      * Return the nodes associated with this location.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeLocation(Node $node): Item|NullResource
     {
@@ -93,7 +93,7 @@ class NodeTransformer extends BaseTransformer
     /**
      * Return the nodes associated with this location.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeServers(Node $node): Collection|NullResource
     {

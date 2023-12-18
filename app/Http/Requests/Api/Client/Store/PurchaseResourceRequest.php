@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Store;
+namespace Pteranodon\Http\Requests\Api\Client\Store;
 
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
 
 class PurchaseResourceRequest extends ClientApiRequest
 {

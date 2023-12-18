@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Services\Store;
+namespace Pteranodon\Services\Store;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Support\Facades\DB;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Api\Client\Store\CreateServerRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Api\Client\Store\CreateServerRequest;
 
 class StoreVerificationService
 {
@@ -43,7 +43,7 @@ class StoreVerificationService
 
     private function checkResourceLimits(CreateServerRequest $request)
     {
-        $prefix = 'jexactyl::store:limit:';
+        $prefix = 'pteranodon::store:limit:';
         $types = ['cpu', 'memory', 'disk', 'slot', 'port', 'backup', 'database'];
 
         foreach ($types as $type) {

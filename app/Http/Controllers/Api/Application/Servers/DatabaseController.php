@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Servers;
+namespace Pteranodon\Http\Controllers\Api\Application\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Database;
+use Pteranodon\Models\Database;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Services\Databases\DatabasePasswordService;
-use Jexactyl\Services\Databases\DatabaseManagementService;
-use Jexactyl\Transformers\Api\Application\ServerDatabaseTransformer;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
-use Jexactyl\Http\Requests\Api\Application\Servers\Databases\GetServerDatabaseRequest;
-use Jexactyl\Http\Requests\Api\Application\Servers\Databases\GetServerDatabasesRequest;
-use Jexactyl\Http\Requests\Api\Application\Servers\Databases\ServerDatabaseWriteRequest;
-use Jexactyl\Http\Requests\Api\Application\Servers\Databases\StoreServerDatabaseRequest;
+use Pteranodon\Services\Databases\DatabasePasswordService;
+use Pteranodon\Services\Databases\DatabaseManagementService;
+use Pteranodon\Transformers\Api\Application\ServerDatabaseTransformer;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Http\Requests\Api\Application\Servers\Databases\GetServerDatabaseRequest;
+use Pteranodon\Http\Requests\Api\Application\Servers\Databases\GetServerDatabasesRequest;
+use Pteranodon\Http\Requests\Api\Application\Servers\Databases\ServerDatabaseWriteRequest;
+use Pteranodon\Http\Requests\Api\Application\Servers\Databases\StoreServerDatabaseRequest;
 
 class DatabaseController extends ApplicationApiController
 {

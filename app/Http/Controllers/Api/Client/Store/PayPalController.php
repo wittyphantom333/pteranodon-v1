@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Store;
+namespace Pteranodon\Http\Controllers\Api\Client\Store;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 use PayPalCheckoutSdk\Core\PayPalHttpClient;
 use PayPalCheckoutSdk\Core\ProductionEnvironment;
 use PayPalCheckoutSdk\Orders\OrdersCreateRequest;
 use PayPalCheckoutSdk\Orders\OrdersCaptureRequest;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Store\Gateways\PayPalRequest;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Store\Gateways\PayPalRequest;
 
 class PayPalController extends ClientApiController
 {
@@ -29,7 +29,7 @@ class PayPalController extends ClientApiController
      */
     public function purchase(PayPalRequest $request): JsonResponse
     {
-        if ($this->settings->get('jexactyl::store:paypal:enabled') != 'true') {
+        if ($this->settings->get('pteranodon::store:paypal:enabled') != 'true') {
             throw new DisplayException('Unable to purchase via PayPal: module not enabled');
         }
 

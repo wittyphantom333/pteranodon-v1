@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Admin\Jexactyl\ReferralsFormRequest;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\Pteranodon\ReferralsFormRequest;
 
 class ReferralsController extends Controller
 {
@@ -21,30 +21,30 @@ class ReferralsController extends Controller
     }
 
     /**
-     * Render the Jexactyl referrals interface.
+     * Render the Pteranodon referrals interface.
      */
     public function index(): View
     {
-        return view('admin.jexactyl.referrals', [
-            'enabled' => $this->settings->get('jexactyl::referrals:enabled', false),
-            'reward' => $this->settings->get('jexactyl::referrals:reward', 250),
+        return view('admin.pteranodon.referrals', [
+            'enabled' => $this->settings->get('pteranodon::referrals:enabled', false),
+            'reward' => $this->settings->get('pteranodon::referrals:reward', 250),
         ]);
     }
 
     /**
      * Handle settings update.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(ReferralsFormRequest $request): RedirectResponse
     {
         foreach ($request->normalize() as $key => $value) {
-            $this->settings->set('jexactyl::referrals:' . $key, $value);
+            $this->settings->set('pteranodon::referrals:' . $key, $value);
         }
 
         $this->alert->success('Referral system has been updated.')->flash();
 
-        return redirect()->route('admin.jexactyl.referrals');
+        return redirect()->route('admin.pteranodon.referrals');
     }
 }

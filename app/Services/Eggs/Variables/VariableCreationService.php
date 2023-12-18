@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Services\Eggs\Variables;
+namespace Pteranodon\Services\Eggs\Variables;
 
-use Jexactyl\Models\EggVariable;
-use Jexactyl\Traits\Services\ValidatesValidationRules;
+use Pteranodon\Models\EggVariable;
+use Pteranodon\Traits\Services\ValidatesValidationRules;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
-use Jexactyl\Contracts\Repository\EggVariableRepositoryInterface;
-use Jexactyl\Exceptions\Service\Egg\Variable\ReservedVariableNameException;
+use Pteranodon\Contracts\Repository\EggVariableRepositoryInterface;
+use Pteranodon\Exceptions\Service\Egg\Variable\ReservedVariableNameException;
 
 class VariableCreationService
 {
@@ -31,9 +31,9 @@ class VariableCreationService
     /**
      * Create a new variable for a given Egg.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Service\Egg\Variable\BadValidationRuleException
-     * @throws \Jexactyl\Exceptions\Service\Egg\Variable\ReservedVariableNameException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Service\Egg\Variable\BadValidationRuleException
+     * @throws \Pteranodon\Exceptions\Service\Egg\Variable\ReservedVariableNameException
      */
     public function handle(int $egg, array $data): EggVariable
     {

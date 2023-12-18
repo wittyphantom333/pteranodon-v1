@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Backup;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Backup;
 
 use Mockery\MockInterface;
-use Jexactyl\Models\Backup;
+use Pteranodon\Models\Backup;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Permission;
-use Jexactyl\Events\ActivityLogged;
+use Pteranodon\Models\Permission;
+use Pteranodon\Events\ActivityLogged;
 use Illuminate\Support\Facades\Event;
-use Jexactyl\Repositories\Wings\DaemonBackupRepository;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Repositories\Wings\DaemonBackupRepository;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class DeleteBackupTest extends ClientApiIntegrationTestCase
 {
@@ -43,7 +43,7 @@ class DeleteBackupTest extends ClientApiIntegrationTestCase
 
         [$user, $server] = $this->generateTestAccount([Permission::ACTION_BACKUP_DELETE]);
 
-        /** @var \Jexactyl\Models\Backup $backup */
+        /** @var \Pteranodon\Models\Backup $backup */
         $backup = Backup::factory()->create(['server_id' => $server->id]);
 
         $this->repository->expects('setServer->delete')->with(

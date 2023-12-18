@@ -1,17 +1,17 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Services\Servers\ServerDeletionService;
-use Jexactyl\Transformers\Api\Client\ServerTransformer;
-use Jexactyl\Services\Servers\GetUserPermissionsService;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Servers\GetServerRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\DeleteServerRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\UpdateBackgroundRequest;
+use Pteranodon\Services\Servers\ServerDeletionService;
+use Pteranodon\Transformers\Api\Client\ServerTransformer;
+use Pteranodon\Services\Servers\GetUserPermissionsService;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Servers\GetServerRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\DeleteServerRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\UpdateBackgroundRequest;
 
 class ServerController extends ClientApiController
 {
@@ -63,7 +63,7 @@ class ServerController extends ClientApiController
             throw new DisplayException('You are not authorized to perform this action.');
         }
 
-        if ($this->settings->get('jexactyl::renewal:deletion') != 'true') {
+        if ($this->settings->get('pteranodon::renewal:deletion') != 'true') {
             throw new DisplayException('This feature has been locked by administrators.');
         }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Overrides;
+namespace Pteranodon\Console\Commands\Overrides;
 
-use Jexactyl\Console\RequiresDatabaseMigrations;
+use Pteranodon\Console\RequiresDatabaseMigrations;
 use Illuminate\Database\Console\Seeds\SeedCommand as BaseSeedCommand;
 
 class SeedCommand extends BaseSeedCommand

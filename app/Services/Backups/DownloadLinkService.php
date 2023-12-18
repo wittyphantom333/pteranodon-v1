@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Services\Backups;
+namespace Pteranodon\Services\Backups;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Carbon\CarbonImmutable;
-use Jexactyl\Models\Backup;
-use Jexactyl\Services\Nodes\NodeJWTService;
-use Jexactyl\Extensions\Backups\BackupManager;
+use Pteranodon\Models\Backup;
+use Pteranodon\Services\Nodes\NodeJWTService;
+use Pteranodon\Extensions\Backups\BackupManager;
 
 class DownloadLinkService
 {
@@ -45,7 +45,7 @@ class DownloadLinkService
      */
     protected function getS3BackupUrl(Backup $backup): string
     {
-        /** @var \Jexactyl\Extensions\Filesystem\S3Filesystem $adapter */
+        /** @var \Pteranodon\Extensions\Filesystem\S3Filesystem $adapter */
         $adapter = $this->backupManager->adapter(Backup::ADAPTER_AWS_S3);
 
         $request = $adapter->getClient()->createPresignedRequest(

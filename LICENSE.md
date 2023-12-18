@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-This license is retained from Jexactyl&apos;s parent project, <a href="https://github.com/pterodactyl/panel">Pterodactyl&reg;</a>.
+This license is retained from Pteranodon&apos;s parent project, <a href="https://github.com/pterodactyl/panel">Pterodactyl&reg;</a>.
 
 ```
 Pterodactyl®

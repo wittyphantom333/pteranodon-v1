@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Schedule;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Schedule;
 
-use Jexactyl\Models\Schedule;
-use Jexactyl\Helpers\Utilities;
-use Jexactyl\Models\Permission;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\Schedule;
+use Pteranodon\Helpers\Utilities;
+use Pteranodon\Models\Permission;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class UpdateServerScheduleTest extends ClientApiIntegrationTestCase
 {
@@ -31,7 +31,7 @@ class UpdateServerScheduleTest extends ClientApiIntegrationTestCase
     {
         [$user, $server] = $this->generateTestAccount($permissions);
 
-        /** @var \Jexactyl\Models\Schedule $schedule */
+        /** @var \Pteranodon\Models\Schedule $schedule */
         $schedule = Schedule::factory()->create(['server_id' => $server->id]);
         $expected = Utilities::getScheduleNextRunDate('5', '*', '*', '*', '*');
 
@@ -89,7 +89,7 @@ class UpdateServerScheduleTest extends ClientApiIntegrationTestCase
     {
         [$user, $server] = $this->generateTestAccount();
 
-        /** @var \Jexactyl\Models\Schedule $schedule */
+        /** @var \Pteranodon\Models\Schedule $schedule */
         $schedule = Schedule::factory()->create([
             'server_id' => $server->id,
             'is_active' => true,

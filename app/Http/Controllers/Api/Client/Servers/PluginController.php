@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
 use GuzzleHttp\Client;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Repositories\Wings\DaemonFileRepository;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\PullFileRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Repositories\Wings\DaemonFileRepository;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\PullFileRequest;
 
 class PluginController extends ClientApiController
 {
@@ -39,7 +39,7 @@ class PluginController extends ClientApiController
         $api = 'https://api.spiget.org/v2/search/resources/' . urlencode($query) . '?page=1&size=18';
 
         try {
-            $res = $client->request('GET', $api, ['headers' => ['User-Agent' => 'jexactyl/3.x']]);
+            $res = $client->request('GET', $api, ['headers' => ['User-Agent' => 'pteranodon/3.x']]);
         } catch (DisplayException $e) {
             throw new DisplayException('Couldn\'t find any results for that query.');
         }

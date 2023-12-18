@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Auth;
+namespace Pteranodon\Http\Controllers\Auth;
 
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Requests\Auth\RegisterRequest;
-use Jexactyl\Services\Users\UserCreationService;
-use Jexactyl\Exceptions\Model\DataValidationException;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Requests\Auth\RegisterRequest;
+use Pteranodon\Services\Users\UserCreationService;
+use Pteranodon\Exceptions\Model\DataValidationException;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 class RegisterController extends AbstractLoginController
 {
@@ -28,7 +28,7 @@ class RegisterController extends AbstractLoginController
     {
         $approved = false;
         $verified = false;
-        $prefix = 'jexactyl::registration:';
+        $prefix = 'pteranodon::registration:';
 
         if ($this->settings->get($prefix . 'enabled') != 'true') {
             throw new DisplayException('Unable to register user.');
@@ -38,14 +38,14 @@ class RegisterController extends AbstractLoginController
             $verified = true;
         }
 
-        if ($this->settings->get('jexactyl::approvals:enabled') != 'true') {
+        if ($this->settings->get('pteranodon::approvals:enabled') != 'true') {
             $approved = true;
         }
 
         $this->creationService->handle([
             'email' => $request->input('email'),
             'username' => $request->input('user'),
-            'name_first' => 'Jexactyl',
+            'name_first' => 'Pteranodon',
             'name_last' => 'User',
             'password' => $request->input('password'),
             'ip' => $request->getClientIp(),

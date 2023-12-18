@@ -1,20 +1,20 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Nodes;
+namespace Pteranodon\Http\Controllers\Api\Application\Nodes;
 
-use Jexactyl\Models\Node;
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Node;
+use Pteranodon\Models\Allocation;
 use Illuminate\Http\JsonResponse;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
 use Illuminate\Database\Eloquent\Builder;
-use Jexactyl\Services\Allocations\AssignmentService;
-use Jexactyl\Services\Allocations\AllocationDeletionService;
-use Jexactyl\Transformers\Api\Application\AllocationTransformer;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
-use Jexactyl\Http\Requests\Api\Application\Allocations\GetAllocationsRequest;
-use Jexactyl\Http\Requests\Api\Application\Allocations\StoreAllocationRequest;
-use Jexactyl\Http\Requests\Api\Application\Allocations\DeleteAllocationRequest;
+use Pteranodon\Services\Allocations\AssignmentService;
+use Pteranodon\Services\Allocations\AllocationDeletionService;
+use Pteranodon\Transformers\Api\Application\AllocationTransformer;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Http\Requests\Api\Application\Allocations\GetAllocationsRequest;
+use Pteranodon\Http\Requests\Api\Application\Allocations\StoreAllocationRequest;
+use Pteranodon\Http\Requests\Api\Application\Allocations\DeleteAllocationRequest;
 
 class AllocationController extends ApplicationApiController
 {
@@ -56,11 +56,11 @@ class AllocationController extends ApplicationApiController
     /**
      * Store new allocations for a given node.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\CidrOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\InvalidPortMappingException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\PortOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\TooManyPortsInRangeException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\CidrOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\InvalidPortMappingException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\PortOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\TooManyPortsInRangeException
      */
     public function store(StoreAllocationRequest $request, Node $node): JsonResponse
     {
@@ -72,7 +72,7 @@ class AllocationController extends ApplicationApiController
     /**
      * Delete a specific allocation from the Panel.
      *
-     * @throws \Jexactyl\Exceptions\Service\Allocation\ServerUsingAllocationException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\ServerUsingAllocationException
      */
     public function delete(DeleteAllocationRequest $request, Node $node, Allocation $allocation): JsonResponse
     {

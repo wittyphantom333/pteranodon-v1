@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Services\Eggs;
+namespace Pteranodon\Services\Eggs;
 
 use Ramsey\Uuid\Uuid;
-use Jexactyl\Models\Egg;
-use Jexactyl\Contracts\Repository\EggRepositoryInterface;
+use Pteranodon\Models\Egg;
+use Pteranodon\Contracts\Repository\EggRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
-use Jexactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException;
+use Pteranodon\Exceptions\Service\Egg\NoParentConfigurationFoundException;
 
-// When a mommy and a daddy Jexactyl really like each other...
+// When a mommy and a daddy Pteranodon really like each other...
 class EggCreationService
 {
     /**
@@ -21,8 +21,8 @@ class EggCreationService
     /**
      * Create a new service option and assign it to the given service.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Service\Egg\NoParentConfigurationFoundException
      */
     public function handle(array $data): Egg
     {
@@ -40,7 +40,7 @@ class EggCreationService
 
         return $this->repository->create(array_merge($data, [
             'uuid' => Uuid::uuid4()->toString(),
-            'author' => $this->config->get('jexactyl.service.author'),
+            'author' => $this->config->get('pteranodon.service.author'),
         ]), true, true);
     }
 }

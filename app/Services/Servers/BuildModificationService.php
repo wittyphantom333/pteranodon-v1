@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
 use Illuminate\Support\Arr;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\Allocation;
 use Illuminate\Support\Facades\Log;
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 use Illuminate\Database\ConnectionInterface;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class BuildModificationService
 {
@@ -28,11 +28,11 @@ class BuildModificationService
      * Change the build details for a specified server.
      *
      * @throws \Throwable
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     public function handle(Server $server, array $data): Server
     {
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         $server = $this->connection->transaction(function () use ($server, $data) {
             $this->processAllocations($server, $data);
 
@@ -77,7 +77,7 @@ class BuildModificationService
     /**
      * Process the allocations being assigned in the data and ensure they are available for a server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     private function processAllocations(Server $server, array &$data): void
     {

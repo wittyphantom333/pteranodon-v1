@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Schedule;
+namespace Pteranodon\Console\Commands\Schedule;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Console\Command;
-use Jexactyl\Services\Analytics\AnalyticsReviewService;
+use Pteranodon\Services\Analytics\AnalyticsReviewService;
 
 class AnalyticsReviewCommand extends Command
 {

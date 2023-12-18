@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Exceptions\Service\Egg;
+namespace Pteranodon\Exceptions\Service\Egg;
 
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class HasChildrenException extends DisplayException
 {

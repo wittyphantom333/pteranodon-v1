@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
-use Jexactyl\Models\Mount;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Mount;
+use Pteranodon\Models\Server;
 
 class ServerConfigurationStructureService
 {

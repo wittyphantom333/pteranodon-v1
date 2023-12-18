@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Middleware\Api\Client;
+namespace Pteranodon\Http\Middleware\Api\Client;
 
-use Jexactyl\Models\ApiKey;
+use Pteranodon\Models\ApiKey;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 

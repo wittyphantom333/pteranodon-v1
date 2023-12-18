@@ -1,17 +1,17 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
-use Jexactyl\Facades\Activity;
+use Pteranodon\Facades\Activity;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\BadResponseException;
-use Jexactyl\Repositories\Wings\DaemonCommandRepository;
+use Pteranodon\Repositories\Wings\DaemonCommandRepository;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Servers\SendCommandRequest;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Servers\SendCommandRequest;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class CommandController extends ClientApiController
 {
@@ -26,7 +26,7 @@ class CommandController extends ClientApiController
     /**
      * Send a command to a running server.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function index(SendCommandRequest $request, Server $server): Response
     {

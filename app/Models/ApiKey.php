@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Jexactyl\Models\ApiKey.
+ * Pteranodon\Models\ApiKey.
  *
  * @property int $id
  * @property int $user_id
@@ -29,8 +29,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $r_eggs
  * @property int $r_database_hosts
  * @property int $r_server_databases
- * @property \Jexactyl\Models\User $tokenable
- * @property \Jexactyl\Models\User $user
+ * @property \Pteranodon\Models\User $tokenable
+ * @property \Pteranodon\Models\User $user
  *
  * @method static \Database\Factories\ApiKeyFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|ApiKey newModelQuery()

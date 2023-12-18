@@ -9,7 +9,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = require __DIR__ . '/app.php';
 
-/** @var \Jexactyl\Console\Kernel $kernel */
+/** @var \Pteranodon\Console\Kernel $kernel */
 $kernel = $app->make(Kernel::class);
 
 /*

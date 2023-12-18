@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Repositories\Eloquent;
+namespace Pteranodon\Repositories\Eloquent;
 
-use Jexactyl\Models\RecoveryToken;
+use Pteranodon\Models\RecoveryToken;
 
 class RecoveryTokenRepository extends EloquentRepository
 {

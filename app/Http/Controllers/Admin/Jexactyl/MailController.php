@@ -1,20 +1,20 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Notifications\MailTested;
+use Pteranodon\Notifications\MailTested;
 use Illuminate\Contracts\Console\Kernel;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\View\Factory as ViewFactory;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Jexactyl\Providers\SettingsServiceProvider;
-use Jexactyl\Http\Requests\Admin\Jexactyl\MailFormRequest;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Providers\SettingsServiceProvider;
+use Pteranodon\Http\Requests\Admin\Pteranodon\MailFormRequest;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class MailController extends Controller
@@ -37,7 +37,7 @@ class MailController extends Controller
      */
     public function index(): View
     {
-        return $this->view->make('admin.jexactyl.mail', [
+        return $this->view->make('admin.pteranodon.mail', [
             'disabled' => $this->config->get('mail.default') !== 'smtp',
         ]);
     }
@@ -46,8 +46,8 @@ class MailController extends Controller
      * Handle request to update SMTP mail settings.
      *
      * @throws DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(MailFormRequest $request): Response
     {

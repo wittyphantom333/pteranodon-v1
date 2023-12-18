@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin\Jexactyl;
+namespace Pteranodon\Http\Requests\Admin\Pteranodon;
 
-use Jexactyl\Http\Requests\Admin\AdminFormRequest;
+use Pteranodon\Http\Requests\Admin\AdminFormRequest;
 
 class AppearanceFormRequest extends AdminFormRequest
 {
@@ -12,7 +12,7 @@ class AppearanceFormRequest extends AdminFormRequest
             'app:name' => 'required|string|max:191',
             'app:logo' => 'required|string|max:191',
             'theme:user:background' => 'nullable|url',
-            'theme:admin' => 'required|string|in:jexactyl,dark,light,blue,minecraft',
+            'theme:admin' => 'required|string|in:pteranodon,dark,light,blue,minecraft',
         ];
     }
 }

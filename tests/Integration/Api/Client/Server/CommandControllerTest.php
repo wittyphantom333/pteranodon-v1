@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server;
+namespace Pteranodon\Tests\Integration\Api\Client\Server;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Permission;
+use Pteranodon\Models\Permission;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
-use Jexactyl\Repositories\Wings\DaemonCommandRepository;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Repositories\Wings\DaemonCommandRepository;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class CommandControllerTest extends ClientApiIntegrationTestCase
 {

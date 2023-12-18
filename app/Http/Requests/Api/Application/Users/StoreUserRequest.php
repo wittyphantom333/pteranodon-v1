@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Users;
+namespace Pteranodon\Http\Requests\Api\Application\Users;
 
-use Jexactyl\Models\User;
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Pteranodon\Models\User;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class StoreUserRequest extends ApplicationApiRequest
 {

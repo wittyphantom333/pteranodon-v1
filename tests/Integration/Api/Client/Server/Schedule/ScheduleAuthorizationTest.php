@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Schedule;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Schedule;
 
-use Jexactyl\Models\Subuser;
-use Jexactyl\Models\Schedule;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\Subuser;
+use Pteranodon\Models\Schedule;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class ScheduleAuthorizationTest extends ClientApiIntegrationTestCase
 {

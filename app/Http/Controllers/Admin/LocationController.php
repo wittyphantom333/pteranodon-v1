@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin;
+namespace Pteranodon\Http\Controllers\Admin;
 
 use Illuminate\View\View;
-use Jexactyl\Models\Location;
+use Pteranodon\Models\Location;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\View\Factory as ViewFactory;
-use Jexactyl\Http\Requests\Admin\LocationFormRequest;
-use Jexactyl\Services\Locations\LocationUpdateService;
-use Jexactyl\Services\Locations\LocationCreationService;
-use Jexactyl\Services\Locations\LocationDeletionService;
-use Jexactyl\Contracts\Repository\LocationRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\LocationFormRequest;
+use Pteranodon\Services\Locations\LocationUpdateService;
+use Pteranodon\Services\Locations\LocationCreationService;
+use Pteranodon\Services\Locations\LocationDeletionService;
+use Pteranodon\Contracts\Repository\LocationRepositoryInterface;
 
 class LocationController extends Controller
 {
@@ -43,7 +43,7 @@ class LocationController extends Controller
     /**
      * Return the location view page.
      *
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function view(int $id): View
     {
@@ -86,7 +86,7 @@ class LocationController extends Controller
      * Delete a location from the system.
      *
      * @throws \Exception
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     public function delete(Location $location): RedirectResponse
     {

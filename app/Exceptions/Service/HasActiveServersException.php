@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Exceptions\Service;
+namespace Pteranodon\Exceptions\Service;
 
 use Illuminate\Http\Response;
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class HasActiveServersException extends DisplayException
 {

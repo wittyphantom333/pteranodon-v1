@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Locations;
+namespace Pteranodon\Http\Requests\Api\Application\Locations;
 
-use Jexactyl\Models\Location;
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Pteranodon\Models\Location;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class StoreLocationRequest extends ApplicationApiRequest
 {

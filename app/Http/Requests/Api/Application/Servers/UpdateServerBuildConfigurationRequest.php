@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Servers;
+namespace Pteranodon\Http\Requests\Api\Application\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Support\Collection;
 
 class UpdateServerBuildConfigurationRequest extends ServerWriteRequest

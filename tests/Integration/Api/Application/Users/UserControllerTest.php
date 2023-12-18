@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Application\Users;
+namespace Pteranodon\Tests\Integration\Api\Application\Users;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Http\Response;
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Transformers\Api\Application\UserTransformer;
-use Jexactyl\Transformers\Api\Application\ServerTransformer;
-use Jexactyl\Tests\Integration\Api\Application\ApplicationApiIntegrationTestCase;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Transformers\Api\Application\UserTransformer;
+use Pteranodon\Transformers\Api\Application\ServerTransformer;
+use Pteranodon\Tests\Integration\Api\Application\ApplicationApiIntegrationTestCase;
 
 class UserControllerTest extends ApplicationApiIntegrationTestCase
 {

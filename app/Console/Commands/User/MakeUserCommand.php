@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Console\Commands\User;
+namespace Pteranodon\Console\Commands\User;
 
 use Illuminate\Console\Command;
-use Jexactyl\Services\Users\UserCreationService;
+use Pteranodon\Services\Users\UserCreationService;
 
 class MakeUserCommand extends Command
 {
@@ -23,7 +23,7 @@ class MakeUserCommand extends Command
      * Handle command request to create a new user.
      *
      * @throws \Exception
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function handle()
     {

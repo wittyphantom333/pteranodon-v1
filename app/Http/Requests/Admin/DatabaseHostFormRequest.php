@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin;
+namespace Pteranodon\Http\Requests\Admin;
 
-use Jexactyl\Models\DatabaseHost;
+use Pteranodon\Models\DatabaseHost;
 use Illuminate\Contracts\Validation\Validator;
 
 class DatabaseHostFormRequest extends AdminFormRequest

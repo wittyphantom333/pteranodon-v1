@@ -1,5 +1,5 @@
 @php
-    /** @var \Jexactyl\Models\Server $server */
+    /** @var \Pteranodon\Models\Server $server */
     $router = app('router');
 @endphp
 <div class="row">

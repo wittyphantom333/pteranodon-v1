@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Exceptions\Solutions;
+namespace Pteranodon\Exceptions\Solutions;
 
 use Spatie\Ignition\Contracts\Solution;
 
@@ -19,7 +19,7 @@ class ManifestDoesNotExistSolution implements Solution
     public function getDocumentationLinks(): array
     {
         return [
-            'Docs' => 'https://github.com/Jexactyl/Jexactyl/blob/develop/package.json',
+            'Docs' => 'https://github.com/wittyphantom333/pteranodon/blob/develop/package.json',
         ];
     }
 }

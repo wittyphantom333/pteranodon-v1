@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -21,8 +21,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Carbon\CarbonImmutable $created_at
  * @property \Carbon\CarbonImmutable $updated_at
  * @property \Carbon\CarbonImmutable|null $deleted_at
- * @property \Jexactyl\Models\Server $server
- * @property \Jexactyl\Models\AuditLog[] $audits
+ * @property \Pteranodon\Models\Server $server
+ * @property \Pteranodon\Models\AuditLog[] $audits
  */
 class Backup extends Model
 {

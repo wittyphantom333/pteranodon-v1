@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'referrals'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'referrals'])
 
 @section('title')
     Referral System
@@ -9,15 +9,15 @@
     <h1>Referral System<small>Allow users to refer others to the Panel to earn resources.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li class="active">Pteranodon</li>
     </ol>
 @endsection
 
 @section('content')
-    @yield('jexactyl::nav')
+    @yield('pteranodon::nav')
     <div class="row">
         <div class="col-xs-12">
-        <form action="{{ route('admin.jexactyl.referrals') }}" method="POST">
+        <form action="{{ route('admin.pteranodon.referrals') }}" method="POST">
                 <div class="box
                     @if($enabled == 'true')
                         box-success

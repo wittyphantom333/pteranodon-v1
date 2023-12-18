@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Application;
+namespace Pteranodon\Transformers\Api\Application;
 
-use Jexactyl\Models\Database;
-use Jexactyl\Models\DatabaseHost;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Models\Database;
+use Pteranodon\Models\DatabaseHost;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\NullResource;
 
@@ -42,7 +42,7 @@ class DatabaseHostTransformer extends BaseTransformer
     /**
      * Include the databases associated with this host.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeDatabases(DatabaseHost $model): Collection|NullResource
     {

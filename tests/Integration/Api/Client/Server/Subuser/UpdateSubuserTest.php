@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Subuser;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Subuser;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\Subuser;
-use Jexactyl\Models\Permission;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Subuser;
+use Pteranodon\Models\Permission;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class UpdateSubuserTest extends ClientApiIntegrationTestCase
 {
@@ -57,7 +57,7 @@ class UpdateSubuserTest extends ClientApiIntegrationTestCase
     {
         [$user, $server] = $this->generateTestAccount();
 
-        /** @var \Jexactyl\Models\Subuser $subuser */
+        /** @var \Pteranodon\Models\Subuser $subuser */
         $subuser = Subuser::factory()
             ->for(User::factory()->create())
             ->for($server)

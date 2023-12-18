@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application;
+namespace Pteranodon\Http\Controllers\Api\Application;
 
 use Illuminate\Http\Request;
 use Webmozart\Assert\Assert;
 use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Container\Container;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Extensions\Spatie\Fractalistic\Fractal;
-use Jexactyl\Transformers\Api\Application\BaseTransformer;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Extensions\Spatie\Fractalistic\Fractal;
+use Pteranodon\Transformers\Api\Application\BaseTransformer;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 abstract class ApplicationApiController extends Controller
 {
@@ -19,7 +19,7 @@ abstract class ApplicationApiController extends Controller
     protected Fractal $fractal;
 
     /**
-     * @var \Jexactyl\Contracts\Repository\SettingsRepositoryInterface
+     * @var \Pteranodon\Contracts\Repository\SettingsRepositoryInterface
      */
     protected $settings;
 
@@ -59,7 +59,7 @@ abstract class ApplicationApiController extends Controller
     /**
      * Return an instance of an application transformer.
      *
-     * @template T of \Jexactyl\Transformers\Api\Application\BaseTransformer
+     * @template T of \Pteranodon\Transformers\Api\Application\BaseTransformer
      *
      * @param class-string<T> $abstract
      *

@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin\Jexactyl\Coupons;
+namespace Pteranodon\Http\Requests\Admin\Pteranodon\Coupons;
 
-use Jexactyl\Http\Requests\Admin\AdminFormRequest;
+use Pteranodon\Http\Requests\Admin\AdminFormRequest;
 
 class IndexFormRequest extends AdminFormRequest
 {

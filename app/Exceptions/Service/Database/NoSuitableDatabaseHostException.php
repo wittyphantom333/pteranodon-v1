@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Exceptions\Service\Database;
+namespace Pteranodon\Exceptions\Service\Database;
 
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class NoSuitableDatabaseHostException extends DisplayException
 {

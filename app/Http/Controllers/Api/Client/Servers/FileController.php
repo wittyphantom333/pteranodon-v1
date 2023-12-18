@@ -1,27 +1,27 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
 use Carbon\CarbonImmutable;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
-use Jexactyl\Facades\Activity;
+use Pteranodon\Facades\Activity;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Services\Nodes\NodeJWTService;
-use Jexactyl\Repositories\Wings\DaemonFileRepository;
-use Jexactyl\Transformers\Api\Client\FileObjectTransformer;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\CopyFileRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\PullFileRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\ListFilesRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\ChmodFilesRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\DeleteFileRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\RenameFileRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\CreateFolderRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\CompressFilesRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\DecompressFilesRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\GetFileContentsRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Files\WriteFileContentRequest;
+use Pteranodon\Services\Nodes\NodeJWTService;
+use Pteranodon\Repositories\Wings\DaemonFileRepository;
+use Pteranodon\Transformers\Api\Client\FileObjectTransformer;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\CopyFileRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\PullFileRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\ListFilesRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\ChmodFilesRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\DeleteFileRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\RenameFileRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\CreateFolderRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\CompressFilesRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\DecompressFilesRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\GetFileContentsRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Files\WriteFileContentRequest;
 
 class FileController extends ClientApiController
 {
@@ -38,7 +38,7 @@ class FileController extends ClientApiController
     /**
      * Returns a listing of files in a given directory.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function directory(ListFilesRequest $request, Server $server): array
     {
@@ -60,7 +60,7 @@ class FileController extends ClientApiController
     {
         $response = $this->fileRepository->setServer($server)->getContent(
             $request->get('file'),
-            config('jexactyl.files.max_edit_size')
+            config('pteranodon.files.max_edit_size')
         );
 
         Activity::event('server:file.read')->property('file', $request->get('file'))->log();
@@ -102,7 +102,7 @@ class FileController extends ClientApiController
     /**
      * Writes the contents of the specified file to the server.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function write(WriteFileContentRequest $request, Server $server): JsonResponse
     {
@@ -154,7 +154,7 @@ class FileController extends ClientApiController
     /**
      * Copies a file on the server.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function copy(CopyFileRequest $request, Server $server): JsonResponse
     {
@@ -168,7 +168,7 @@ class FileController extends ClientApiController
     }
 
     /**
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function compress(CompressFilesRequest $request, Server $server): array
     {
@@ -188,7 +188,7 @@ class FileController extends ClientApiController
     }
 
     /**
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function decompress(DecompressFilesRequest $request, Server $server): JsonResponse
     {
@@ -210,7 +210,7 @@ class FileController extends ClientApiController
     /**
      * Deletes files or folders for the server in the given root directory.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function delete(DeleteFileRequest $request, Server $server): JsonResponse
     {
@@ -230,7 +230,7 @@ class FileController extends ClientApiController
     /**
      * Updates file permissions for file(s) in the given root directory.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function chmod(ChmodFilesRequest $request, Server $server): JsonResponse
     {

@@ -20,7 +20,7 @@ return [
     |
     | Each panel installation is assigned a unique UUID to identify the
     | author of custom services, and make upgrades easier by identifying
-    | standard Jexactyl shipped services.
+    | standard Pteranodon shipped services.
     */
 
     'service' => [
@@ -92,7 +92,7 @@ return [
 
     'cdn' => [
         'cache_time' => 60,
-        'url' => 'https://versions.jexactyl.com',
+        'url' => 'https://versions.pteranodon.com',
     ],
 
     /*
@@ -105,19 +105,19 @@ return [
 
     'client_features' => [
         'databases' => [
-            'enabled' => env('JEXACTYL_CLIENT_DATABASES_ENABLED', true),
-            'allow_random' => env('JEXACTYL_CLIENT_DATABASES_ALLOW_RANDOM', true),
+            'enabled' => env('Pteranodon_CLIENT_DATABASES_ENABLED', true),
+            'allow_random' => env('Pteranodon_CLIENT_DATABASES_ALLOW_RANDOM', true),
         ],
 
         'schedules' => [
             // The total number of tasks that can exist for any given schedule at once.
-            'per_schedule_task_limit' => env('JEXACTYL_PER_SCHEDULE_TASK_LIMIT', 10),
+            'per_schedule_task_limit' => env('Pteranodon_PER_SCHEDULE_TASK_LIMIT', 10),
         ],
 
         'allocations' => [
-            'enabled' => env('JEXACTYL_CLIENT_ALLOCATIONS_ENABLED', true),
-            'range_start' => env('JEXACTYL_CLIENT_ALLOCATIONS_RANGE_START'),
-            'range_end' => env('JEXACTYL_CLIENT_ALLOCATIONS_RANGE_END'),
+            'enabled' => env('Pteranodon_CLIENT_ALLOCATIONS_ENABLED', true),
+            'range_start' => env('Pteranodon_CLIENT_ALLOCATIONS_RANGE_START'),
+            'range_end' => env('Pteranodon_CLIENT_ALLOCATIONS_RANGE_END'),
         ],
     ],
 
@@ -130,7 +130,7 @@ return [
     */
 
     'files' => [
-        'max_edit_size' => env('JEXACTYL_FILES_MAX_EDIT_SIZE', 1024 * 1024 * 4),
+        'max_edit_size' => env('Pteranodon_FILES_MAX_EDIT_SIZE', 1024 * 1024 * 4),
     ],
 
     /*
@@ -160,7 +160,7 @@ return [
     */
 
     'assets' => [
-        'use_hash' => env('JEXACTYL_USE_ASSET_HASH', false),
+        'use_hash' => env('Pteranodon_USE_ASSET_HASH', false),
     ],
 
     /*
@@ -173,8 +173,8 @@ return [
 
     'email' => [
         // Should an email be sent to a server owner once their server has completed it's first install process?
-        'send_install_notification' => env('JEXACTYL_SEND_INSTALL_NOTIFICATION', true),
+        'send_install_notification' => env('Pteranodon_SEND_INSTALL_NOTIFICATION', true),
         // Should an email be sent to a server owner whenever their server is reinstalled?
-        'send_reinstall_notification' => env('JEXACTYL_SEND_REINSTALL_NOTIFICATION', true),
+        'send_reinstall_notification' => env('Pteranodon_SEND_REINSTALL_NOTIFICATION', true),
     ],
 ];

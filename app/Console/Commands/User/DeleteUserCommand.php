@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Console\Commands\User;
+namespace Pteranodon\Console\Commands\User;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Webmozart\Assert\Assert;
 use Illuminate\Console\Command;
-use Jexactyl\Services\Users\UserDeletionService;
+use Pteranodon\Services\Users\UserDeletionService;
 
 class DeleteUserCommand extends Command
 {

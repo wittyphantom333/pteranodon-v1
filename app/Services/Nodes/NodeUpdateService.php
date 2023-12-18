@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Services\Nodes;
+namespace Pteranodon\Services\Nodes;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Jexactyl\Repositories\Eloquent\NodeRepository;
-use Jexactyl\Repositories\Wings\DaemonConfigurationRepository;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
-use Jexactyl\Exceptions\Service\Node\ConfigurationNotPersistedException;
+use Pteranodon\Repositories\Eloquent\NodeRepository;
+use Pteranodon\Repositories\Wings\DaemonConfigurationRepository;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Exceptions\Service\Node\ConfigurationNotPersistedException;
 
 class NodeUpdateService
 {
@@ -38,7 +38,7 @@ class NodeUpdateService
         }
 
         [$updated, $exception] = $this->connection->transaction(function () use ($data, $node) {
-            /** @var \Jexactyl\Models\Node $updated */
+            /** @var \Pteranodon\Models\Node $updated */
             $updated = $this->repository->withFreshModel()->update($node->id, $data, true, true);
 
             try {

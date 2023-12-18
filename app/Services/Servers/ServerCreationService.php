@@ -1,23 +1,23 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
 use Ramsey\Uuid\Uuid;
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\User;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\User;
 use Illuminate\Support\Arr;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Webmozart\Assert\Assert;
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Allocation;
 use Illuminate\Support\Collection;
 use Illuminate\Database\ConnectionInterface;
-use Jexactyl\Models\Objects\DeploymentObject;
-use Jexactyl\Repositories\Eloquent\ServerRepository;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Services\Deployment\FindViableNodesService;
-use Jexactyl\Repositories\Eloquent\ServerVariableRepository;
-use Jexactyl\Services\Deployment\AllocationSelectionService;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Models\Objects\DeploymentObject;
+use Pteranodon\Repositories\Eloquent\ServerRepository;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Services\Deployment\FindViableNodesService;
+use Pteranodon\Repositories\Eloquent\ServerVariableRepository;
+use Pteranodon\Services\Deployment\AllocationSelectionService;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class ServerCreationService
 {
@@ -43,11 +43,11 @@ class ServerCreationService
      * no node_id the node_is will be picked from the allocation.
      *
      * @throws \Throwable
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      * @throws \Illuminate\Validation\ValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Jexactyl\Exceptions\Service\Deployment\NoViableNodeException
-     * @throws \Jexactyl\Exceptions\Service\Deployment\NoViableAllocationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Service\Deployment\NoViableNodeException
+     * @throws \Pteranodon\Exceptions\Service\Deployment\NoViableAllocationException
      */
     public function handle(array $data, DeploymentObject $deployment = null): Server
     {
@@ -82,7 +82,7 @@ class ServerCreationService
         //
         // If that connection fails out we will attempt to perform a cleanup by just
         // deleting the server itself from the system.
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         $server = $this->connection->transaction(function () use ($data, $eggVariableData) {
             // Create the server and assign any additional allocations to it.
             $server = $this->createModel($data);
@@ -109,9 +109,9 @@ class ServerCreationService
     /**
      * Gets an allocation to use for automatic deployment.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Service\Deployment\NoViableAllocationException
-     * @throws \Jexactyl\Exceptions\Service\Deployment\NoViableNodeException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Service\Deployment\NoViableAllocationException
+     * @throws \Pteranodon\Exceptions\Service\Deployment\NoViableNodeException
      */
     private function configureDeployment(array $data, DeploymentObject $deployment): Allocation
     {
@@ -130,13 +130,13 @@ class ServerCreationService
     /**
      * Store the server in the database and return the model.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     private function createModel(array $data): Server
     {
         $uuid = $this->generateUniqueUuidCombo();
 
-        /** @var \Jexactyl\Models\Server $model */
+        /** @var \Pteranodon\Models\Server $model */
         $model = $this->repository->create([
             'external_id' => Arr::get($data, 'external_id'),
             'uuid' => $uuid,

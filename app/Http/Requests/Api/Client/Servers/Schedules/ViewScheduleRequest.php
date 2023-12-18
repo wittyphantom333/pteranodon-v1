@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Servers\Schedules;
+namespace Pteranodon\Http\Requests\Api\Client\Servers\Schedules;
 
-use Jexactyl\Models\Task;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\Schedule;
-use Jexactyl\Models\Permission;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Models\Task;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\Schedule;
+use Pteranodon\Models\Permission;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ViewScheduleRequest extends ClientApiRequest

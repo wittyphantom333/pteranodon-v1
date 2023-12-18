@@ -1,42 +1,42 @@
 <?php
 
-namespace Jexactyl\Providers;
+namespace Pteranodon\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Jexactyl\Repositories\Eloquent\EggRepository;
-use Jexactyl\Repositories\Eloquent\NestRepository;
-use Jexactyl\Repositories\Eloquent\NodeRepository;
-use Jexactyl\Repositories\Eloquent\TaskRepository;
-use Jexactyl\Repositories\Eloquent\UserRepository;
-use Jexactyl\Repositories\Eloquent\ApiKeyRepository;
-use Jexactyl\Repositories\Eloquent\ServerRepository;
-use Jexactyl\Repositories\Eloquent\SessionRepository;
-use Jexactyl\Repositories\Eloquent\SubuserRepository;
-use Jexactyl\Repositories\Eloquent\DatabaseRepository;
-use Jexactyl\Repositories\Eloquent\LocationRepository;
-use Jexactyl\Repositories\Eloquent\ScheduleRepository;
-use Jexactyl\Repositories\Eloquent\SettingsRepository;
-use Jexactyl\Repositories\Eloquent\AllocationRepository;
-use Jexactyl\Contracts\Repository\EggRepositoryInterface;
-use Jexactyl\Repositories\Eloquent\EggVariableRepository;
-use Jexactyl\Contracts\Repository\NestRepositoryInterface;
-use Jexactyl\Contracts\Repository\NodeRepositoryInterface;
-use Jexactyl\Contracts\Repository\TaskRepositoryInterface;
-use Jexactyl\Contracts\Repository\UserRepositoryInterface;
-use Jexactyl\Repositories\Eloquent\DatabaseHostRepository;
-use Jexactyl\Contracts\Repository\ApiKeyRepositoryInterface;
-use Jexactyl\Contracts\Repository\ServerRepositoryInterface;
-use Jexactyl\Repositories\Eloquent\ServerVariableRepository;
-use Jexactyl\Contracts\Repository\SessionRepositoryInterface;
-use Jexactyl\Contracts\Repository\SubuserRepositoryInterface;
-use Jexactyl\Contracts\Repository\DatabaseRepositoryInterface;
-use Jexactyl\Contracts\Repository\LocationRepositoryInterface;
-use Jexactyl\Contracts\Repository\ScheduleRepositoryInterface;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Contracts\Repository\AllocationRepositoryInterface;
-use Jexactyl\Contracts\Repository\EggVariableRepositoryInterface;
-use Jexactyl\Contracts\Repository\DatabaseHostRepositoryInterface;
-use Jexactyl\Contracts\Repository\ServerVariableRepositoryInterface;
+use Pteranodon\Repositories\Eloquent\EggRepository;
+use Pteranodon\Repositories\Eloquent\NestRepository;
+use Pteranodon\Repositories\Eloquent\NodeRepository;
+use Pteranodon\Repositories\Eloquent\TaskRepository;
+use Pteranodon\Repositories\Eloquent\UserRepository;
+use Pteranodon\Repositories\Eloquent\ApiKeyRepository;
+use Pteranodon\Repositories\Eloquent\ServerRepository;
+use Pteranodon\Repositories\Eloquent\SessionRepository;
+use Pteranodon\Repositories\Eloquent\SubuserRepository;
+use Pteranodon\Repositories\Eloquent\DatabaseRepository;
+use Pteranodon\Repositories\Eloquent\LocationRepository;
+use Pteranodon\Repositories\Eloquent\ScheduleRepository;
+use Pteranodon\Repositories\Eloquent\SettingsRepository;
+use Pteranodon\Repositories\Eloquent\AllocationRepository;
+use Pteranodon\Contracts\Repository\EggRepositoryInterface;
+use Pteranodon\Repositories\Eloquent\EggVariableRepository;
+use Pteranodon\Contracts\Repository\NestRepositoryInterface;
+use Pteranodon\Contracts\Repository\NodeRepositoryInterface;
+use Pteranodon\Contracts\Repository\TaskRepositoryInterface;
+use Pteranodon\Contracts\Repository\UserRepositoryInterface;
+use Pteranodon\Repositories\Eloquent\DatabaseHostRepository;
+use Pteranodon\Contracts\Repository\ApiKeyRepositoryInterface;
+use Pteranodon\Contracts\Repository\ServerRepositoryInterface;
+use Pteranodon\Repositories\Eloquent\ServerVariableRepository;
+use Pteranodon\Contracts\Repository\SessionRepositoryInterface;
+use Pteranodon\Contracts\Repository\SubuserRepositoryInterface;
+use Pteranodon\Contracts\Repository\DatabaseRepositoryInterface;
+use Pteranodon\Contracts\Repository\LocationRepositoryInterface;
+use Pteranodon\Contracts\Repository\ScheduleRepositoryInterface;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Contracts\Repository\AllocationRepositoryInterface;
+use Pteranodon\Contracts\Repository\EggVariableRepositoryInterface;
+use Pteranodon\Contracts\Repository\DatabaseHostRepositoryInterface;
+use Pteranodon\Contracts\Repository\ServerVariableRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {

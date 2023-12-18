@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Tests\Integration;
+namespace Pteranodon\Tests\Integration;
 
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
-use Jexactyl\Tests\TestCase;
-use Jexactyl\Events\ActivityLogged;
+use Pteranodon\Tests\TestCase;
+use Pteranodon\Events\ActivityLogged;
 use Illuminate\Support\Facades\Event;
-use Jexactyl\Tests\Assertions\AssertsActivityLogged;
-use Jexactyl\Tests\Traits\Integration\CreatesTestModels;
-use Jexactyl\Transformers\Api\Application\BaseTransformer;
+use Pteranodon\Tests\Assertions\AssertsActivityLogged;
+use Pteranodon\Tests\Traits\Integration\CreatesTestModels;
+use Pteranodon\Transformers\Api\Application\BaseTransformer;
 
 abstract class IntegrationTestCase extends TestCase
 {

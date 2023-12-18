@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Services\Schedules;
+namespace Pteranodon\Services\Schedules;
 
 use Exception;
-use Jexactyl\Models\Schedule;
-use Jexactyl\Jobs\Schedule\RunTaskJob;
+use Pteranodon\Models\Schedule;
+use Pteranodon\Jobs\Schedule\RunTaskJob;
 use Illuminate\Contracts\Bus\Dispatcher;
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 use Illuminate\Database\ConnectionInterface;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class ProcessScheduleService
 {
@@ -27,7 +27,7 @@ class ProcessScheduleService
      */
     public function handle(Schedule $schedule, bool $now = false): void
     {
-        /** @var \Jexactyl\Models\Task $task */
+        /** @var \Pteranodon\Models\Task $task */
         $task = $schedule->tasks()->orderBy('sequence_id')->first();
 
         if (is_null($task)) {

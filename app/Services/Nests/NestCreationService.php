@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Services\Nests;
+namespace Pteranodon\Services\Nests;
 
 use Ramsey\Uuid\Uuid;
-use Jexactyl\Models\Nest;
-use Jexactyl\Contracts\Repository\NestRepositoryInterface;
+use Pteranodon\Models\Nest;
+use Pteranodon\Contracts\Repository\NestRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class NestCreationService
@@ -19,13 +19,13 @@ class NestCreationService
     /**
      * Create a new nest on the system.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function handle(array $data, string $author = null): Nest
     {
         return $this->repository->create([
             'uuid' => Uuid::uuid4()->toString(),
-            'author' => $author ?? $this->config->get('jexactyl.service.author'),
+            'author' => $author ?? $this->config->get('pteranodon.service.author'),
             'name' => array_get($data, 'name'),
             'description' => array_get($data, 'description'),
             'private' => array_get($data, 'private'),

@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Allocation;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Allocation;
 
-use Jexactyl\Models\Subuser;
-use Jexactyl\Models\Allocation;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\Subuser;
+use Pteranodon\Models\Allocation;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class AllocationAuthorizationTest extends ClientApiIntegrationTestCase
 {

@@ -1,26 +1,26 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Users;
+namespace Pteranodon\Http\Controllers\Admin\Users;
 
 use Illuminate\View\View;
-use Jexactyl\Models\User;
-use Jexactyl\Models\Model;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
 use Spatie\QueryBuilder\QueryBuilder;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\View\Factory as ViewFactory;
-use Jexactyl\Services\Users\UserUpdateService;
-use Jexactyl\Traits\Helpers\AvailableLanguages;
+use Pteranodon\Services\Users\UserUpdateService;
+use Pteranodon\Traits\Helpers\AvailableLanguages;
 use Illuminate\Contracts\Translation\Translator;
-use Jexactyl\Services\Users\UserCreationService;
-use Jexactyl\Services\Users\UserDeletionService;
-use Jexactyl\Http\Requests\Admin\NewUserFormRequest;
-use Jexactyl\Http\Requests\Admin\Users\UserFormRequest;
-use Jexactyl\Contracts\Repository\UserRepositoryInterface;
+use Pteranodon\Services\Users\UserCreationService;
+use Pteranodon\Services\Users\UserDeletionService;
+use Pteranodon\Http\Requests\Admin\NewUserFormRequest;
+use Pteranodon\Http\Requests\Admin\Users\UserFormRequest;
+use Pteranodon\Contracts\Repository\UserRepositoryInterface;
 
 class UserController extends Controller
 {
@@ -85,7 +85,7 @@ class UserController extends Controller
      * Delete a user from the system.
      *
      * @throws \Exception
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     public function delete(Request $request, User $user): RedirectResponse
     {
@@ -115,8 +115,8 @@ class UserController extends Controller
     /**
      * Update a user on the system.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(UserFormRequest $request, User $user): RedirectResponse
     {

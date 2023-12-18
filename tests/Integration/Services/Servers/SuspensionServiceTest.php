@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Servers;
+namespace Pteranodon\Tests\Integration\Services\Servers;
 
 use Mockery\MockInterface;
-use Jexactyl\Models\Server;
-use Jexactyl\Services\Servers\SuspensionService;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Models\Server;
+use Pteranodon\Services\Servers\SuspensionService;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
 
 class SuspensionServiceTest extends IntegrationTestCase
 {

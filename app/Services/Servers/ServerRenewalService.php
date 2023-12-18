@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
-use Jexactyl\Models\Server;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Models\Server;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 class ServerRenewalService
 {
@@ -31,7 +31,7 @@ class ServerRenewalService
     public function handle(ClientApiRequest $request, Server $server): Server
     {
         $user = $request->user();
-        $cost = $this->settings->get('jexactyl::renewal:cost', 200);
+        $cost = $this->settings->get('pteranodon::renewal:cost', 200);
 
         if ($user->store_balance < $cost) {
             throw new DisplayException('You do not have enough credits to renew your server.');
@@ -39,7 +39,7 @@ class ServerRenewalService
 
         try {
             $user->update(['store_balance' => $user->store_balance - $cost]);
-            $server->update(['renewal' => $server->renewal + $this->settings->get('jexactyl::renewal:default', 7)]);
+            $server->update(['renewal' => $server->renewal + $this->settings->get('pteranodon::renewal:default', 7)]);
         } catch (DisplayException $ex) {
             throw new DisplayException('An unexpected error occured while trying to renew your server.');
         }

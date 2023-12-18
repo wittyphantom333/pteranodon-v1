@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Exceptions\Model;
+namespace Pteranodon\Exceptions\Model;
 
 use Illuminate\Support\MessageBag;
 use Illuminate\Database\Eloquent\Model;
-use Jexactyl\Exceptions\JexactylException;
+use Pteranodon\Exceptions\PteranodonException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Contracts\Support\MessageProvider;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
-class DataValidationException extends JexactylException implements HttpExceptionInterface, MessageProvider
+class DataValidationException extends PteranodonException implements HttpExceptionInterface, MessageProvider
 {
     /**
      * DataValidationException constructor.

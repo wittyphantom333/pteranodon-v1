@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client;
+namespace Pteranodon\Transformers\Api\Client;
 
-use Jexactyl\Models\EggVariable;
+use Pteranodon\Models\EggVariable;
 
 class EggVariableTransformer extends BaseClientTransformer
 {

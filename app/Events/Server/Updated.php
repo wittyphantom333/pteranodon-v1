@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Events\Server;
+namespace Pteranodon\Events\Server;
 
-use Jexactyl\Events\Event;
-use Jexactyl\Models\Server;
+use Pteranodon\Events\Event;
+use Pteranodon\Models\Server;
 use Illuminate\Queue\SerializesModels;
 
 class Updated extends Event

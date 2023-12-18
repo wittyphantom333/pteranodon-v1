@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Exceptions\Http\Server;
+namespace Pteranodon\Exceptions\Http\Server;
 
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class FileTypeNotEditableException extends DisplayException
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Auth;
+namespace Pteranodon\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 

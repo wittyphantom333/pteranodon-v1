@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Startup;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Startup;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Permission;
-use Jexactyl\Models\EggVariable;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\Permission;
+use Pteranodon\Models\EggVariable;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
 {
@@ -17,7 +17,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
      */
     public function testStartupVariableCanBeUpdated(array $permissions)
     {
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         [$user, $server] = $this->generateTestAccount($permissions);
         $server->fill([
             'startup' => 'java {{SERVER_JARFILE}} --version {{BUNGEE_VERSION}}',
@@ -52,7 +52,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
      */
     public function testStartupVariableCannotBeUpdatedIfNotUserViewableOrEditable(array $permissions)
     {
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         [$user, $server] = $this->generateTestAccount($permissions);
 
         $egg = $this->cloneEggAndVariables($server->egg);
@@ -87,7 +87,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
      */
     public function testHiddenVariablesAreNotReturnedInStartupCommandWhenUpdatingVariable()
     {
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         [$user, $server] = $this->generateTestAccount();
 
         $egg = $this->cloneEggAndVariables($server->egg);
@@ -118,7 +118,7 @@ class UpdateStartupVariableTest extends ClientApiIntegrationTestCase
      */
     public function testEggVariableWithNullableStringIsNotRequired()
     {
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         [$user, $server] = $this->generateTestAccount();
 
         $egg = $this->cloneEggAndVariables($server->egg);

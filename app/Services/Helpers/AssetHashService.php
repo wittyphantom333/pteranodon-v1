@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Services\Helpers;
+namespace Pteranodon\Services\Helpers;
 
 use Illuminate\Support\Arr;
 use Illuminate\Filesystem\FilesystemManager;
 use Illuminate\Contracts\Filesystem\Filesystem;
-use Jexactyl\Exceptions\ManifestDoesNotExistException;
+use Pteranodon\Exceptions\ManifestDoesNotExistException;
 
 class AssetHashService
 {
@@ -61,7 +61,7 @@ class AssetHashService
             'referrerpolicy' => 'no-referrer',
         ];
 
-        if (config('jexactyl.assets.use_hash')) {
+        if (config('pteranodon.assets.use_hash')) {
             $attributes['integrity'] = $this->integrity($resource);
         }
 
@@ -83,7 +83,7 @@ class AssetHashService
             'crossorigin' => 'anonymous',
         ];
 
-        if (config('jexactyl.assets.use_hash')) {
+        if (config('pteranodon.assets.use_hash')) {
             $attributes['integrity'] = $this->integrity($resource);
         }
 

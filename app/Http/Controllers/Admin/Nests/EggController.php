@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Nests;
+namespace Pteranodon\Http\Controllers\Admin\Nests;
 
-use Jexactyl\Models\Egg;
+use Pteranodon\Models\Egg;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\View\Factory as ViewFactory;
-use Jexactyl\Services\Eggs\EggUpdateService;
-use Jexactyl\Services\Eggs\EggCreationService;
-use Jexactyl\Services\Eggs\EggDeletionService;
-use Jexactyl\Http\Requests\Admin\Egg\EggFormRequest;
-use Jexactyl\Contracts\Repository\EggRepositoryInterface;
-use Jexactyl\Contracts\Repository\NestRepositoryInterface;
+use Pteranodon\Services\Eggs\EggUpdateService;
+use Pteranodon\Services\Eggs\EggCreationService;
+use Pteranodon\Services\Eggs\EggDeletionService;
+use Pteranodon\Http\Requests\Admin\Egg\EggFormRequest;
+use Pteranodon\Contracts\Repository\EggRepositoryInterface;
+use Pteranodon\Contracts\Repository\NestRepositoryInterface;
 
 class EggController extends Controller
 {
@@ -34,7 +34,7 @@ class EggController extends Controller
     /**
      * Handle a request to display the Egg creation page.
      *
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function create(): View
     {
@@ -47,8 +47,8 @@ class EggController extends Controller
     /**
      * Handle request to store a new Egg.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Service\Egg\NoParentConfigurationFoundException
      */
     public function store(EggFormRequest $request): RedirectResponse
     {
@@ -79,9 +79,9 @@ class EggController extends Controller
     /**
      * Handle request to update an Egg.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Jexactyl\Exceptions\Service\Egg\NoParentConfigurationFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Service\Egg\NoParentConfigurationFoundException
      */
     public function update(EggFormRequest $request, Egg $egg): RedirectResponse
     {
@@ -97,8 +97,8 @@ class EggController extends Controller
     /**
      * Handle request to destroy an egg.
      *
-     * @throws \Jexactyl\Exceptions\Service\Egg\HasChildrenException
-     * @throws \Jexactyl\Exceptions\Service\HasActiveServersException
+     * @throws \Pteranodon\Exceptions\Service\Egg\HasChildrenException
+     * @throws \Pteranodon\Exceptions\Service\HasActiveServersException
      */
     public function destroy(Egg $egg): RedirectResponse
     {

@@ -1,23 +1,23 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'registration'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'registration'])
 
 @section('title')
-    Jexactyl Settings
+    Pteranodon Settings
 @endsection
 
 @section('content-header')
-    <h1>User Registration<small>Configure settings for user registration on Jexactyl.</small></h1>
+    <h1>User Registration<small>Configure settings for user registration on Pteranodon.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li class="active">Pteranodon</li>
     </ol>
 @endsection
 
 @section('content')
-@yield('jexactyl::nav')
+@yield('pteranodon::nav')
     <div class="row">
         <div class="col-xs-12">
-            <form action="{{ route('admin.jexactyl.registration') }}" method="POST">
+            <form action="{{ route('admin.pteranodon.registration') }}" method="POST">
                 <div class="box
                 @if($enabled == 'true') box-success @else box-danger @endif">
                     <div class="box-header with-border">

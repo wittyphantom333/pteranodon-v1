@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client;
+namespace Pteranodon\Http\Controllers\Api\Client;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Facades\Activity;
+use Pteranodon\Facades\Activity;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Services\Users\TwoFactorSetupService;
-use Jexactyl\Services\Users\ToggleTwoFactorService;
+use Pteranodon\Services\Users\TwoFactorSetupService;
+use Pteranodon\Services\Users\ToggleTwoFactorService;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
@@ -30,8 +30,8 @@ class TwoFactorController extends ClientApiController
      * it on their account. If two-factor is already enabled this endpoint
      * will return a 400 error.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function index(Request $request): JsonResponse
     {
@@ -86,7 +86,7 @@ class TwoFactorController extends ClientApiController
             throw new BadRequestHttpException('The password provided was not valid.');
         }
 
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = $request->user();
 
         $user->update([

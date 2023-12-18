@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Servers;
+namespace Pteranodon\Http\Requests\Api\Client\Servers;
 
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
 
 class UpdateBackgroundRequest extends ClientApiRequest
 {

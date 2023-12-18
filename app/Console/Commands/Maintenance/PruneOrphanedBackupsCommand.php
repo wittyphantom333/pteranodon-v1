@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Maintenance;
+namespace Pteranodon\Console\Commands\Maintenance;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Console\Command;
-use Jexactyl\Repositories\Eloquent\BackupRepository;
+use Pteranodon\Repositories\Eloquent\BackupRepository;
 
 class PruneOrphanedBackupsCommand extends Command
 {

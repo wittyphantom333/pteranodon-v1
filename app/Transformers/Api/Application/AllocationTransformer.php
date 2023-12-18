@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Application;
+namespace Pteranodon\Transformers\Api\Application;
 
-use Jexactyl\Models\Node;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Node;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\Allocation;
 use League\Fractal\Resource\Item;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use League\Fractal\Resource\NullResource;
 
 class AllocationTransformer extends BaseTransformer
@@ -42,7 +42,7 @@ class AllocationTransformer extends BaseTransformer
     /**
      * Load the node relationship onto a given transformation.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeNode(Allocation $allocation): Item|NullResource
     {
@@ -60,7 +60,7 @@ class AllocationTransformer extends BaseTransformer
     /**
      * Load the server relationship onto a given transformation.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeServer(Allocation $allocation): Item|NullResource
     {

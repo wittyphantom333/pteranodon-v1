@@ -1,17 +1,17 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Account;
+namespace Pteranodon\Http\Requests\Api\Client\Account;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Hashing\Hasher;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
-use Jexactyl\Exceptions\Http\Base\InvalidPasswordProvidedException;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Exceptions\Http\Base\InvalidPasswordProvidedException;
 
 class UpdateUsernameRequest extends ClientApiRequest
 {
     /**
-     * @throws \Jexactyl\Exceptions\Http\Base\InvalidPasswordProvidedException
+     * @throws \Pteranodon\Exceptions\Http\Base\InvalidPasswordProvidedException
      */
     public function authorize(): bool
     {

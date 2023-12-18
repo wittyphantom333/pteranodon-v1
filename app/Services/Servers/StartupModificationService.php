@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\User;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\User;
 use Illuminate\Support\Arr;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\ServerVariable;
-use Jexactyl\Traits\Services\HasUserLevels;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\ServerVariable;
+use Pteranodon\Traits\Services\HasUserLevels;
 use Illuminate\Database\ConnectionInterface;
 
 class StartupModificationService
@@ -70,7 +70,7 @@ class StartupModificationService
         $eggId = Arr::get($data, 'egg_id');
 
         if (is_digit($eggId) && $server->egg_id !== (int) $eggId) {
-            /** @var \Jexactyl\Models\Egg $egg */
+            /** @var \Pteranodon\Models\Egg $egg */
             $egg = Egg::query()->findOrFail($data['egg_id']);
 
             $server = $server->forceFill([

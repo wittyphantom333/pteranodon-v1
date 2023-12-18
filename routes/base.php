@@ -1,8 +1,8 @@
 <?php
 
-use Jexactyl\Http\Controllers\Base;
+use Pteranodon\Http\Controllers\Base;
 use Illuminate\Support\Facades\Route;
-use Jexactyl\Http\Middleware\RequireTwoFactorAuthentication;
+use Pteranodon\Http\Middleware\RequireTwoFactorAuthentication;
 
 Route::get('/', [Base\IndexController::class, 'index'])->name('index')->fallback();
 Route::get('/account', [Base\IndexController::class, 'index'])

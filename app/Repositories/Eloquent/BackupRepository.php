@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Repositories\Eloquent;
+namespace Pteranodon\Repositories\Eloquent;
 
 use Carbon\Carbon;
-use Jexactyl\Models\Backup;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Backup;
+use Pteranodon\Models\Server;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

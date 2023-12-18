@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Cron\CronExpression;
 use Carbon\CarbonImmutable;
 use Illuminate\Container\Container;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Jexactyl\Contracts\Extensions\HashidsInterface;
+use Pteranodon\Contracts\Extensions\HashidsInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -26,8 +26,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property string $hashid
- * @property \Jexactyl\Models\Server $server
- * @property \Jexactyl\Models\Task[]|\Illuminate\Support\Collection $tasks
+ * @property \Pteranodon\Models\Server $server
+ * @property \Pteranodon\Models\Task[]|\Illuminate\Support\Collection $tasks
  */
 class Schedule extends Model
 {

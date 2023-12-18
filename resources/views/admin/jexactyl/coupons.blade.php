@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'coupons'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'coupons'])
 
 @section('title')
     Coupons
@@ -9,13 +9,13 @@
     <h1>Coupons<small>Create and manage coupons.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li class="active">Pteranodon</li>
     </ol>
 @endsection
 
 @section('content')
-    @yield('jexactyl::nav')
-    <form action="{{ route('admin.jexactyl.coupons') }}" method="POST">
+    @yield('pteranodon::nav')
+    <form action="{{ route('admin.pteranodon.coupons') }}" method="POST">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box @if($enabled) box-success @else box-danger @endif">
@@ -42,7 +42,7 @@
             </div>
         </div>
     </form>
-    <form action="{{ route('admin.jexactyl.coupons.store') }}" method="POST">
+    <form action="{{ route('admin.pteranodon.coupons.store') }}" method="POST">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">

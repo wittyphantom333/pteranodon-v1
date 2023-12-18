@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Location;
+namespace Pteranodon\Console\Commands\Location;
 
 use Illuminate\Console\Command;
-use Jexactyl\Services\Locations\LocationCreationService;
+use Pteranodon\Services\Locations\LocationCreationService;
 
 class MakeLocationCommand extends Command
 {
@@ -24,7 +24,7 @@ class MakeLocationCommand extends Command
     /**
      * Handle the command execution process.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function handle()
     {

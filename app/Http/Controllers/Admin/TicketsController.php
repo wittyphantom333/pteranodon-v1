@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin;
+namespace Pteranodon\Http\Controllers\Admin;
 
 use Illuminate\View\View;
-use Jexactyl\Models\Ticket;
+use Pteranodon\Models\Ticket;
 use Illuminate\View\Factory;
-use Jexactyl\Models\TicketMessage;
+use Pteranodon\Models\TicketMessage;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Http\Requests\Admin\Tickets\TicketStatusRequest;
-use Jexactyl\Http\Requests\Admin\Tickets\TicketToggleRequest;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Admin\Tickets\TicketMessageRequest;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Http\Requests\Admin\Tickets\TicketStatusRequest;
+use Pteranodon\Http\Requests\Admin\Tickets\TicketToggleRequest;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\Tickets\TicketMessageRequest;
 
 class TicketsController extends Controller
 {
@@ -30,8 +30,8 @@ class TicketsController extends Controller
     {
         return $this->view->make('admin.tickets.index', [
             'tickets' => Ticket::all(),
-            'enabled' => $this->settings->get('jexactyl::tickets:enabled', false),
-            'max' => $this->settings->get('jexactyl::tickets:max', 3),
+            'enabled' => $this->settings->get('pteranodon::tickets:enabled', false),
+            'max' => $this->settings->get('pteranodon::tickets:max', 3),
         ]);
     }
 
@@ -52,7 +52,7 @@ class TicketsController extends Controller
     public function toggle(TicketToggleRequest $request): RedirectResponse
     {
         foreach ($request->normalize() as $key => $value) {
-            $this->settings->set('jexactyl::tickets:' . $key, $value);
+            $this->settings->set('pteranodon::tickets:' . $key, $value);
         }
 
         return redirect()->route('admin.tickets.index');

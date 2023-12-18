@@ -1,17 +1,17 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Extensions\Spatie\Fractalistic\Fractal;
-use Jexactyl\Services\Helpers\SoftwareVersionService;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Traits\Controllers\PlainJavascriptInjection;
-use Jexactyl\Contracts\Repository\NodeRepositoryInterface;
-use Jexactyl\Contracts\Repository\ServerRepositoryInterface;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Extensions\Spatie\Fractalistic\Fractal;
+use Pteranodon\Services\Helpers\SoftwareVersionService;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Traits\Controllers\PlainJavascriptInjection;
+use Pteranodon\Contracts\Repository\NodeRepositoryInterface;
+use Pteranodon\Contracts\Repository\ServerRepositoryInterface;
 
 class IndexController extends Controller
 {
@@ -56,7 +56,7 @@ class IndexController extends Controller
             'memoryTotal' => $memoryTotal,
         ]);
 
-        return view('admin.jexactyl.index', [
+        return view('admin.pteranodon.index', [
             'version' => $this->versionService,
             'servers' => $servers,
             'allocations' => $allocations,
@@ -74,16 +74,16 @@ class IndexController extends Controller
     /**
      * Handle settings update.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(BaseSettingsFormRequest $request): RedirectResponse
     {
         foreach ($request->normalize() as $key => $value) {
-            $this->settings->set('jexactyl::' . $key, $value);
+            $this->settings->set('pteranodon::' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Settings have been updated.')->flash();
+        $this->alert->success('Pteranodon Settings have been updated.')->flash();
 
         return redirect()->route('admin.settings');
     }

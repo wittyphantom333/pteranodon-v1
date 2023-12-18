@@ -1,23 +1,23 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'server'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'server'])
 
 @section('title')
-    Jexactyl Servers
+    Pteranodon Servers
 @endsection
 
 @section('content-header')
-    <h1>Server Settings<small>Configure Jexactyl's server settings.</small></h1>
+    <h1>Server Settings<small>Configure Pteranodon's server settings.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li class="active">Pteranodon</li>
     </ol>
 @endsection
 
 @section('content')
-    @yield('jexactyl::nav')
+    @yield('pteranodon::nav')
     <div class="row">
         <div class="col-xs-12">
-            <form action="{{ route('admin.jexactyl.server') }}" method="POST">
+            <form action="{{ route('admin.pteranodon.server') }}" method="POST">
                 <div class="box
                     @if($enabled == 'true')
                         box-success

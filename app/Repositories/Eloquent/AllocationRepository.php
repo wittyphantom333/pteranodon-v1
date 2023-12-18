@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Repositories\Eloquent;
+namespace Pteranodon\Repositories\Eloquent;
 
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Allocation;
 use Illuminate\Database\Eloquent\Builder;
-use Jexactyl\Contracts\Repository\AllocationRepositoryInterface;
+use Pteranodon\Contracts\Repository\AllocationRepositoryInterface;
 
 class AllocationRepository extends EloquentRepository implements AllocationRepositoryInterface
 {

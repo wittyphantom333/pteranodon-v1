@@ -1,22 +1,22 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client;
+namespace Pteranodon\Http\Controllers\Api\Client;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\Coupon;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Coupon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Facades\Activity;
+use Pteranodon\Facades\Activity;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
-use Jexactyl\Notifications\VerifyEmail;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Services\Users\UserUpdateService;
-use Jexactyl\Transformers\Api\Client\AccountTransformer;
-use Jexactyl\Http\Requests\Api\Client\Account\UpdateEmailRequest;
-use Jexactyl\Http\Requests\Api\Client\Account\UpdatePasswordRequest;
-use Jexactyl\Http\Requests\Api\Client\Account\UpdateUsernameRequest;
+use Pteranodon\Notifications\VerifyEmail;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Services\Users\UserUpdateService;
+use Pteranodon\Transformers\Api\Client\AccountTransformer;
+use Pteranodon\Http\Requests\Api\Client\Account\UpdateEmailRequest;
+use Pteranodon\Http\Requests\Api\Client\Account\UpdatePasswordRequest;
+use Pteranodon\Http\Requests\Api\Client\Account\UpdateUsernameRequest;
 
 class AccountController extends ClientApiController
 {
@@ -82,8 +82,8 @@ class AccountController extends ClientApiController
     /**
      * Update the authenticated user's username.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function updateUsername(UpdateUsernameRequest $request): JsonResponse
     {
@@ -101,7 +101,7 @@ class AccountController extends ClientApiController
     public function verify(Request $request): JsonResponse
     {
         $token = $this->genStr();
-        $name = $this->settings->get('settings::app:name', 'Jexactyl');
+        $name = $this->settings->get('settings::app:name', 'Pteranodon');
         DB::table('verification_tokens')->insert(['user' => $request->user()->id, 'token' => $token]);
         $request->user()->notify(new VerifyEmail($request->user(), $name, $token));
 

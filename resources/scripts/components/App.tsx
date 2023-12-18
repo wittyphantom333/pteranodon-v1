@@ -15,7 +15,7 @@ import GlobalStylesheet from '@/assets/css/GlobalStylesheet';
 interface ExtendedWindow extends Window {
     SiteConfiguration?: SiteSettings;
     StoreConfiguration?: StorefrontSettings;
-    JexactylUser?: {
+    PteranodonUser?: {
         uuid: string;
         username: string;
         email: string;
@@ -36,22 +36,22 @@ interface ExtendedWindow extends Window {
 setupInterceptors(history);
 
 const App = () => {
-    const { JexactylUser, SiteConfiguration, StoreConfiguration } = window as ExtendedWindow;
+    const { PteranodonUser, SiteConfiguration, StoreConfiguration } = window as ExtendedWindow;
 
-    if (JexactylUser && !store.getState().user.data) {
+    if (PteranodonUser && !store.getState().user.data) {
         store.getActions().user.setUserData({
-            uuid: JexactylUser.uuid,
-            username: JexactylUser.username,
-            email: JexactylUser.email,
-            approved: JexactylUser.approved,
-            verified: JexactylUser.verified,
-            discordId: JexactylUser.discord_id,
-            language: JexactylUser.language,
-            rootAdmin: JexactylUser.root_admin,
-            useTotp: JexactylUser.use_totp,
-            referralCode: JexactylUser.referral_code,
-            createdAt: new Date(JexactylUser.created_at),
-            updatedAt: new Date(JexactylUser.updated_at),
+            uuid: PteranodonUser.uuid,
+            username: PteranodonUser.username,
+            email: PteranodonUser.email,
+            approved: PteranodonUser.approved,
+            verified: PteranodonUser.verified,
+            discordId: PteranodonUser.discord_id,
+            language: PteranodonUser.language,
+            rootAdmin: PteranodonUser.root_admin,
+            useTotp: PteranodonUser.use_totp,
+            referralCode: PteranodonUser.referral_code,
+            createdAt: new Date(PteranodonUser.created_at),
+            updatedAt: new Date(PteranodonUser.updated_at),
         });
     }
 

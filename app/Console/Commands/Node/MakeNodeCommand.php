@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Node;
+namespace Pteranodon\Console\Commands\Node;
 
 use Illuminate\Console\Command;
-use Jexactyl\Services\Nodes\NodeCreationService;
+use Pteranodon\Services\Nodes\NodeCreationService;
 
 class MakeNodeCommand extends Command
 {
@@ -38,7 +38,7 @@ class MakeNodeCommand extends Command
     /**
      * Handle the command execution process.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function handle()
     {

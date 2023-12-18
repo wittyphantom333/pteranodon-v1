@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Repositories\Eloquent;
+namespace Pteranodon\Repositories\Eloquent;
 
-use Jexactyl\Models\EggVariable;
+use Pteranodon\Models\EggVariable;
 use Illuminate\Support\Collection;
-use Jexactyl\Contracts\Repository\EggVariableRepositoryInterface;
+use Pteranodon\Contracts\Repository\EggVariableRepositoryInterface;
 
 class EggVariableRepository extends EloquentRepository implements EggVariableRepositoryInterface
 {

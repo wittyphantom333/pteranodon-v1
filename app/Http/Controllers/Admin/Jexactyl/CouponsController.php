@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Carbon\Carbon;
 use Illuminate\View\View;
-use Jexactyl\Models\Coupon;
+use Pteranodon\Models\Coupon;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Exceptions\Model\DataValidationException;
-use Jexactyl\Exceptions\Repository\RecordNotFoundException;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Admin\Jexactyl\Coupons\IndexFormRequest;
-use Jexactyl\Http\Requests\Admin\Jexactyl\Coupons\StoreFormRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Exceptions\Model\DataValidationException;
+use Pteranodon\Exceptions\Repository\RecordNotFoundException;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\Pteranodon\Coupons\IndexFormRequest;
+use Pteranodon\Http\Requests\Admin\Pteranodon\Coupons\StoreFormRequest;
 
 class CouponsController extends Controller
 {
@@ -23,9 +23,9 @@ class CouponsController extends Controller
 
     public function index(): View
     {
-        return view('admin.jexactyl.coupons', [
+        return view('admin.pteranodon.coupons', [
             'coupons' => Coupon::all(),
-            'enabled' => $this->settings->get('jexactyl::coupons:enabled'),
+            'enabled' => $this->settings->get('pteranodon::coupons:enabled'),
         ]);
     }
 
@@ -36,12 +36,12 @@ class CouponsController extends Controller
     public function update(IndexFormRequest $request): RedirectResponse
     {
         foreach ($request->normalize() as $key => $value) {
-            $this->settings->set('jexactyl::coupons:' . $key, $value);
+            $this->settings->set('pteranodon::coupons:' . $key, $value);
         }
 
         $this->alert->success('The coupons system has been successfully updated.')->flash();
 
-        return redirect()->route('admin.jexactyl.coupons');
+        return redirect()->route('admin.pteranodon.coupons');
     }
 
     /**
@@ -69,6 +69,6 @@ class CouponsController extends Controller
 
         $this->alert->success('Successfully created a coupon.')->flash();
 
-        return redirect()->route('admin.jexactyl.coupons');
+        return redirect()->route('admin.pteranodon.coupons');
     }
 }

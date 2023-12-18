@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Store;
+namespace Pteranodon\Http\Controllers\Api\Client\Store;
 
 use Stripe\StripeClient;
 use Illuminate\Http\JsonResponse;
 use Stripe\Exception\ApiErrorException;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Store\Gateways\StripeRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Store\Gateways\StripeRequest;
 
 class StripeController extends ClientApiController
 {
@@ -21,7 +21,7 @@ class StripeController extends ClientApiController
      */
     public function purchase(StripeRequest $request): JsonResponse
     {
-        if (!$this->settings->get('jexactyl::store:stripe:enabled')) {
+        if (!$this->settings->get('pteranodon::store:stripe:enabled')) {
             throw new DisplayException('Unable to purchase via Stripe: module not enabled');
         }
 

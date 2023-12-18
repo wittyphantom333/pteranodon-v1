@@ -2,9 +2,9 @@
 
 /*
 |--------------------------------------------------------------------------
-| Jexactyl Gateways
+| Pteranodon Gateways
 |--------------------------------------------------------------------------
-| This configuration file is used to determine the settings for Jexactyl's
+| This configuration file is used to determine the settings for Pteranodon's
 | payment gateways (Stripe and PayPal by default).
 */
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
- * Jexactyl\Models\TicketMessage.
+ * Pteranodon\Models\TicketMessage.
  *
  * @property int $id
  * @property User $user

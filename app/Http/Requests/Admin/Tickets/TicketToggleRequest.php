@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin\Tickets;
+namespace Pteranodon\Http\Requests\Admin\Tickets;
 
-use Jexactyl\Http\Requests\Admin\AdminFormRequest;
+use Pteranodon\Http\Requests\Admin\AdminFormRequest;
 
 class TicketToggleRequest extends AdminFormRequest
 {

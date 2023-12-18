@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Console\Commands\User;
+namespace Pteranodon\Console\Commands\User;
 
 use Illuminate\Console\Command;
-use Jexactyl\Contracts\Repository\UserRepositoryInterface;
+use Pteranodon\Contracts\Repository\UserRepositoryInterface;
 
 class DisableTwoFactorCommand extends Command
 {
@@ -22,8 +22,8 @@ class DisableTwoFactorCommand extends Command
     /**
      * Handle command execution process.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function handle()
     {

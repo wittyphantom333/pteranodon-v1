@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Services\Referrals;
+namespace Pteranodon\Services\Referrals;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\ReferralCode;
-use Jexactyl\Models\ReferralUses;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Models\User;
+use Pteranodon\Models\ReferralCode;
+use Pteranodon\Models\ReferralUses;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 class UseReferralService
 {
@@ -25,7 +25,7 @@ class UseReferralService
     {
         $user = $request->user();
         $code = $request->input('code');
-        $reward = $this->settings->get('jexactyl::referrals:reward', 0);
+        $reward = $this->settings->get('pteranodon::referrals:reward', 0);
 
         $id = ReferralCode::where('code', $code)->first()->user_id;
         $referrer = User::where('id', $id)->first();

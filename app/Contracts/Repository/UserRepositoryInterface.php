@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Contracts\Repository;
+namespace Pteranodon\Contracts\Repository;
 
 interface UserRepositoryInterface extends RepositoryInterface
 {

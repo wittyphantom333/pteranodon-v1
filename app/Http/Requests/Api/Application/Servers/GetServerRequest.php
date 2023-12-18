@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Servers;
+namespace Pteranodon\Http\Requests\Api\Application\Servers;
 
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class GetServerRequest extends ApplicationApiRequest
 {

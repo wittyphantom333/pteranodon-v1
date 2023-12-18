@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Exceptions\Service\Deployment;
+namespace Pteranodon\Exceptions\Service\Deployment;
 
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class NoViableAllocationException extends DisplayException
 {

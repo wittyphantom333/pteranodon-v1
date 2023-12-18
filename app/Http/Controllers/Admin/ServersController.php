@@ -1,38 +1,38 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin;
+namespace Pteranodon\Http\Controllers\Admin;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\Mount;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Mount;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Database;
-use Jexactyl\Models\MountServer;
+use Pteranodon\Models\Database;
+use Pteranodon\Models\MountServer;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\Validation\ValidationException;
-use Jexactyl\Services\Servers\SuspensionService;
-use Jexactyl\Repositories\Eloquent\MountRepository;
-use Jexactyl\Services\Servers\ServerDeletionService;
-use Jexactyl\Services\Servers\ReinstallServerService;
-use Jexactyl\Exceptions\Model\DataValidationException;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Services\Servers\BuildModificationService;
-use Jexactyl\Services\Databases\DatabasePasswordService;
-use Jexactyl\Services\Servers\DetailsModificationService;
-use Jexactyl\Services\Servers\StartupModificationService;
-use Jexactyl\Contracts\Repository\NestRepositoryInterface;
-use Jexactyl\Repositories\Eloquent\DatabaseHostRepository;
-use Jexactyl\Services\Databases\DatabaseManagementService;
-use Jexactyl\Contracts\Repository\ServerRepositoryInterface;
-use Jexactyl\Contracts\Repository\DatabaseRepositoryInterface;
+use Pteranodon\Services\Servers\SuspensionService;
+use Pteranodon\Repositories\Eloquent\MountRepository;
+use Pteranodon\Services\Servers\ServerDeletionService;
+use Pteranodon\Services\Servers\ReinstallServerService;
+use Pteranodon\Exceptions\Model\DataValidationException;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Services\Servers\BuildModificationService;
+use Pteranodon\Services\Databases\DatabasePasswordService;
+use Pteranodon\Services\Servers\DetailsModificationService;
+use Pteranodon\Services\Servers\StartupModificationService;
+use Pteranodon\Contracts\Repository\NestRepositoryInterface;
+use Pteranodon\Repositories\Eloquent\DatabaseHostRepository;
+use Pteranodon\Services\Databases\DatabaseManagementService;
+use Pteranodon\Contracts\Repository\ServerRepositoryInterface;
+use Pteranodon\Contracts\Repository\DatabaseRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
-use Jexactyl\Contracts\Repository\AllocationRepositoryInterface;
-use Jexactyl\Services\Servers\ServerConfigurationStructureService;
-use Jexactyl\Http\Requests\Admin\Servers\Databases\StoreServerDatabaseRequest;
+use Pteranodon\Contracts\Repository\AllocationRepositoryInterface;
+use Pteranodon\Services\Servers\ServerConfigurationStructureService;
+use Pteranodon\Http\Requests\Admin\Servers\Databases\StoreServerDatabaseRequest;
 
 class ServersController extends Controller
 {
@@ -64,8 +64,8 @@ class ServersController extends Controller
     /**
      * Update the details for a server.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function setDetails(Request $request, Server $server): RedirectResponse
     {
@@ -81,9 +81,9 @@ class ServersController extends Controller
     /**
      * Toggles the installation status for a server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function toggleInstall(Server $server): RedirectResponse
     {
@@ -103,9 +103,9 @@ class ServersController extends Controller
     /**
      * Reinstalls the server with the currently assigned service.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function reinstallServer(Server $server): RedirectResponse
     {
@@ -118,9 +118,9 @@ class ServersController extends Controller
     /**
      * Manage the suspension status for a server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function manageSuspension(Request $request, Server $server): RedirectResponse
     {
@@ -135,8 +135,8 @@ class ServersController extends Controller
     /**
      * Update the build configuration for a server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      * @throws \Illuminate\Validation\ValidationException
      */
     public function updateBuild(Request $request, Server $server): RedirectResponse
@@ -159,7 +159,7 @@ class ServersController extends Controller
     /**
      * Start the server deletion process.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      * @throws \Throwable
      */
     public function delete(Request $request, Server $server): RedirectResponse
@@ -224,7 +224,7 @@ class ServersController extends Controller
      */
     public function resetDatabasePassword(Request $request, Server $server): Response
     {
-        /** @var \Jexactyl\Models\Database $database */
+        /** @var \Pteranodon\Models\Database $database */
         $database = $server->databases()->findOrFail($request->input('database'));
 
         $this->databasePasswordService->handle($database);

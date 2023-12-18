@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Application\Nests;
+namespace Pteranodon\Tests\Integration\Api\Application\Nests;
 
-use Jexactyl\Models\Egg;
+use Pteranodon\Models\Egg;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Response;
-use Jexactyl\Transformers\Api\Application\EggTransformer;
-use Jexactyl\Tests\Integration\Api\Application\ApplicationApiIntegrationTestCase;
+use Pteranodon\Transformers\Api\Application\EggTransformer;
+use Pteranodon\Tests\Integration\Api\Application\ApplicationApiIntegrationTestCase;
 
 class EggControllerTest extends ApplicationApiIntegrationTestCase
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Http\Resources\Wings;
+namespace Pteranodon\Http\Resources\Wings;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Container\Container;
-use Jexactyl\Services\Eggs\EggConfigurationService;
+use Pteranodon\Services\Eggs\EggConfigurationService;
 use Illuminate\Http\Resources\Json\ResourceCollection;
-use Jexactyl\Services\Servers\ServerConfigurationStructureService;
+use Pteranodon\Services\Servers\ServerConfigurationStructureService;
 
 class ServerConfigurationCollection extends ResourceCollection
 {

@@ -1,12 +1,12 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY Jexactyl PANEL - jexactyl.com",
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY Pteranodon PANEL - pteranodon.com",
     "meta": {
         "version": "PTDL_v1",
         "update_url": null
     },
     "exported_at": "2021-06-15T17:24:18-04:00",
     "name": "Teamspeak3 Server",
-    "author": "support@jexactyl.com",
+    "author": "support@pteranodon.com",
     "description": "VoIP software designed with security in mind, featuring crystal clear voice quality, endless customization options, and scalabilty up to thousands of simultaneous users.",
     "features": null,
     "images": [

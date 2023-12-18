@@ -1,5 +1,5 @@
 {
-    "name": "jexactyl/jexactyl",
+    "name": "wittyphantom333/pteranodon",
     "description": "A fast, advanced and customisable game management panel and billing system in one. ",
     "license": "MIT",
     "require": {
@@ -58,14 +58,14 @@
             "app/helpers.php"
         ],
         "psr-4": {
-            "Jexactyl\\": "app/",
+            "Pteranodon\\": "app/",
             "Database\\Factories\\": "database/Factories/",
             "Database\\Seeders\\": "database/Seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jexactyl\\Tests\\": "tests/"
+            "Pteranodon\\Tests\\": "tests/"
         }
     },
     "scripts": {

@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
-use Jexactyl\Facades\Activity;
+use Pteranodon\Facades\Activity;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Repositories\Eloquent\ServerRepository;
-use Jexactyl\Services\Servers\ReinstallServerService;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Repositories\Eloquent\ServerRepository;
+use Pteranodon\Services\Servers\ReinstallServerService;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Jexactyl\Http\Requests\Api\Client\Servers\Settings\RenameServerRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Settings\SetDockerImageRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Settings\ReinstallServerRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Settings\RenameServerRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Settings\SetDockerImageRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Settings\ReinstallServerRequest;
 
 class SettingsController extends ClientApiController
 {
@@ -29,8 +29,8 @@ class SettingsController extends ClientApiController
     /**
      * Renames a server.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function rename(RenameServerRequest $request, Server $server): JsonResponse
     {

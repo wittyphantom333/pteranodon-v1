@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Services\Eggs;
+namespace Pteranodon\Services\Eggs;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Jexactyl\Models\Server;
-use Jexactyl\Services\Servers\ServerConfigurationStructureService;
+use Pteranodon\Models\Server;
+use Pteranodon\Services\Servers\ServerConfigurationStructureService;
 
 class EggConfigurationService
 {

@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Store;
+namespace Pteranodon\Http\Controllers\Api\Client\Store;
 
-use Jexactyl\Models\Nest;
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Nest;
+use Pteranodon\Models\Node;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Services\Store\StoreCreationService;
-use Jexactyl\Transformers\Api\Client\Store\EggTransformer;
-use Jexactyl\Transformers\Api\Client\Store\NestTransformer;
-use Jexactyl\Transformers\Api\Client\Store\NodeTransformer;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Store\CreateServerRequest;
-use Jexactyl\Exceptions\Service\Deployment\NoViableNodeException;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Services\Store\StoreCreationService;
+use Pteranodon\Transformers\Api\Client\Store\EggTransformer;
+use Pteranodon\Transformers\Api\Client\Store\NestTransformer;
+use Pteranodon\Transformers\Api\Client\Store\NodeTransformer;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Store\CreateServerRequest;
+use Pteranodon\Exceptions\Service\Deployment\NoViableNodeException;
 
 class ServerController extends ClientApiController
 {

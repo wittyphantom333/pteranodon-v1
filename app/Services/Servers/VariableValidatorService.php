@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\EggVariable;
+use Pteranodon\Models\User;
+use Pteranodon\Models\EggVariable;
 use Illuminate\Support\Collection;
-use Jexactyl\Traits\Services\HasUserLevels;
+use Pteranodon\Traits\Services\HasUserLevels;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
@@ -34,7 +34,7 @@ class VariableValidatorService
             $query = $query->where('user_editable', true)->where('user_viewable', true);
         }
 
-        /** @var \Jexactyl\Models\EggVariable[] $variables */
+        /** @var \Pteranodon\Models\EggVariable[] $variables */
         $variables = $query->get();
 
         $data = $rules = $customAttributes = [];

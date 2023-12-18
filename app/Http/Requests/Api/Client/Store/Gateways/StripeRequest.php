@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Store\Gateways;
+namespace Pteranodon\Http\Requests\Api\Client\Store\Gateways;
 
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
 
 class StripeRequest extends ClientApiRequest
 {

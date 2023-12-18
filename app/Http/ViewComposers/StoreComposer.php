@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Http\ViewComposers;
+namespace Pteranodon\Http\ViewComposers;
 
 use Illuminate\View\View;
 

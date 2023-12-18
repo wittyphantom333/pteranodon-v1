@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Middleware\Admin\Servers;
+namespace Pteranodon\Http\Middleware\Admin\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -15,7 +15,7 @@ class ServerInstalled
      */
     public function handle(Request $request, \Closure $next): mixed
     {
-        /** @var \Jexactyl\Models\Server|null $server */
+        /** @var \Pteranodon\Models\Server|null $server */
         $server = $request->route()->parameter('server');
 
         if (!$server instanceof Server) {

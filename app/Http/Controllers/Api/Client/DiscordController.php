@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client;
+namespace Pteranodon\Http\Controllers\Api\Client;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +23,7 @@ class DiscordController extends ClientApiController
     {
         return new JsonResponse([
             'https://discord.com/api/oauth2/authorize?'
-            . 'client_id=' . $this->settings->get('jexactyl::discord:id')
+            . 'client_id=' . $this->settings->get('pteranodon::discord:id')
             . '&redirect_uri=' . route('api:client.account.discord.callback')
             . '&response_type=code&scope=identify%20email%20guilds%20guilds.join&prompt=none',
         ], 200, [], null, false);
@@ -39,8 +39,8 @@ class DiscordController extends ClientApiController
     public function callback(Request $request): RedirectResponse
     {
         $code = Http::asForm()->post('https://discord.com/api/oauth2/token', [
-            'client_id' => $this->settings->get('jexactyl::discord:id'),
-            'client_secret' => $this->settings->get('jexactyl::discord:secret'),
+            'client_id' => $this->settings->get('pteranodon::discord:id'),
+            'client_secret' => $this->settings->get('pteranodon::discord:secret'),
             'grant_type' => 'authorization_code',
             'code' => $request->input('code'),
             'redirect_uri' => route('api:client.account.discord.callback'),

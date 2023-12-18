@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Contracts\Repository;
+namespace Pteranodon\Contracts\Repository;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Support\Collection;
 
 interface NodeRepositoryInterface extends RepositoryInterface

@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Servers;
+namespace Pteranodon\Http\Requests\Api\Application\Servers;
 
-use Jexactyl\Models\Server;
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Pteranodon\Models\Server;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class UpdateServerStartupRequest extends ApplicationApiRequest
 {

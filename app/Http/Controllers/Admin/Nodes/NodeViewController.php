@@ -1,20 +1,20 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Nodes;
+namespace Pteranodon\Http\Controllers\Admin\Nodes;
 
 use Illuminate\View\View;
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Http\Request;
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Allocation;
 use Illuminate\Support\Collection;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Repositories\Eloquent\NodeRepository;
-use Jexactyl\Repositories\Eloquent\ServerRepository;
-use Jexactyl\Traits\Controllers\JavascriptInjection;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Repositories\Eloquent\NodeRepository;
+use Pteranodon\Repositories\Eloquent\ServerRepository;
+use Pteranodon\Traits\Controllers\JavascriptInjection;
 use Illuminate\Contracts\View\Factory as ViewFactory;
-use Jexactyl\Services\Helpers\SoftwareVersionService;
-use Jexactyl\Repositories\Eloquent\LocationRepository;
-use Jexactyl\Repositories\Eloquent\AllocationRepository;
+use Pteranodon\Services\Helpers\SoftwareVersionService;
+use Pteranodon\Repositories\Eloquent\LocationRepository;
+use Pteranodon\Repositories\Eloquent\AllocationRepository;
 
 class NodeViewController extends Controller
 {

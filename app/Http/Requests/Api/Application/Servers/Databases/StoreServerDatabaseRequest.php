@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Application\Servers\Databases;
+namespace Pteranodon\Http\Requests\Api\Application\Servers\Databases;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Webmozart\Assert\Assert;
 use Illuminate\Validation\Rule;
 use Illuminate\Database\Query\Builder;
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Services\Databases\DatabaseManagementService;
-use Jexactyl\Http\Requests\Api\Application\ApplicationApiRequest;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Databases\DatabaseManagementService;
+use Pteranodon\Http\Requests\Api\Application\ApplicationApiRequest;
 
 class StoreServerDatabaseRequest extends ApplicationApiRequest
 {

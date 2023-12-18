@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Servers\Subusers;
+namespace Pteranodon\Http\Requests\Api\Client\Servers\Subusers;
 
-use Jexactyl\Models\Permission;
+use Pteranodon\Models\Permission;
 
 class DeleteSubuserRequest extends SubuserRequest
 {

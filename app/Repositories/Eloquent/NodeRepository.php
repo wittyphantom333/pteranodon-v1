@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Repositories\Eloquent;
+namespace Pteranodon\Repositories\Eloquent;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Support\Collection;
-use Jexactyl\Contracts\Repository\NodeRepositoryInterface;
+use Pteranodon\Contracts\Repository\NodeRepositoryInterface;
 
 class NodeRepository extends EloquentRepository implements NodeRepositoryInterface
 {

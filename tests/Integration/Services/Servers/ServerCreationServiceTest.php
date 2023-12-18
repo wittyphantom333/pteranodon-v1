@@ -1,24 +1,24 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Servers;
+namespace Pteranodon\Tests\Integration\Services\Servers;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\Node;
-use Jexactyl\Models\User;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\Node;
+use Pteranodon\Models\User;
 use Mockery\MockInterface;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use Jexactyl\Models\Location;
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Location;
+use Pteranodon\Models\Allocation;
 use Illuminate\Foundation\Testing\WithFaker;
-use Jexactyl\Models\Objects\DeploymentObject;
+use Pteranodon\Models\Objects\DeploymentObject;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Validation\ValidationException;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Services\Servers\ServerCreationService;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Services\Servers\ServerCreationService;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class ServerCreationServiceTest extends IntegrationTestCase
 {
@@ -37,7 +37,7 @@ class ServerCreationServiceTest extends IntegrationTestCase
 
         /* @noinspection PhpFieldAssignmentTypeMismatchInspection */
         $this->bungeecord = Egg::query()
-            ->where('author', 'support@jexactyl.com')
+            ->where('author', 'support@pteranodon.com')
             ->where('name', 'Bungeecord')
             ->firstOrFail();
 
@@ -54,18 +54,18 @@ class ServerCreationServiceTest extends IntegrationTestCase
      */
     public function testServerIsCreatedWithDeploymentObject()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
-        /** @var \Jexactyl\Models\Location $location */
+        /** @var \Pteranodon\Models\Location $location */
         $location = Location::factory()->create();
 
-        /** @var \Jexactyl\Models\Node $node */
+        /** @var \Pteranodon\Models\Node $node */
         $node = Node::factory()->create([
             'location_id' => $location->id,
         ]);
 
-        /** @var \Jexactyl\Models\Allocation[]|\Illuminate\Database\Eloquent\Collection $allocations */
+        /** @var \Pteranodon\Models\Allocation[]|\Illuminate\Database\Eloquent\Collection $allocations */
         $allocations = Allocation::factory()->times(5)->create([
             'node_id' => $node->id,
         ]);
@@ -156,18 +156,18 @@ class ServerCreationServiceTest extends IntegrationTestCase
      */
     public function testErrorEncounteredByWingsCausesServerToBeDeleted()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
-        /** @var \Jexactyl\Models\Location $location */
+        /** @var \Pteranodon\Models\Location $location */
         $location = Location::factory()->create();
 
-        /** @var \Jexactyl\Models\Node $node */
+        /** @var \Pteranodon\Models\Node $node */
         $node = Node::factory()->create([
             'location_id' => $location->id,
         ]);
 
-        /** @var \Jexactyl\Models\Allocation $allocation */
+        /** @var \Pteranodon\Models\Allocation $allocation */
         $allocation = Allocation::factory()->create([
             'node_id' => $node->id,
         ]);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Tests\Traits;
+namespace Pteranodon\Tests\Traits;
 
 use PDO;
 use Mockery;

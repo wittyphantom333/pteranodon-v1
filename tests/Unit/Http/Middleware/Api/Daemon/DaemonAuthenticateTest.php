@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Tests\Unit\Http\Middleware\Api\Daemon;
+namespace Pteranodon\Tests\Unit\Http\Middleware\Api\Daemon;
 
 use Mockery as m;
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Mockery\MockInterface;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Jexactyl\Repositories\Eloquent\NodeRepository;
+use Pteranodon\Repositories\Eloquent\NodeRepository;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use Jexactyl\Exceptions\Repository\RecordNotFoundException;
-use Jexactyl\Http\Middleware\Api\Daemon\DaemonAuthenticate;
-use Jexactyl\Tests\Unit\Http\Middleware\MiddlewareTestCase;
+use Pteranodon\Exceptions\Repository\RecordNotFoundException;
+use Pteranodon\Http\Middleware\Api\Daemon\DaemonAuthenticate;
+use Pteranodon\Tests\Unit\Http\Middleware\MiddlewareTestCase;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
@@ -85,7 +85,7 @@ class DaemonAuthenticateTest extends MiddlewareTestCase
     {
         $this->expectException(AccessDeniedHttpException::class);
 
-        /** @var \Jexactyl\Models\Node $model */
+        /** @var \Pteranodon\Models\Node $model */
         $model = Node::factory()->make();
 
         $this->request->expects('route->getName')->withNoArgs()->andReturn('random.route');
@@ -118,7 +118,7 @@ class DaemonAuthenticateTest extends MiddlewareTestCase
      */
     public function testSuccessfulMiddlewareProcess()
     {
-        /** @var \Jexactyl\Models\Node $model */
+        /** @var \Pteranodon\Models\Node $model */
         $model = Node::factory()->make();
 
         $this->request->expects('route->getName')->withNoArgs()->andReturn('random.route');

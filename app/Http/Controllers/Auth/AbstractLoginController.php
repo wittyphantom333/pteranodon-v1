@@ -1,17 +1,17 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Auth;
+namespace Pteranodon\Http\Controllers\Auth;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\Events\Failed;
 use Illuminate\Container\Container;
 use Illuminate\Support\Facades\Event;
-use Jexactyl\Events\Auth\DirectLogin;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Events\Auth\DirectLogin;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -37,7 +37,7 @@ abstract class AbstractLoginController extends Controller
     protected string $redirectTo = '/';
 
     /**
-     * @var \Jexactyl\Models\AccountLog
+     * @var \Pteranodon\Models\AccountLog
      */
     protected $log;
 
@@ -54,7 +54,7 @@ abstract class AbstractLoginController extends Controller
     /**
      * Get the failed login response instance.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     protected function sendFailedLoginResponse(Request $request, Authenticatable $user = null, string $message = null)
     {

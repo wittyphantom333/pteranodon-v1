@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Servers\Settings;
+namespace Pteranodon\Http\Requests\Api\Client\Servers\Settings;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Webmozart\Assert\Assert;
 use Illuminate\Validation\Rule;
-use Jexactyl\Models\Permission;
-use Jexactyl\Contracts\Http\ClientPermissionsRequest;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Models\Permission;
+use Pteranodon\Contracts\Http\ClientPermissionsRequest;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
 
 class SetDockerImageRequest extends ClientApiRequest implements ClientPermissionsRequest
 {
@@ -18,7 +18,7 @@ class SetDockerImageRequest extends ClientApiRequest implements ClientPermission
 
     public function rules(): array
     {
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         $server = $this->route()->parameter('server');
 
         Assert::isInstanceOf($server, Server::class);

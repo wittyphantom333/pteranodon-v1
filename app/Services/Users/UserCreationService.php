@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Services\Users;
+namespace Pteranodon\Services\Users;
 
 use Ramsey\Uuid\Uuid;
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Jexactyl\Notifications\VerifyEmail;
+use Pteranodon\Notifications\VerifyEmail;
 use Illuminate\Contracts\Hashing\Hasher;
-use Jexactyl\Notifications\AccountCreated;
+use Pteranodon\Notifications\AccountCreated;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Auth\PasswordBroker;
-use Jexactyl\Contracts\Repository\UserRepositoryInterface;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Contracts\Repository\UserRepositoryInterface;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 class UserCreationService
 {
@@ -32,11 +32,11 @@ class UserCreationService
      * Create a new user on the system.
      *
      * @throws \Exception
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function handle(array $data): User
     {
-        $name = $this->settings->get('settings::app:name', 'Jexactyl');
+        $name = $this->settings->get('settings::app:name', 'Pteranodon');
 
         if (array_key_exists('password', $data) && !empty($data['password'])) {
             $data['password'] = $this->hasher->make($data['password']);
@@ -48,7 +48,7 @@ class UserCreationService
             $data['password'] = $this->hasher->make(str_random(30));
         }
 
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = $this->repository->create(array_merge($data, [
             'uuid' => Uuid::uuid4()->toString(),
         ]), true, true);
@@ -57,7 +57,7 @@ class UserCreationService
             $token = $this->passwordBroker->createToken($user);
         }
 
-        if ($this->settings->get('jexactyl::approvals:enabled') === 'true' && $this->settings->get('jexactyl::approvals:webhook')) {
+        if ($this->settings->get('pteranodon::approvals:enabled') === 'true' && $this->settings->get('pteranodon::approvals:webhook')) {
             $icon = $this->settings->get('settings::app:logo', 'https://avatars.githubusercontent.com/u/91636558');
             $webhook_data = [
                 'username' => $name,
@@ -88,7 +88,7 @@ class UserCreationService
             ];
 
             try {
-                Http::withBody(json_encode($webhook_data), 'application/json')->post($this->settings->get('jexactyl::approvals:webhook'));
+                Http::withBody(json_encode($webhook_data), 'application/json')->post($this->settings->get('pteranodon::approvals:webhook'));
             } catch (\Exception $e) {
             }
         }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Application;
+namespace Pteranodon\Transformers\Api\Application;
 
-use Jexactyl\Models\EggVariable;
+use Pteranodon\Models\EggVariable;
 use League\Fractal\Resource\Item;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use League\Fractal\Resource\NullResource;
 
 class ServerVariableTransformer extends BaseTransformer
@@ -33,7 +33,7 @@ class ServerVariableTransformer extends BaseTransformer
     /**
      * Return the parent service variable data.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeParent(EggVariable $variable): Item|NullResource
     {

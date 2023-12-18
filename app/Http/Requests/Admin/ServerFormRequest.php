@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin;
+namespace Pteranodon\Http\Requests\Admin;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 

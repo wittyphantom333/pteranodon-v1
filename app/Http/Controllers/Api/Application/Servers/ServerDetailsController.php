@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Servers;
+namespace Pteranodon\Http\Controllers\Api\Application\Servers;
 
-use Jexactyl\Models\Server;
-use Jexactyl\Services\Servers\BuildModificationService;
-use Jexactyl\Services\Servers\DetailsModificationService;
-use Jexactyl\Transformers\Api\Application\ServerTransformer;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
-use Jexactyl\Http\Requests\Api\Application\Servers\UpdateServerDetailsRequest;
-use Jexactyl\Http\Requests\Api\Application\Servers\UpdateServerBuildConfigurationRequest;
+use Pteranodon\Models\Server;
+use Pteranodon\Services\Servers\BuildModificationService;
+use Pteranodon\Services\Servers\DetailsModificationService;
+use Pteranodon\Transformers\Api\Application\ServerTransformer;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Http\Requests\Api\Application\Servers\UpdateServerDetailsRequest;
+use Pteranodon\Http\Requests\Api\Application\Servers\UpdateServerBuildConfigurationRequest;
 
 class ServerDetailsController extends ApplicationApiController
 {
@@ -25,9 +25,9 @@ class ServerDetailsController extends ApplicationApiController
     /**
      * Update the details for a specific server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function details(UpdateServerDetailsRequest $request, Server $server): array
     {
@@ -44,9 +44,9 @@ class ServerDetailsController extends ApplicationApiController
     /**
      * Update the build details for a specific server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function build(UpdateServerBuildConfigurationRequest $request, Server $server): array
     {

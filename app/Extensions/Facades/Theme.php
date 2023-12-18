@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Extensions\Facades;
+namespace Pteranodon\Extensions\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

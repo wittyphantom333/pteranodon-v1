@@ -1,17 +1,17 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Schedules;
+namespace Pteranodon\Tests\Integration\Services\Schedules;
 
 use Exception;
-use Jexactyl\Models\Task;
+use Pteranodon\Models\Task;
 use Carbon\CarbonImmutable;
-use Jexactyl\Models\Schedule;
+use Pteranodon\Models\Schedule;
 use Illuminate\Support\Facades\Bus;
-use Jexactyl\Jobs\Schedule\RunTaskJob;
+use Pteranodon\Jobs\Schedule\RunTaskJob;
 use Illuminate\Contracts\Bus\Dispatcher;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Services\Schedules\ProcessScheduleService;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Services\Schedules\ProcessScheduleService;
 
 class ProcessScheduleServiceTest extends IntegrationTestCase
 {
@@ -36,13 +36,13 @@ class ProcessScheduleServiceTest extends IntegrationTestCase
     {
         $server = $this->createServerModel();
 
-        /** @var \Jexactyl\Models\Schedule $schedule */
+        /** @var \Pteranodon\Models\Schedule $schedule */
         $schedule = Schedule::factory()->create([
             'server_id' => $server->id,
             'cron_minute' => 'hodor', // this will break the getNextRunDate() function.
         ]);
 
-        /** @var \Jexactyl\Models\Task $task */
+        /** @var \Pteranodon\Models\Task $task */
         $task = Task::factory()->create(['schedule_id' => $schedule->id, 'sequence_id' => 1]);
 
         $this->expectException(\InvalidArgumentException::class);
@@ -64,10 +64,10 @@ class ProcessScheduleServiceTest extends IntegrationTestCase
 
         $server = $this->createServerModel();
 
-        /** @var \Jexactyl\Models\Schedule $schedule */
+        /** @var \Pteranodon\Models\Schedule $schedule */
         $schedule = Schedule::factory()->create(['server_id' => $server->id]);
 
-        /** @var \Jexactyl\Models\Task $task */
+        /** @var \Pteranodon\Models\Task $task */
         $task = Task::factory()->create(['schedule_id' => $schedule->id, 'time_offset' => 10, 'sequence_id' => 1]);
 
         $this->getService()->handle($schedule, $now);
@@ -96,10 +96,10 @@ class ProcessScheduleServiceTest extends IntegrationTestCase
         Bus::fake();
 
         $server = $this->createServerModel();
-        /** @var \Jexactyl\Models\Schedule $schedule */
+        /** @var \Pteranodon\Models\Schedule $schedule */
         $schedule = Schedule::factory()->create(['server_id' => $server->id]);
 
-        /** @var \Jexactyl\Models\Task $task */
+        /** @var \Pteranodon\Models\Task $task */
         $task2 = Task::factory()->create(['schedule_id' => $schedule->id, 'sequence_id' => 4]);
         $task = Task::factory()->create(['schedule_id' => $schedule->id, 'sequence_id' => 2]);
         $task3 = Task::factory()->create(['schedule_id' => $schedule->id, 'sequence_id' => 3]);
@@ -127,9 +127,9 @@ class ProcessScheduleServiceTest extends IntegrationTestCase
         $this->swap(Dispatcher::class, $dispatcher = \Mockery::mock(Dispatcher::class));
 
         $server = $this->createServerModel();
-        /** @var \Jexactyl\Models\Schedule $schedule */
+        /** @var \Pteranodon\Models\Schedule $schedule */
         $schedule = Schedule::factory()->create(['server_id' => $server->id, 'last_run_at' => null]);
-        /** @var \Jexactyl\Models\Task $task */
+        /** @var \Pteranodon\Models\Task $task */
         $task = Task::factory()->create(['schedule_id' => $schedule->id, 'sequence_id' => 1]);
 
         $dispatcher->expects('dispatchNow')->andThrows(new \Exception('Test thrown exception'));

@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Application;
+namespace Pteranodon\Tests\Integration\Api\Application;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\ApiKey;
+use Pteranodon\Models\User;
+use Pteranodon\Models\ApiKey;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\Assert;
-use Jexactyl\Services\Acl\Api\AdminAcl;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Services\Acl\Api\AdminAcl;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Jexactyl\Tests\Traits\Integration\CreatesTestModels;
-use Jexactyl\Transformers\Api\Application\BaseTransformer;
-use Jexactyl\Transformers\Api\Client\BaseClientTransformer;
-use Jexactyl\Tests\Traits\Http\IntegrationJsonRequestAssertions;
+use Pteranodon\Tests\Traits\Integration\CreatesTestModels;
+use Pteranodon\Transformers\Api\Application\BaseTransformer;
+use Pteranodon\Transformers\Api\Client\BaseClientTransformer;
+use Pteranodon\Tests\Traits\Http\IntegrationJsonRequestAssertions;
 
 abstract class ApplicationApiIntegrationTestCase extends IntegrationTestCase
 {
@@ -36,7 +36,7 @@ abstract class ApplicationApiIntegrationTestCase extends IntegrationTestCase
         $this->key = $this->createApiKey($this->user);
 
         $this
-            ->withHeader('Accept', 'application/vnd.Jexactyl.v1+json')
+            ->withHeader('Accept', 'application/vnd.Pteranodon.v1+json')
             ->withHeader('Authorization', 'Bearer ' . $this->key->identifier . decrypt($this->key->token));
     }
 

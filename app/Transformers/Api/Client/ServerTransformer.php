@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client;
+namespace Pteranodon\Transformers\Api\Client;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\Subuser;
-use Jexactyl\Models\Allocation;
-use Jexactyl\Models\Permission;
-use Jexactyl\Models\EggVariable;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\Subuser;
+use Pteranodon\Models\Allocation;
+use Pteranodon\Models\Permission;
+use Pteranodon\Models\EggVariable;
 use League\Fractal\Resource\Item;
 use Illuminate\Container\Container;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\NullResource;
-use Jexactyl\Services\Servers\StartupCommandService;
+use Pteranodon\Services\Servers\StartupCommandService;
 
 class ServerTransformer extends BaseClientTransformer
 {
@@ -31,7 +31,7 @@ class ServerTransformer extends BaseClientTransformer
      */
     public function transform(Server $server): array
     {
-        /** @var \Jexactyl\Services\Servers\StartupCommandService $service */
+        /** @var \Pteranodon\Services\Servers\StartupCommandService $service */
         $service = Container::getInstance()->make(StartupCommandService::class);
 
         $user = $this->request->user();
@@ -81,7 +81,7 @@ class ServerTransformer extends BaseClientTransformer
     /**
      * Returns the allocations associated with this server.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeAllocations(Server $server): Collection
     {
@@ -106,7 +106,7 @@ class ServerTransformer extends BaseClientTransformer
     }
 
     /**
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeVariables(Server $server): Collection|NullResource
     {
@@ -124,7 +124,7 @@ class ServerTransformer extends BaseClientTransformer
     /**
      * Returns the egg associated with this server.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeEgg(Server $server): Item
     {
@@ -134,7 +134,7 @@ class ServerTransformer extends BaseClientTransformer
     /**
      * Returns the subusers associated with this server.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeSubusers(Server $server): Collection|NullResource
     {

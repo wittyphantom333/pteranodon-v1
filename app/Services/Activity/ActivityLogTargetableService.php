@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Services\Activity;
+namespace Pteranodon\Services\Activity;
 
 use Illuminate\Database\Eloquent\Model;
 

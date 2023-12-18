@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Services\Databases;
+namespace Pteranodon\Services\Databases;
 
-use Jexactyl\Models\Database;
-use Jexactyl\Helpers\Utilities;
+use Pteranodon\Models\Database;
+use Pteranodon\Helpers\Utilities;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Jexactyl\Extensions\DynamicDatabaseConnection;
-use Jexactyl\Contracts\Repository\DatabaseRepositoryInterface;
+use Pteranodon\Extensions\DynamicDatabaseConnection;
+use Pteranodon\Contracts\Repository\DatabaseRepositoryInterface;
 
 class DatabasePasswordService
 {

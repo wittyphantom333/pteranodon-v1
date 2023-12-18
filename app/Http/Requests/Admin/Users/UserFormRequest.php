@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin\Users;
+namespace Pteranodon\Http\Requests\Admin\Users;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Support\Collection;
-use Jexactyl\Http\Requests\Admin\AdminFormRequest;
+use Pteranodon\Http\Requests\Admin\AdminFormRequest;
 
 class UserFormRequest extends AdminFormRequest
 {

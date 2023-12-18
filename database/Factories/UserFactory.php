@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

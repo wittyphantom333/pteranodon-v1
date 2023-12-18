@@ -1,12 +1,12 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'mail'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'mail'])
 
 @section('title')
-    Jexactyl Mail
+    Pteranodon Mail
 @endsection
 
 @section('content-header')
-    <h1>Mail Settings<small>Configure how Jexactyl should handle sending emails.</small></h1>
+    <h1>Mail Settings<small>Configure how Pteranodon should handle sending emails.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
         <li class="active">Settings</li>
@@ -14,7 +14,7 @@
 @endsection
 
 @section('content')
-    @yield('jexactyl::nav')
+    @yield('pteranodon::nav')
     <div class="row">
         <div class="col-xs-12">
             <div class="box box-info">

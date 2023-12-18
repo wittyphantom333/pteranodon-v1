@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Tests\Unit\Http\Middleware\Api\Application;
+namespace Pteranodon\Tests\Unit\Http\Middleware\Api\Application;
 
-use Jexactyl\Tests\Unit\Http\Middleware\MiddlewareTestCase;
+use Pteranodon\Tests\Unit\Http\Middleware\MiddlewareTestCase;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Jexactyl\Http\Middleware\Api\Application\AuthenticateApplicationUser;
+use Pteranodon\Http\Middleware\Api\Application\AuthenticateApplicationUser;
 
 class AuthenticateUserTest extends MiddlewareTestCase
 {

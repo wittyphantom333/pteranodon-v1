@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Middleware\Api\Client\Server;
+namespace Pteranodon\Http\Middleware\Api\Client\Server;
 
-use Jexactyl\Models\Task;
-use Jexactyl\Models\User;
-use Jexactyl\Models\Backup;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Task;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Backup;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
-use Jexactyl\Models\Subuser;
-use Jexactyl\Models\Database;
-use Jexactyl\Models\Schedule;
-use Jexactyl\Models\Allocation;
+use Pteranodon\Models\Subuser;
+use Pteranodon\Models\Database;
+use Pteranodon\Models\Schedule;
+use Pteranodon\Models\Allocation;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -31,7 +31,7 @@ class ResourceBelongsToServer
             throw new \InvalidArgumentException('This middleware cannot be used in a context that is missing a server in the parameters.');
         }
 
-        /** @var \Jexactyl\Models\Server $server */
+        /** @var \Pteranodon\Models\Server $server */
         $server = $request->route()->parameter('server');
         $exception = new NotFoundHttpException('The requested resource was not found for this server.');
         foreach ($params as $key => $model) {

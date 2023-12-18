@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Store;
+namespace Pteranodon\Http\Controllers\Api\Client\Store;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Services\Store\ResourcePurchaseService;
-use Jexactyl\Transformers\Api\Client\Store\CostTransformer;
-use Jexactyl\Transformers\Api\Client\Store\UserTransformer;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Store\PurchaseResourceRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Services\Store\ResourcePurchaseService;
+use Pteranodon\Transformers\Api\Client\Store\CostTransformer;
+use Pteranodon\Transformers\Api\Client\Store\UserTransformer;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Store\PurchaseResourceRequest;
 
 class ResourceController extends ClientApiController
 {
@@ -42,7 +42,7 @@ class ResourceController extends ClientApiController
     public function costs(Request $request)
     {
         $data = [];
-        $prefix = 'jexactyl::store:cost:';
+        $prefix = 'pteranodon::store:cost:';
         $types = ['cpu', 'memory', 'disk', 'slot', 'port', 'backup', 'database'];
 
         foreach ($types as $type) {
@@ -61,9 +61,9 @@ class ResourceController extends ClientApiController
      */
     public function earn(Request $request)
     {
-        $amount = $this->settings->get('jexactyl::earn:amount', 0);
+        $amount = $this->settings->get('pteranodon::earn:amount', 0);
 
-        if ($this->settings->get('jexactyl::earn:enabled') != 'true') {
+        if ($this->settings->get('pteranodon::earn:enabled') != 'true') {
             throw new DisplayException('Credit earning is currently disabled.');
         }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin;
+namespace Pteranodon\Http\Requests\Admin;
 
-use Jexactyl\Models\Mount;
+use Pteranodon\Models\Mount;
 
 class MountFormRequest extends AdminFormRequest
 {

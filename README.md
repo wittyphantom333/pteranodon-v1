@@ -1,24 +1,24 @@
-[![Logo Image](https://cdn.discordapp.com/attachments/1012411945141424218/1012430446556090468/JexactylBannerBasic.jpg)](https://jexactyl.com)
+[![Logo Image](./buddy.png)](https://pteranodon.com)
 
 [![Discord](https://img.shields.io/discord/922284031129825280?style=for-the-badge)](https://discord.com/invite/qttGR4Z5Pk)
-![Downloads - Total](https://img.shields.io/github/downloads/jexactyl/jexactyl/total?style=for-the-badge)
-![Downloads - Latest](https://img.shields.io/github/downloads/jexactyl/jexactyl/latest/total?style=for-the-badge)
-![Version](https://img.shields.io/github/v/release/jexactyl/jexactyl?style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors-anon/jexactyl/jexactyl?style=for-the-badge)
+![Downloads - Total](https://img.shields.io/github/downloads/wittyphantom333/pteranodon/total?style=for-the-badge)
+![Downloads - Latest](https://img.shields.io/github/downloads/wittyphantom333/pteranodon/latest/total?style=for-the-badge)
+![Version](https://img.shields.io/github/v/release/wittyphantom333/pteranodon?style=for-the-badge)
+![Contributors](https://img.shields.io/github/contributors-anon/wittyphantom333/pteranodon?style=for-the-badge)
 
-<h1 align="center">Jexactyl</h1>
+<h1 align="center">Pteranodon</h1>
 <h5 align="center">
     <strong>
-        Jexactyl is a fast, advanced and customisable game management panel and billing system in one.
+        Pteranodon is a fast, advanced and customisable game management panel and billing system in one.
         Give your users the edge in terms of performance, reliability and pure functionality.
     </strong>
 </h5>
 
 ## Installation
-Head over to our [Documentation](https://docs.jexactyl.com) to get started with self-hosting this software.
+Head over to our [Documentation](https://docs.pteranodon.com) to get started with self-hosting this software.
 If you need help at any point during the installation process, please let us know on [Discord](https://discord.com/invite/qttGR4Z5Pk).
 
-## Why use Jexactyl?
+## Why use Pteranodon?
 * Billing system which supports [Stripe](https://stripe.com) and [PayPal](https://paypal.com) out of the box.
 * Full customizability via a simple administrative dashboard.
 * Ticket system in order to provide support to customers.
@@ -27,7 +27,7 @@ If you need help at any point during the installation process, please let us kno
 * User approvals, server renewals, and much much more.
 
 ## Sponsors
-*Want to sponsor Jexactyl? [Donate Here.](https://donate.stripe.com/6oE02Zftd9cC34IbIS)*
+*Want to sponsor Pteranodon? [Donate Here.](https://donate.stripe.com/6oE02Zftd9cC34IbIS)*
 
 | Company | About | Link |
 | ------- | ----- | ------- |
@@ -51,4 +51,4 @@ If you need help at any point during the installation process, please let us kno
 Some Javascript and CSS used within the panel are licensed under a `MIT` or `Apache 2.0` license. Please check their
 respective header files for more information.
 
-*Jexactyl is not affiliated with [Pterodactyl Software](https://pterodactyl.io).*
+*Pteranodon is not affiliated with [Pterodactyl Software](https://pterodactyl.io).*

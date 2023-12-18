@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client\Store;
+namespace Pteranodon\Transformers\Api\Client\Store;
 
-use Jexactyl\Transformers\Api\Client\BaseClientTransformer;
+use Pteranodon\Transformers\Api\Client\BaseClientTransformer;
 
 class CostTransformer extends BaseClientTransformer
 {

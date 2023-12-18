@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Auth;
+namespace Pteranodon\Http\Controllers\Auth;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
 use Illuminate\Http\JsonResponse;
 use PragmaRX\Google2FA\Google2FA;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Jexactyl\Events\Auth\ProvidedAuthenticationToken;
-use Jexactyl\Http\Requests\Auth\LoginCheckpointRequest;
+use Pteranodon\Events\Auth\ProvidedAuthenticationToken;
+use Pteranodon\Http\Requests\Auth\LoginCheckpointRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
@@ -56,7 +56,7 @@ class LoginCheckpointController extends AbstractLoginController
         }
 
         try {
-            /** @var \Jexactyl\Models\User $user */
+            /** @var \Pteranodon\Models\User $user */
             $user = User::query()->findOrFail($details['user_id']);
         } catch (ModelNotFoundException) {
             $this->sendFailedLoginResponse($request, null, self::TOKEN_EXPIRED_MESSAGE);
@@ -72,7 +72,7 @@ class LoginCheckpointController extends AbstractLoginController
         } else {
             $decrypted = $this->encrypter->decrypt($user->totp_secret);
 
-            if ($this->google2FA->verifyKey($decrypted, (string) $request->input('authentication_code') ?? '', config('jexactyl.auth.2fa.window'))) {
+            if ($this->google2FA->verifyKey($decrypted, (string) $request->input('authentication_code') ?? '', config('pteranodon.auth.2fa.window'))) {
                 Event::dispatch(new ProvidedAuthenticationToken($user));
 
                 return $this->sendLoginResponse($user, $request);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Validation\Rules\NotIn;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property string $target
  * @property bool $read_only
  * @property bool $user_mountable
- * @property \Jexactyl\Models\Egg[]|\Illuminate\Database\Eloquent\Collection $eggs
- * @property \Jexactyl\Models\Node[]|\Illuminate\Database\Eloquent\Collection $nodes
- * @property \Jexactyl\Models\Server[]|\Illuminate\Database\Eloquent\Collection $servers
+ * @property \Pteranodon\Models\Egg[]|\Illuminate\Database\Eloquent\Collection $eggs
+ * @property \Pteranodon\Models\Node[]|\Illuminate\Database\Eloquent\Collection $nodes
+ * @property \Pteranodon\Models\Server[]|\Illuminate\Database\Eloquent\Collection $servers
  */
 class Mount extends Model
 {

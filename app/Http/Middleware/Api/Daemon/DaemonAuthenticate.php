@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Http\Middleware\Api\Daemon;
+namespace Pteranodon\Http\Middleware\Api\Daemon;
 
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Jexactyl\Repositories\Eloquent\NodeRepository;
+use Pteranodon\Repositories\Eloquent\NodeRepository;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use Jexactyl\Exceptions\Repository\RecordNotFoundException;
+use Pteranodon\Exceptions\Repository\RecordNotFoundException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
@@ -48,7 +48,7 @@ class DaemonAuthenticate
         }
 
         try {
-            /** @var \Jexactyl\Models\Node $node */
+            /** @var \Pteranodon\Models\Node $node */
             $node = $this->repository->findFirstWhere([
                 'daemon_token_id' => $parts[0],
             ]);

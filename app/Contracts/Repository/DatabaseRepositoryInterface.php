@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Contracts\Repository;
+namespace Pteranodon\Contracts\Repository;
 
 use Illuminate\Support\Collection;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;

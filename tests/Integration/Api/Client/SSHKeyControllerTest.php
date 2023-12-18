@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client;
+namespace Pteranodon\Tests\Integration\Api\Client;
 
 use phpseclib3\Crypt\EC;
-use Jexactyl\Models\User;
-use Jexactyl\Models\UserSSHKey;
+use Pteranodon\Models\User;
+use Pteranodon\Models\UserSSHKey;
 
 class SSHKeyControllerTest extends ClientApiIntegrationTestCase
 {

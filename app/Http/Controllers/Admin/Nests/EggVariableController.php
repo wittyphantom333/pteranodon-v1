@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Nests;
+namespace Pteranodon\Http\Controllers\Admin\Nests;
 
-use Jexactyl\Models\Egg;
+use Pteranodon\Models\Egg;
 use Illuminate\View\View;
-use Jexactyl\Models\EggVariable;
+use Pteranodon\Models\EggVariable;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\View\Factory as ViewFactory;
-use Jexactyl\Contracts\Repository\EggRepositoryInterface;
-use Jexactyl\Services\Eggs\Variables\VariableUpdateService;
-use Jexactyl\Http\Requests\Admin\Egg\EggVariableFormRequest;
-use Jexactyl\Services\Eggs\Variables\VariableCreationService;
-use Jexactyl\Contracts\Repository\EggVariableRepositoryInterface;
+use Pteranodon\Contracts\Repository\EggRepositoryInterface;
+use Pteranodon\Services\Eggs\Variables\VariableUpdateService;
+use Pteranodon\Http\Requests\Admin\Egg\EggVariableFormRequest;
+use Pteranodon\Services\Eggs\Variables\VariableCreationService;
+use Pteranodon\Contracts\Repository\EggVariableRepositoryInterface;
 
 class EggVariableController extends Controller
 {
@@ -33,7 +33,7 @@ class EggVariableController extends Controller
     /**
      * Handle request to view the variables attached to an Egg.
      *
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function view(int $egg): View
     {
@@ -45,9 +45,9 @@ class EggVariableController extends Controller
     /**
      * Handle a request to create a new Egg variable.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Service\Egg\Variable\BadValidationRuleException
-     * @throws \Jexactyl\Exceptions\Service\Egg\Variable\ReservedVariableNameException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Service\Egg\Variable\BadValidationRuleException
+     * @throws \Pteranodon\Exceptions\Service\Egg\Variable\ReservedVariableNameException
      */
     public function store(EggVariableFormRequest $request, Egg $egg): RedirectResponse
     {
@@ -60,10 +60,10 @@ class EggVariableController extends Controller
     /**
      * Handle a request to update an existing Egg variable.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Jexactyl\Exceptions\Service\Egg\Variable\ReservedVariableNameException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Service\Egg\Variable\ReservedVariableNameException
      */
     public function update(EggVariableFormRequest $request, Egg $egg, EggVariable $variable): RedirectResponse
     {

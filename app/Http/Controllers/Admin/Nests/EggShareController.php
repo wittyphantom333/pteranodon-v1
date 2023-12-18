@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Nests;
+namespace Pteranodon\Http\Controllers\Admin\Nests;
 
-use Jexactyl\Models\Egg;
+use Pteranodon\Models\Egg;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Jexactyl\Services\Eggs\Sharing\EggExporterService;
-use Jexactyl\Services\Eggs\Sharing\EggImporterService;
-use Jexactyl\Http\Requests\Admin\Egg\EggImportFormRequest;
-use Jexactyl\Services\Eggs\Sharing\EggUpdateImporterService;
+use Pteranodon\Services\Eggs\Sharing\EggExporterService;
+use Pteranodon\Services\Eggs\Sharing\EggImporterService;
+use Pteranodon\Http\Requests\Admin\Egg\EggImportFormRequest;
+use Pteranodon\Services\Eggs\Sharing\EggUpdateImporterService;
 
 class EggShareController extends Controller
 {
@@ -26,7 +26,7 @@ class EggShareController extends Controller
     }
 
     /**
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function export(Egg $egg): Response
     {
@@ -43,10 +43,10 @@ class EggShareController extends Controller
     /**
      * Import a new service option using an XML file.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Jexactyl\Exceptions\Service\Egg\BadJsonFormatException
-     * @throws \Jexactyl\Exceptions\Service\InvalidFileUploadException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Service\Egg\BadJsonFormatException
+     * @throws \Pteranodon\Exceptions\Service\InvalidFileUploadException
      */
     public function import(EggImportFormRequest $request): RedirectResponse
     {
@@ -59,10 +59,10 @@ class EggShareController extends Controller
     /**
      * Update an existing Egg using a new imported file.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Jexactyl\Exceptions\Service\Egg\BadJsonFormatException
-     * @throws \Jexactyl\Exceptions\Service\InvalidFileUploadException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Service\Egg\BadJsonFormatException
+     * @throws \Pteranodon\Exceptions\Service\InvalidFileUploadException
      */
     public function update(EggImportFormRequest $request, Egg $egg): RedirectResponse
     {

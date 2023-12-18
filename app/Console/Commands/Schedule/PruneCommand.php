@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Schedule;
+namespace Pteranodon\Console\Commands\Schedule;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Console\Command;
-use Jexactyl\Services\Servers\ServerDeletionService;
+use Pteranodon\Services\Servers\ServerDeletionService;
 
 class PruneCommand extends Command
 {

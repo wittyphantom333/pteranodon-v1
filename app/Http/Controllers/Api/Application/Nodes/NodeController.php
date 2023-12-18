@@ -1,20 +1,20 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Nodes;
+namespace Pteranodon\Http\Controllers\Api\Application\Nodes;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Http\JsonResponse;
 use Spatie\QueryBuilder\QueryBuilder;
-use Jexactyl\Services\Nodes\NodeUpdateService;
-use Jexactyl\Services\Nodes\NodeCreationService;
-use Jexactyl\Services\Nodes\NodeDeletionService;
-use Jexactyl\Transformers\Api\Application\NodeTransformer;
-use Jexactyl\Http\Requests\Api\Application\Nodes\GetNodeRequest;
-use Jexactyl\Http\Requests\Api\Application\Nodes\GetNodesRequest;
-use Jexactyl\Http\Requests\Api\Application\Nodes\StoreNodeRequest;
-use Jexactyl\Http\Requests\Api\Application\Nodes\DeleteNodeRequest;
-use Jexactyl\Http\Requests\Api\Application\Nodes\UpdateNodeRequest;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Services\Nodes\NodeUpdateService;
+use Pteranodon\Services\Nodes\NodeCreationService;
+use Pteranodon\Services\Nodes\NodeDeletionService;
+use Pteranodon\Transformers\Api\Application\NodeTransformer;
+use Pteranodon\Http\Requests\Api\Application\Nodes\GetNodeRequest;
+use Pteranodon\Http\Requests\Api\Application\Nodes\GetNodesRequest;
+use Pteranodon\Http\Requests\Api\Application\Nodes\StoreNodeRequest;
+use Pteranodon\Http\Requests\Api\Application\Nodes\DeleteNodeRequest;
+use Pteranodon\Http\Requests\Api\Application\Nodes\UpdateNodeRequest;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
 
 class NodeController extends ApplicationApiController
 {
@@ -58,7 +58,7 @@ class NodeController extends ApplicationApiController
      * Create a new node on the Panel. Returns the created node and an HTTP/201
      * status response on success.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function store(StoreNodeRequest $request): JsonResponse
     {
@@ -96,7 +96,7 @@ class NodeController extends ApplicationApiController
      * Deletes a given node from the Panel as long as there are no servers
      * currently attached to it.
      *
-     * @throws \Jexactyl\Exceptions\Service\HasActiveServersException
+     * @throws \Pteranodon\Exceptions\Service\HasActiveServersException
      */
     public function delete(DeleteNodeRequest $request, Node $node): JsonResponse
     {

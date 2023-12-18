@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Application;
+namespace Pteranodon\Transformers\Api\Application;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\Nest;
-use Jexactyl\Models\Server;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\Nest;
+use Pteranodon\Models\Server;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\NullResource;
 
@@ -43,7 +43,7 @@ class NestTransformer extends BaseTransformer
     /**
      * Include the Eggs relationship on the given Nest model transformation.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeEggs(Nest $model): Collection|NullResource
     {
@@ -59,7 +59,7 @@ class NestTransformer extends BaseTransformer
     /**
      * Include the servers relationship on the given Nest model.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeServers(Nest $model): Collection|NullResource
     {

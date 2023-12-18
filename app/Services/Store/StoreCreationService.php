@@ -1,18 +1,18 @@
 <?php
 
-namespace Jexactyl\Services\Store;
+namespace Pteranodon\Services\Store;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\Nest;
-use Jexactyl\Models\Node;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\Allocation;
-use Jexactyl\Models\EggVariable;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Services\Servers\ServerCreationService;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Api\Client\Store\CreateServerRequest;
-use Jexactyl\Exceptions\Service\Deployment\NoViableAllocationException;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\Nest;
+use Pteranodon\Models\Node;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\Allocation;
+use Pteranodon\Models\EggVariable;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Services\Servers\ServerCreationService;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Api\Client\Store\CreateServerRequest;
+use Pteranodon\Exceptions\Service\Deployment\NoViableAllocationException;
 
 class StoreCreationService
 {
@@ -24,7 +24,7 @@ class StoreCreationService
     }
 
     /**
-     * Creates a server on Jexactyl using the Storefront.
+     * Creates a server on Pteranodon using the Storefront.
      *
      * @throws DisplayException
      */
@@ -60,7 +60,7 @@ class StoreCreationService
             // mark this server as enabled - so that if the renewal system is enabled again,
             // it'll be part of the renewable servers.
             'renewable' => true,
-            'renewal' => $this->settings->get('jexactyl::renewal:default'),
+            'renewal' => $this->settings->get('pteranodon::renewal:default'),
         ];
 
         foreach (EggVariable::where('egg_id', $egg->id)->get() as $var) {

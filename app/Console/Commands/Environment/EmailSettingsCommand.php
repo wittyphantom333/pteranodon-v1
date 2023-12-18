@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Environment;
+namespace Pteranodon\Console\Commands\Environment;
 
 use Illuminate\Console\Command;
-use Jexactyl\Traits\Commands\EnvironmentWriterTrait;
+use Pteranodon\Traits\Commands\EnvironmentWriterTrait;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class EmailSettingsCommand extends Command
@@ -36,7 +36,7 @@ class EmailSettingsCommand extends Command
     /**
      * Handle command execution.
      *
-     * @throws \Jexactyl\Exceptions\JexactylException
+     * @throws \Pteranodon\Exceptions\PteranodonException
      */
     public function handle()
     {

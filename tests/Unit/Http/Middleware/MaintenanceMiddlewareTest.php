@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Tests\Unit\Http\Middleware;
+namespace Pteranodon\Tests\Unit\Http\Middleware;
 
 use Mockery as m;
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Mockery\MockInterface;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Routing\ResponseFactory;
-use Jexactyl\Http\Middleware\MaintenanceMiddleware;
+use Pteranodon\Http\Middleware\MaintenanceMiddleware;
 
 class MaintenanceMiddlewareTest extends MiddlewareTestCase
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Services\Allocations;
+namespace Pteranodon\Services\Allocations;
 
 use IPTools\Network;
-use Jexactyl\Models\Node;
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Models\Node;
+use Pteranodon\Exceptions\DisplayException;
 use Illuminate\Database\ConnectionInterface;
-use Jexactyl\Contracts\Repository\AllocationRepositoryInterface;
-use Jexactyl\Exceptions\Service\Allocation\CidrOutOfRangeException;
-use Jexactyl\Exceptions\Service\Allocation\PortOutOfRangeException;
-use Jexactyl\Exceptions\Service\Allocation\InvalidPortMappingException;
-use Jexactyl\Exceptions\Service\Allocation\TooManyPortsInRangeException;
+use Pteranodon\Contracts\Repository\AllocationRepositoryInterface;
+use Pteranodon\Exceptions\Service\Allocation\CidrOutOfRangeException;
+use Pteranodon\Exceptions\Service\Allocation\PortOutOfRangeException;
+use Pteranodon\Exceptions\Service\Allocation\InvalidPortMappingException;
+use Pteranodon\Exceptions\Service\Allocation\TooManyPortsInRangeException;
 
 class AssignmentService
 {
@@ -31,11 +31,11 @@ class AssignmentService
     /**
      * Insert allocations into the database and link them to a specific node.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\CidrOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\InvalidPortMappingException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\PortOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\TooManyPortsInRangeException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\CidrOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\InvalidPortMappingException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\PortOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\TooManyPortsInRangeException
      */
     public function handle(Node $node, array $data): void
     {

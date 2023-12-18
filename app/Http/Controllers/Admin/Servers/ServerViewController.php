@@ -1,22 +1,22 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Servers;
+namespace Pteranodon\Http\Controllers\Admin\Servers;
 
 use Illuminate\View\View;
-use Jexactyl\Models\Nest;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Nest;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Services\Servers\EnvironmentService;
-use Jexactyl\Repositories\Eloquent\NestRepository;
-use Jexactyl\Repositories\Eloquent\NodeRepository;
-use Jexactyl\Repositories\Eloquent\MountRepository;
-use Jexactyl\Repositories\Eloquent\ServerRepository;
-use Jexactyl\Traits\Controllers\JavascriptInjection;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Services\Servers\EnvironmentService;
+use Pteranodon\Repositories\Eloquent\NestRepository;
+use Pteranodon\Repositories\Eloquent\NodeRepository;
+use Pteranodon\Repositories\Eloquent\MountRepository;
+use Pteranodon\Repositories\Eloquent\ServerRepository;
+use Pteranodon\Traits\Controllers\JavascriptInjection;
 use Illuminate\Contracts\View\Factory as ViewFactory;
-use Jexactyl\Repositories\Eloquent\LocationRepository;
-use Jexactyl\Repositories\Eloquent\DatabaseHostRepository;
+use Pteranodon\Repositories\Eloquent\LocationRepository;
+use Pteranodon\Repositories\Eloquent\DatabaseHostRepository;
 
 class ServerViewController extends Controller
 {
@@ -70,7 +70,7 @@ class ServerViewController extends Controller
     /**
      * Returns the server startup management page.
      *
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function startup(Request $request, Server $server): View
     {
@@ -118,7 +118,7 @@ class ServerViewController extends Controller
      * Returns the base server management page, or an exception if the server
      * is in a state that cannot be recovered from.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     public function manage(Request $request, Server $server): View
     {

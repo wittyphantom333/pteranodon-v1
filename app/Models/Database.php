@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Container\Container;
-use Jexactyl\Contracts\Extensions\HashidsInterface;
+use Pteranodon\Contracts\Extensions\HashidsInterface;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
@@ -17,8 +17,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $max_connections
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property \Jexactyl\Models\Server $server
- * @property \Jexactyl\Models\DatabaseHost $host
+ * @property \Pteranodon\Models\Server $server
+ * @property \Pteranodon\Models\DatabaseHost $host
  */
 class Database extends Model
 {

@@ -1,9 +1,9 @@
 <?php
 
-use Jexactyl\Http\Controllers\Admin;
+use Pteranodon\Http\Controllers\Admin;
 use Illuminate\Support\Facades\Route;
-use Jexactyl\Http\Controllers\Admin\Jexactyl;
-use Jexactyl\Http\Middleware\Admin\Servers\ServerInstalled;
+use Pteranodon\Http\Controllers\Admin\Pteranodon;
+use Pteranodon\Http\Middleware\Admin\Servers\ServerInstalled;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,64 +14,64 @@ use Jexactyl\Http\Middleware\Admin\Servers\ServerInstalled;
 |
 */
 Route::group(['prefix' => '/'], function () {
-    Route::get('/', [Jexactyl\IndexController::class, 'index'])->name('admin.index');
+    Route::get('/', [Pteranodon\IndexController::class, 'index'])->name('admin.index');
 
     Route::group(['prefix' => '/appearance'], function () {
-        Route::get('/', [Jexactyl\AppearanceController::class, 'index']);
-        Route::patch('/', [Jexactyl\AppearanceController::class, 'update'])->name('admin.jexactyl.appearance');
+        Route::get('/', [Pteranodon\AppearanceController::class, 'index']);
+        Route::patch('/', [Pteranodon\AppearanceController::class, 'update'])->name('admin.pteranodon.appearance');
     });
 
     Route::group(['prefix' => '/mail'], function () {
-        Route::get('/', [Jexactyl\MailController::class, 'index']);
-        Route::patch('/', [Jexactyl\MailController::class, 'update'])->name('admin.jexactyl.mail');
-        Route::post('/test', [Jexactyl\MailController::class, 'test'])->name('admin.jexactyl.mail.test');
+        Route::get('/', [Pteranodon\MailController::class, 'index']);
+        Route::patch('/', [Pteranodon\MailController::class, 'update'])->name('admin.pteranodon.mail');
+        Route::post('/test', [Pteranodon\MailController::class, 'test'])->name('admin.pteranodon.mail.test');
     });
 
     Route::group(['prefix' => '/advanced'], function () {
-        Route::get('/', [Jexactyl\AdvancedController::class, 'index']);
-        Route::patch('/', [Jexactyl\AdvancedController::class, 'update'])->name('admin.jexactyl.advanced');
+        Route::get('/', [Pteranodon\AdvancedController::class, 'index']);
+        Route::patch('/', [Pteranodon\AdvancedController::class, 'update'])->name('admin.pteranodon.advanced');
     });
 
     Route::group(['prefix' => '/store'], function () {
-        Route::get('/', [Jexactyl\StoreController::class, 'index']);
-        Route::patch('/', [Jexactyl\StoreController::class, 'update'])->name('admin.jexactyl.store');
+        Route::get('/', [Pteranodon\StoreController::class, 'index']);
+        Route::patch('/', [Pteranodon\StoreController::class, 'update'])->name('admin.pteranodon.store');
     });
 
     Route::group(['prefix' => '/registration'], function () {
-        Route::get('/', [Jexactyl\RegistrationController::class, 'index']);
-        Route::patch('/', [Jexactyl\RegistrationController::class, 'update'])->name('admin.jexactyl.registration');
+        Route::get('/', [Pteranodon\RegistrationController::class, 'index']);
+        Route::patch('/', [Pteranodon\RegistrationController::class, 'update'])->name('admin.pteranodon.registration');
     });
 
     Route::group(['prefix' => '/approvals'], function () {
-        Route::get('/', [Jexactyl\ApprovalsController::class, 'index']);
+        Route::get('/', [Pteranodon\ApprovalsController::class, 'index']);
 
-        Route::patch('/', [Jexactyl\ApprovalsController::class, 'update'])->name('admin.jexactyl.approvals');
+        Route::patch('/', [Pteranodon\ApprovalsController::class, 'update'])->name('admin.pteranodon.approvals');
 
-        Route::post('/deny/{id}', [Jexactyl\ApprovalsController::class, 'deny'])->name('admin.jexactyl.approvals.deny');
-        Route::post('/approve/all', [Jexactyl\ApprovalsController::class, 'bulkAction'])->name('admin.jexactyl.approvals.all');
-        Route::post('/approve/{id}', [Jexactyl\ApprovalsController::class, 'approve'])->name('admin.jexactyl.approvals.approve');
+        Route::post('/deny/{id}', [Pteranodon\ApprovalsController::class, 'deny'])->name('admin.pteranodon.approvals.deny');
+        Route::post('/approve/all', [Pteranodon\ApprovalsController::class, 'bulkAction'])->name('admin.pteranodon.approvals.all');
+        Route::post('/approve/{id}', [Pteranodon\ApprovalsController::class, 'approve'])->name('admin.pteranodon.approvals.approve');
     });
 
     Route::group(['prefix' => '/server'], function () {
-        Route::get('/', [Jexactyl\ServerController::class, 'index']);
-        Route::patch('/', [Jexactyl\ServerController::class, 'update'])->name('admin.jexactyl.server');
+        Route::get('/', [Pteranodon\ServerController::class, 'index']);
+        Route::patch('/', [Pteranodon\ServerController::class, 'update'])->name('admin.pteranodon.server');
     });
 
     Route::group(['prefix' => '/referrals'], function () {
-        Route::get('/', [Jexactyl\ReferralsController::class, 'index']);
-        Route::patch('/', [Jexactyl\ReferralsController::class, 'update'])->name('admin.jexactyl.referrals');
+        Route::get('/', [Pteranodon\ReferralsController::class, 'index']);
+        Route::patch('/', [Pteranodon\ReferralsController::class, 'update'])->name('admin.pteranodon.referrals');
     });
 
     Route::group(['prefix' => '/alerts'], function () {
-        Route::get('/', [Jexactyl\AlertsController::class, 'index']);
-        Route::patch('/', [Jexactyl\AlertsController::class, 'update'])->name('admin.jexactyl.alerts');
-        Route::post('/remove', [Jexactyl\AlertsController::class, 'remove'])->name('admin.jexactyl.alerts.remove');
+        Route::get('/', [Pteranodon\AlertsController::class, 'index']);
+        Route::patch('/', [Pteranodon\AlertsController::class, 'update'])->name('admin.pteranodon.alerts');
+        Route::post('/remove', [Pteranodon\AlertsController::class, 'remove'])->name('admin.pteranodon.alerts.remove');
     });
 
     Route::group(['prefix' => '/coupons'], function () {
-        Route::get('/', [Jexactyl\CouponsController::class, 'index']);
-        Route::patch('/', [Jexactyl\CouponsController::class, 'update'])->name('admin.jexactyl.coupons');
-        Route::post('/store', [Jexactyl\CouponsController::class, 'store'])->name('admin.jexactyl.coupons.store');
+        Route::get('/', [Pteranodon\CouponsController::class, 'index']);
+        Route::patch('/', [Pteranodon\CouponsController::class, 'update'])->name('admin.pteranodon.coupons');
+        Route::post('/store', [Pteranodon\CouponsController::class, 'store'])->name('admin.pteranodon.coupons.store');
     });
 });
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Http\ViewComposers;
+namespace Pteranodon\Http\ViewComposers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Container\Container;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 class Composer
 {
@@ -51,7 +51,7 @@ class Composer
      */
     protected function setting(string $data, int $type)
     {
-        $setting = $this->settings->get('jexactyl::' . $data, false);
+        $setting = $this->settings->get('pteranodon::' . $data, false);
 
         if ($data == 'logo') {
             return $this->settings->get('settings::app:logo', 'https://avatars.githubusercontent.com/u/91636558');

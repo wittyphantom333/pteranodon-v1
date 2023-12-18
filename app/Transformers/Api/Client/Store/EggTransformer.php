@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client\Store;
+namespace Pteranodon\Transformers\Api\Client\Store;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Transformers\Api\Client\BaseClientTransformer;
+use Pteranodon\Models\Egg;
+use Pteranodon\Transformers\Api\Client\BaseClientTransformer;
 
 class EggTransformer extends BaseClientTransformer
 {

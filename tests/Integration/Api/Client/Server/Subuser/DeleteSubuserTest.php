@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Subuser;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Subuser;
 
 use Ramsey\Uuid\Uuid;
-use Jexactyl\Models\User;
-use Jexactyl\Models\Subuser;
-use Jexactyl\Models\Permission;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Subuser;
+use Pteranodon\Models\Permission;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class DeleteSubuserTest extends ClientApiIntegrationTestCase
 {
@@ -28,14 +28,14 @@ class DeleteSubuserTest extends ClientApiIntegrationTestCase
 
         [$user, $server] = $this->generateTestAccount();
 
-        /** @var \Jexactyl\Models\User $differentUser */
+        /** @var \Pteranodon\Models\User $differentUser */
         $differentUser = User::factory()->create();
 
         $real = Uuid::uuid4()->toString();
         // Generate a UUID that lines up with a user in the database if it were to be cast to an int.
         $uuid = $differentUser->id . substr($real, strlen((string) $differentUser->id));
 
-        /** @var \Jexactyl\Models\User $subuser */
+        /** @var \Pteranodon\Models\User $subuser */
         $subuser = User::factory()->create(['uuid' => $uuid]);
 
         Subuser::query()->forceCreate([
@@ -51,7 +51,7 @@ class DeleteSubuserTest extends ClientApiIntegrationTestCase
         // Try the same test, but this time with a UUID that if cast to an int (shouldn't) line up with
         // anything in the database.
         $uuid = '18180000' . substr(Uuid::uuid4()->toString(), 8);
-        /** @var \Jexactyl\Models\User $subuser */
+        /** @var \Pteranodon\Models\User $subuser */
         $subuser = User::factory()->create(['uuid' => $uuid]);
 
         Subuser::query()->forceCreate([

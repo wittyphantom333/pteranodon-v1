@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Services\Locations;
+namespace Pteranodon\Services\Locations;
 
-use Jexactyl\Models\Location;
-use Jexactyl\Contracts\Repository\LocationRepositoryInterface;
+use Pteranodon\Models\Location;
+use Pteranodon\Contracts\Repository\LocationRepositoryInterface;
 
 class LocationCreationService
 {
@@ -17,7 +17,7 @@ class LocationCreationService
     /**
      * Create a new location.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
      */
     public function handle(array $data): Location
     {

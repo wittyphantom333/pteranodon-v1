@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Services\Eggs;
+namespace Pteranodon\Services\Eggs;
 
-use Jexactyl\Contracts\Repository\EggRepositoryInterface;
-use Jexactyl\Exceptions\Service\Egg\HasChildrenException;
-use Jexactyl\Exceptions\Service\HasActiveServersException;
-use Jexactyl\Contracts\Repository\ServerRepositoryInterface;
+use Pteranodon\Contracts\Repository\EggRepositoryInterface;
+use Pteranodon\Exceptions\Service\Egg\HasChildrenException;
+use Pteranodon\Exceptions\Service\HasActiveServersException;
+use Pteranodon\Contracts\Repository\ServerRepositoryInterface;
 
 class EggDeletionService
 {
@@ -21,8 +21,8 @@ class EggDeletionService
     /**
      * Delete an Egg from the database if it has no active servers attached to it.
      *
-     * @throws \Jexactyl\Exceptions\Service\HasActiveServersException
-     * @throws \Jexactyl\Exceptions\Service\Egg\HasChildrenException
+     * @throws \Pteranodon\Exceptions\Service\HasActiveServersException
+     * @throws \Pteranodon\Exceptions\Service\Egg\HasChildrenException
      */
     public function handle(int $egg): int
     {

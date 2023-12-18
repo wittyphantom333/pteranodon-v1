@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Listeners\Auth;
+namespace Pteranodon\Listeners\Auth;
 
-use Jexactyl\Facades\Activity;
+use Pteranodon\Facades\Activity;
 use Illuminate\Auth\Events\Failed;
-use Jexactyl\Events\Auth\DirectLogin;
+use Pteranodon\Events\Auth\DirectLogin;
 use Illuminate\Contracts\Events\Dispatcher;
-use Jexactyl\Extensions\Illuminate\Events\Contracts\SubscribesToEvents;
+use Pteranodon\Extensions\Illuminate\Events\Contracts\SubscribesToEvents;
 
 class AuthenticationListener implements SubscribesToEvents
 {

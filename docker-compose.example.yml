@@ -4,7 +4,7 @@ x-common:
     &db-environment
     # Do not remove the "&db-password" from the end of the line below, it is important
     # for Panel functionality.
-    MYSQL_USER: &db-user "jexactyl"
+    MYSQL_USER: &db-user "pteranodon"
     MYSQL_PASSWORD: &db-password "CHANGE_ME"
     MYSQL_ROOT_PASSWORD: "CHANGE_ME_TOO"
   panel:
@@ -39,7 +39,7 @@ services:
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - "/srv/jexactyl/database:/var/lib/mysql"
+      - "/srv/pteranodon/database:/var/lib/mysql"
     environment:
       <<: *db-environment
       MYSQL_DATABASE: "panel"
@@ -48,7 +48,7 @@ services:
     image: redis:alpine
     restart: always
   panel:
-    #image: ghcr.io/jexactyl/jexactyl:latest
+    #image: ghcr.io/wittyphantom333/pteranodon:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -60,10 +60,10 @@ services:
       - database
       - cache
     volumes:
-      - "/srv/jexactyl/var/:/app/var/"
-      - "/srv/jexactyl/nginx/:/etc/nginx/http.d/"
-      - "/srv/jexactyl/certs/:/etc/letsencrypt/"
-      - "/srv/jexactyl/logs/:/app/storage/logs"
+      - "/srv/pteranodon/var/:/app/var/"
+      - "/srv/pteranodon/nginx/:/etc/nginx/http.d/"
+      - "/srv/pteranodon/certs/:/etc/letsencrypt/"
+      - "/srv/pteranodon/logs/:/app/storage/logs"
     environment:
       <<: [*panel-environment, *mail-environment]
       DB_PASSWORD: *db-password

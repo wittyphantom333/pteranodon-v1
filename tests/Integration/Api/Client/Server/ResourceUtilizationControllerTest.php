@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server;
+namespace Pteranodon\Tests\Integration\Api\Client\Server;
 
-use Jexactyl\Models\Permission;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\Permission;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class ResourceUtilizationControllerTest extends ClientApiIntegrationTestCase
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Tests\Unit\Services\Acl\Api;
+namespace Pteranodon\Tests\Unit\Services\Acl\Api;
 
-use Jexactyl\Models\ApiKey;
-use Jexactyl\Tests\TestCase;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Models\ApiKey;
+use Pteranodon\Tests\TestCase;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 
 class AdminAclTest extends TestCase
 {

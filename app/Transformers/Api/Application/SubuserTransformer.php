@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Application;
+namespace Pteranodon\Transformers\Api\Application;
 
-use Jexactyl\Models\Subuser;
+use Pteranodon\Models\Subuser;
 use League\Fractal\Resource\Item;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use League\Fractal\Resource\NullResource;
 
 class SubuserTransformer extends BaseTransformer
@@ -40,7 +40,7 @@ class SubuserTransformer extends BaseTransformer
     /**
      * Return a generic item of user for this subuser.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeUser(Subuser $subuser): Item|NullResource
     {
@@ -56,7 +56,7 @@ class SubuserTransformer extends BaseTransformer
     /**
      * Return a generic item of server for this subuser.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeServer(Subuser $subuser): Item|NullResource
     {

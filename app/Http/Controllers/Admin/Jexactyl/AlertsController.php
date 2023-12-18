@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Exceptions\Model\DataValidationException;
-use Jexactyl\Exceptions\Repository\RecordNotFoundException;
-use Jexactyl\Http\Requests\Admin\Jexactyl\AlertFormRequest;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Exceptions\Model\DataValidationException;
+use Pteranodon\Exceptions\Repository\RecordNotFoundException;
+use Pteranodon\Http\Requests\Admin\Pteranodon\AlertFormRequest;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 class AlertsController extends Controller
 {
@@ -23,13 +23,13 @@ class AlertsController extends Controller
     }
 
     /**
-     * Render the Jexactyl settings interface.
+     * Render the Pteranodon settings interface.
      */
     public function index(): View
     {
-        return view('admin.jexactyl.alerts', [
-            'type' => $this->settings->get('jexactyl::alert:type', 'success'),
-            'message' => $this->settings->get('jexactyl::alert:message'),
+        return view('admin.pteranodon.alerts', [
+            'type' => $this->settings->get('pteranodon::alert:type', 'success'),
+            'message' => $this->settings->get('pteranodon::alert:message'),
         ]);
     }
 
@@ -41,12 +41,12 @@ class AlertsController extends Controller
     public function update(AlertFormRequest $request): RedirectResponse
     {
         foreach ($request->normalize() as $key => $value) {
-            $this->settings->set('jexactyl::' . $key, $value);
+            $this->settings->set('pteranodon::' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Alert has been updated.')->flash();
+        $this->alert->success('Pteranodon Alert has been updated.')->flash();
 
-        return redirect()->route('admin.jexactyl.alerts');
+        return redirect()->route('admin.pteranodon.alerts');
     }
 
     /**
@@ -54,11 +54,11 @@ class AlertsController extends Controller
      */
     public function remove(): RedirectResponse
     {
-        $this->settings->forget('jexactyl::alert:type');
-        $this->settings->forget('jexactyl::alert:message');
+        $this->settings->forget('pteranodon::alert:type');
+        $this->settings->forget('pteranodon::alert:message');
 
-        $this->alert->success('Jexactyl Alert has been removed.')->flash();
+        $this->alert->success('Pteranodon Alert has been removed.')->flash();
 
-        return redirect()->route('admin.jexactyl.alerts');
+        return redirect()->route('admin.pteranodon.alerts');
     }
 }

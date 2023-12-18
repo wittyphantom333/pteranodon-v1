@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Servers;
+namespace Pteranodon\Http\Controllers\Api\Application\Servers;
 
-use Jexactyl\Models\Server;
-use Jexactyl\Transformers\Api\Application\ServerTransformer;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
-use Jexactyl\Http\Requests\Api\Application\Servers\GetExternalServerRequest;
+use Pteranodon\Models\Server;
+use Pteranodon\Transformers\Api\Application\ServerTransformer;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Http\Requests\Api\Application\Servers\GetExternalServerRequest;
 
 class ExternalServerController extends ApplicationApiController
 {

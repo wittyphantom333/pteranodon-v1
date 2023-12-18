@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client;
+namespace Pteranodon\Transformers\Api\Client;
 
-use Jexactyl\Models\Task;
-use Jexactyl\Models\Schedule;
+use Pteranodon\Models\Task;
+use Pteranodon\Models\Schedule;
 use League\Fractal\Resource\Collection;
 
 class ScheduleTransformer extends BaseClientTransformer
@@ -48,7 +48,7 @@ class ScheduleTransformer extends BaseClientTransformer
     /**
      * Allows attaching the tasks specific to the schedule in the response.
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      */
     public function includeTasks(Schedule $model): Collection
     {

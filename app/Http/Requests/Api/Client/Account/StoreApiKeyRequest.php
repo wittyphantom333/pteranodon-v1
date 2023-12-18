@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Api\Client\Account;
+namespace Pteranodon\Http\Requests\Api\Client\Account;
 
 use IPTools\Range;
-use Jexactyl\Models\ApiKey;
+use Pteranodon\Models\ApiKey;
 use Illuminate\Validation\Validator;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
 
 class StoreApiKeyRequest extends ClientApiRequest
 {

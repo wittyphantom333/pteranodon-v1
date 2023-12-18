@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Services\Users;
+namespace Pteranodon\Services\Users;
 
 use Carbon\Carbon;
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Support\Str;
 use PragmaRX\Google2FA\Google2FA;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Encryption\Encrypter;
-use Jexactyl\Contracts\Repository\UserRepositoryInterface;
-use Jexactyl\Repositories\Eloquent\RecoveryTokenRepository;
-use Jexactyl\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid;
+use Pteranodon\Contracts\Repository\UserRepositoryInterface;
+use Pteranodon\Repositories\Eloquent\RecoveryTokenRepository;
+use Pteranodon\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid;
 
 class ToggleTwoFactorService
 {
@@ -33,13 +33,13 @@ class ToggleTwoFactorService
      * @throws \PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException
      * @throws \PragmaRX\Google2FA\Exceptions\InvalidCharactersException
      * @throws \PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException
-     * @throws \Jexactyl\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid
+     * @throws \Pteranodon\Exceptions\Service\User\TwoFactorAuthenticationTokenInvalid
      */
     public function handle(User $user, string $token, bool $toggleState = null): array
     {
         $secret = $this->encrypter->decrypt($user->totp_secret);
 
-        $isValidToken = $this->google2FA->verifyKey($secret, $token, config()->get('jexactyl.auth.2fa.window'));
+        $isValidToken = $this->google2FA->verifyKey($secret, $token, config()->get('pteranodon.auth.2fa.window'));
 
         if (!$isValidToken) {
             throw new TwoFactorAuthenticationTokenInvalid();

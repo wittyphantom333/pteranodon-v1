@@ -1,25 +1,25 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Users;
+namespace Pteranodon\Http\Controllers\Api\Application\Users;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Http\Response;
-use Jexactyl\Services\Users\UserUpdateService;
-use Jexactyl\Contracts\Repository\UserRepositoryInterface;
-use Jexactyl\Http\Requests\Api\Application\Users\GetUsersRequest;
-use Jexactyl\Http\Requests\Api\Application\Users\UpdateUserRequest;
-use Jexactyl\Transformers\Api\Application\UserResourcesTransformer;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Services\Users\UserUpdateService;
+use Pteranodon\Contracts\Repository\UserRepositoryInterface;
+use Pteranodon\Http\Requests\Api\Application\Users\GetUsersRequest;
+use Pteranodon\Http\Requests\Api\Application\Users\UpdateUserRequest;
+use Pteranodon\Transformers\Api\Application\UserResourcesTransformer;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
 
 class UserResourcesController extends ApplicationApiController
 {
     /**
-     * @var \Jexactyl\Contracts\Repository\UserRepositoryInterface
+     * @var \Pteranodon\Contracts\Repository\UserRepositoryInterface
      */
     private $repository;
 
     /**
-     * @var \Jexactyl\Services\Users\UserUpdateService
+     * @var \Pteranodon\Services\Users\UserUpdateService
      */
     private $updateService;
 
@@ -55,8 +55,8 @@ class UserResourcesController extends ApplicationApiController
      * Revocation errors are returned under the 'revocation_errors' key in the response
      * meta. If there are no errors this is an empty array.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(UpdateUserRequest $request, User $user): array
     {

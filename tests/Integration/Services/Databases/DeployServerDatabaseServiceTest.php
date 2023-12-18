@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Databases;
+namespace Pteranodon\Tests\Integration\Services\Databases;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Mockery\MockInterface;
-use Jexactyl\Models\Database;
-use Jexactyl\Models\DatabaseHost;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Services\Databases\DatabaseManagementService;
-use Jexactyl\Services\Databases\DeployServerDatabaseService;
-use Jexactyl\Exceptions\Service\Database\NoSuitableDatabaseHostException;
+use Pteranodon\Models\Database;
+use Pteranodon\Models\DatabaseHost;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Services\Databases\DatabaseManagementService;
+use Pteranodon\Services\Databases\DeployServerDatabaseService;
+use Pteranodon\Exceptions\Service\Database\NoSuitableDatabaseHostException;
 
 class DeployServerDatabaseServiceTest extends IntegrationTestCase
 {
@@ -31,7 +31,7 @@ class DeployServerDatabaseServiceTest extends IntegrationTestCase
      */
     protected function tearDown(): void
     {
-        config()->set('jexactyl.client_features.databases.allow_random', true);
+        config()->set('pteranodon.client_features.databases.allow_random', true);
 
         Database::query()->delete();
         DatabaseHost::query()->delete();
@@ -64,7 +64,7 @@ class DeployServerDatabaseServiceTest extends IntegrationTestCase
         $node = Node::factory()->create(['location_id' => $server->location->id]);
         DatabaseHost::factory()->create(['node_id' => $node->id]);
 
-        config()->set('jexactyl.client_features.databases.allow_random', false);
+        config()->set('pteranodon.client_features.databases.allow_random', false);
 
         $this->expectException(NoSuitableDatabaseHostException::class);
 

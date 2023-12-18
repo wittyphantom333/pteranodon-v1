@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Services\Store;
+namespace Pteranodon\Services\Store;
 
 use Illuminate\Support\Facades\DB;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Api\Client\Store\PurchaseResourceRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Api\Client\Store\PurchaseResourceRequest;
 
 class ResourcePurchaseService
 {
@@ -18,7 +18,7 @@ class ResourcePurchaseService
 
     /**
      * This service processes the purchase of resources
-     * via the Jexactyl Storefront.
+     * via the Pteranodon Storefront.
      *
      * @throws DisplayException
      */
@@ -67,6 +67,6 @@ class ResourcePurchaseService
             $resource = rtrim($resource, 's');
         }
 
-        return $this->settings->get('jexactyl::store:cost:' . $resource);
+        return $this->settings->get('pteranodon::store:cost:' . $resource);
     }
 }

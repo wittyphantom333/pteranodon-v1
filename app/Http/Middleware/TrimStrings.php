@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Http\Middleware;
+namespace Pteranodon\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as BaseTrimmer;
 

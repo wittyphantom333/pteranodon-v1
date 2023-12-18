@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Exceptions\Service\Subuser;
+namespace Pteranodon\Exceptions\Service\Subuser;
 
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class UserIsServerOwnerException extends DisplayException
 {

@@ -1,13 +1,13 @@
-// Jexactyl Software. (https://jexactyl.com)
+// Pteranodon Software. (https://pteranodon.com)
 // Green: #189a1c
 // Gray: hsl(211, 22%, 21%)
 
-console.log(Jexactyl);
+console.log(Pteranodon);
 
-const suspended = Jexactyl.suspended;
-const active = Jexactyl.servers.length - Jexactyl.suspended;
-const freeDisk = Jexactyl.diskTotal - Jexactyl.diskUsed;
-const freeMemory = Jexactyl.memoryTotal - Jexactyl.memoryUsed;
+const suspended = Pteranodon.suspended;
+const active = Pteranodon.servers.length - Pteranodon.suspended;
+const freeDisk = Pteranodon.diskTotal - Pteranodon.diskUsed;
+const freeMemory = Pteranodon.memoryTotal - Pteranodon.memoryUsed;
 
 const diskChart = new Chart($("#disk_chart"), {
     type: "pie",
@@ -15,7 +15,7 @@ const diskChart = new Chart($("#disk_chart"), {
         labels: ["Free Disk", "Used Disk"],
         datasets: [{
             backgroundColor: ["#189a1c", "hsl(211, 22%, 21%)"],
-            data: [freeDisk, Jexactyl.diskUsed]
+            data: [freeDisk, Pteranodon.diskUsed]
         }]
     }
 });
@@ -26,7 +26,7 @@ const ramChart = new Chart($("#ram_chart"), {
         labels: ["Free RAM", "Used RAM"],
         datasets: [{
             backgroundColor: ["#189a1c", "hsl(211, 22%, 21%)"],
-            data: [freeMemory, Jexactyl.memoryUsed]
+            data: [freeMemory, Pteranodon.memoryUsed]
         }]
     }
 });

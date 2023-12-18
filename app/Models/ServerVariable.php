@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -11,8 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $variable_value
  * @property \Carbon\CarbonImmutable|null $created_at
  * @property \Carbon\CarbonImmutable|null $updated_at
- * @property \Jexactyl\Models\EggVariable $variable
- * @property \Jexactyl\Models\Server $server
+ * @property \Pteranodon\Models\EggVariable $variable
+ * @property \Pteranodon\Models\Server $server
  */
 class ServerVariable extends Model
 {

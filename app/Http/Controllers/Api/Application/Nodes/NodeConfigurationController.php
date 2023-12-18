@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Nodes;
+namespace Pteranodon\Http\Controllers\Api\Application\Nodes;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Http\Requests\Api\Application\Nodes\GetNodeRequest;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Http\Requests\Api\Application\Nodes\GetNodeRequest;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
 
 class NodeConfigurationController extends ApplicationApiController
 {

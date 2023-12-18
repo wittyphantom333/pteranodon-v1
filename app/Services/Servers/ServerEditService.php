@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Api\Client\Servers\EditServerRequest;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Api\Client\Servers\EditServerRequest;
 
 class ServerEditService
 {
@@ -49,7 +49,7 @@ class ServerEditService
     {
         $amount = $request->input('amount');
         $resource = $request->input('resource');
-        $limit = $this->settings->get('jexactyl::store:limit:' . $resource);
+        $limit = $this->settings->get('pteranodon::store:limit:' . $resource);
 
         // Check if the amount requested goes over defined limits.
         if (($amount + $this->toServer($resource, $server)) > $limit) {

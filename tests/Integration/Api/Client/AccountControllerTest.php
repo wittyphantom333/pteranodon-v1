@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client;
+namespace Pteranodon\Tests\Integration\Api\Client;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +14,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
      */
     public function testAccountDetailsAreReturned()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->get('/api/client/account');
@@ -38,7 +38,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
      */
     public function testEmailIsUpdated()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->putJson('/api/client/account/email', [
@@ -57,7 +57,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
      */
     public function testEmailIsNotUpdatedWhenPasswordIsInvalid()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->putJson('/api/client/account/email', [
@@ -76,7 +76,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
      */
     public function testEmailIsNotUpdatedWhenNotValid()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->putJson('/api/client/account/email', [
@@ -103,7 +103,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
      */
     public function testPasswordIsUpdated()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         $initialHash = $user->password;
@@ -129,7 +129,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
      */
     public function testPasswordIsNotUpdatedIfCurrentPasswordIsInvalid()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->putJson('/api/client/account/password', [
@@ -172,7 +172,7 @@ class AccountControllerTest extends ClientApiIntegrationTestCase
      */
     public function testErrorIsReturnedIfPasswordIsNotConfirmed()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->putJson('/api/client/account/password', [

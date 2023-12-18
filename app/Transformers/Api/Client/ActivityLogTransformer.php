@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client;
+namespace Pteranodon\Transformers\Api\Client;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Support\Str;
-use Jexactyl\Models\ActivityLog;
+use Pteranodon\Models\ActivityLog;
 use Illuminate\Database\Eloquent\Model;
 
 class ActivityLogTransformer extends BaseClientTransformer

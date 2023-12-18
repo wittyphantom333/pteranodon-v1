@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
-use Jexactyl\Models\Server;
-use Jexactyl\Facades\Activity;
-use Jexactyl\Services\Servers\StartupCommandService;
-use Jexactyl\Repositories\Eloquent\ServerVariableRepository;
-use Jexactyl\Transformers\Api\Client\EggVariableTransformer;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Models\Server;
+use Pteranodon\Facades\Activity;
+use Pteranodon\Services\Servers\StartupCommandService;
+use Pteranodon\Repositories\Eloquent\ServerVariableRepository;
+use Pteranodon\Transformers\Api\Client\EggVariableTransformer;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
-use Jexactyl\Http\Requests\Api\Client\Servers\Startup\GetStartupRequest;
-use Jexactyl\Http\Requests\Api\Client\Servers\Startup\UpdateStartupVariableRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Startup\GetStartupRequest;
+use Pteranodon\Http\Requests\Api\Client\Servers\Startup\UpdateStartupVariableRequest;
 
 class StartupController extends ClientApiController
 {
@@ -47,12 +47,12 @@ class StartupController extends ClientApiController
      * Updates a single variable for a server.
      *
      * @throws \Illuminate\Validation\ValidationException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(UpdateStartupVariableRequest $request, Server $server): array
     {
-        /** @var \Jexactyl\Models\EggVariable $variable */
+        /** @var \Pteranodon\Models\EggVariable $variable */
         $variable = $server->variables()->where('env_variable', $request->input('key'))->first();
         $original = $variable->server_value;
 

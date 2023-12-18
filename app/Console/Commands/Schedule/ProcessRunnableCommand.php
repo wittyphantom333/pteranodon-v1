@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Console\Commands\Schedule;
+namespace Pteranodon\Console\Commands\Schedule;
 
 use Exception;
-use Jexactyl\Models\Schedule;
+use Pteranodon\Models\Schedule;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Builder;
-use Jexactyl\Services\Schedules\ProcessScheduleService;
+use Pteranodon\Services\Schedules\ProcessScheduleService;
 
 class ProcessRunnableCommand extends Command
 {

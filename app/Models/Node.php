@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Models;
+namespace Pteranodon\Models;
 
 use Illuminate\Support\Str;
 use Symfony\Component\Yaml\Yaml;
@@ -36,10 +36,10 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property string $daemonBase
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property \Jexactyl\Models\Location $location
- * @property \Jexactyl\Models\Mount[]|\Illuminate\Database\Eloquent\Collection $mounts
- * @property \Jexactyl\Models\Server[]|\Illuminate\Database\Eloquent\Collection $servers
- * @property \Jexactyl\Models\Allocation[]|\Illuminate\Database\Eloquent\Collection $allocations
+ * @property \Pteranodon\Models\Location $location
+ * @property \Pteranodon\Models\Mount[]|\Illuminate\Database\Eloquent\Collection $mounts
+ * @property \Pteranodon\Models\Server[]|\Illuminate\Database\Eloquent\Collection $servers
+ * @property \Pteranodon\Models\Allocation[]|\Illuminate\Database\Eloquent\Collection $allocations
  */
 class Node extends Model
 {

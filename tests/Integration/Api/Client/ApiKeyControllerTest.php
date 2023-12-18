@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client;
+namespace Pteranodon\Tests\Integration\Api\Client;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\ApiKey;
+use Pteranodon\Models\User;
+use Pteranodon\Models\ApiKey;
 use Illuminate\Http\Response;
-use Jexactyl\Events\ActivityLogged;
+use Pteranodon\Events\ActivityLogged;
 use Illuminate\Support\Facades\Event;
 
 class ApiKeyControllerTest extends ClientApiIntegrationTestCase
@@ -25,9 +25,9 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
      */
     public function testApiKeysAreReturned()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
-        /** @var \Jexactyl\Models\ApiKey $key */
+        /** @var \Pteranodon\Models\ApiKey $key */
         $key = ApiKey::factory()->for($user)->create([
             'key_type' => ApiKey::TYPE_ACCOUNT,
         ]);
@@ -49,7 +49,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
      */
     public function testApiKeyCanBeCreatedForAccount(array $data)
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
 
         // Small subtest to ensure we're always comparing the  number of keys to the
@@ -67,7 +67,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
             ->assertOk()
             ->assertJsonPath('object', ApiKey::RESOURCE_NAME);
 
-        /** @var \Jexactyl\Models\ApiKey $key */
+        /** @var \Pteranodon\Models\ApiKey $key */
         $key = ApiKey::query()->where('identifier', $response->json('attributes.identifier'))->firstOrFail();
 
         $this->assertJsonTransformedWith($response->json('attributes'), $key);
@@ -104,7 +104,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
      */
     public function testApiKeyLimitIsApplied()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
         ApiKey::factory()->times(25)->for($user)->create([
             'key_type' => ApiKey::TYPE_ACCOUNT,
@@ -160,9 +160,9 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
      */
     public function testApiKeyCanBeDeleted()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
-        /** @var \Jexactyl\Models\ApiKey $key */
+        /** @var \Pteranodon\Models\ApiKey $key */
         $key = ApiKey::factory()->for($user)->create([
             'key_type' => ApiKey::TYPE_ACCOUNT,
         ]);
@@ -179,9 +179,9 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
      */
     public function testNonExistentApiKeyDeletionReturns404Error()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
-        /** @var \Jexactyl\Models\ApiKey $key */
+        /** @var \Pteranodon\Models\ApiKey $key */
         $key = ApiKey::factory()->create([
             'user_id' => $user->id,
             'key_type' => ApiKey::TYPE_ACCOUNT,
@@ -200,11 +200,11 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
      */
     public function testApiKeyBelongingToAnotherUserCannotBeDeleted()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
-        /** @var \Jexactyl\Models\User $user2 */
+        /** @var \Pteranodon\Models\User $user2 */
         $user2 = User::factory()->create();
-        /** @var \Jexactyl\Models\ApiKey $key */
+        /** @var \Pteranodon\Models\ApiKey $key */
         $key = ApiKey::factory()->for($user2)->create([
             'key_type' => ApiKey::TYPE_ACCOUNT,
         ]);
@@ -223,9 +223,9 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
      */
     public function testApplicationApiKeyCannotBeDeleted()
     {
-        /** @var \Jexactyl\Models\User $user */
+        /** @var \Pteranodon\Models\User $user */
         $user = User::factory()->create();
-        /** @var \Jexactyl\Models\ApiKey $key */
+        /** @var \Pteranodon\Models\ApiKey $key */
         $key = ApiKey::factory()->for($user)->create([
             'key_type' => ApiKey::TYPE_APPLICATION,
         ]);

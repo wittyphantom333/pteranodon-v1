@@ -1,19 +1,19 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Application\Servers;
+namespace Pteranodon\Http\Controllers\Api\Application\Servers;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use Spatie\QueryBuilder\QueryBuilder;
-use Jexactyl\Services\Servers\ServerCreationService;
-use Jexactyl\Services\Servers\ServerDeletionService;
-use Jexactyl\Transformers\Api\Application\ServerTransformer;
-use Jexactyl\Http\Requests\Api\Application\Servers\GetServerRequest;
-use Jexactyl\Http\Requests\Api\Application\Servers\GetServersRequest;
-use Jexactyl\Http\Requests\Api\Application\Servers\ServerWriteRequest;
-use Jexactyl\Http\Requests\Api\Application\Servers\StoreServerRequest;
-use Jexactyl\Http\Controllers\Api\Application\ApplicationApiController;
+use Pteranodon\Services\Servers\ServerCreationService;
+use Pteranodon\Services\Servers\ServerDeletionService;
+use Pteranodon\Transformers\Api\Application\ServerTransformer;
+use Pteranodon\Http\Requests\Api\Application\Servers\GetServerRequest;
+use Pteranodon\Http\Requests\Api\Application\Servers\GetServersRequest;
+use Pteranodon\Http\Requests\Api\Application\Servers\ServerWriteRequest;
+use Pteranodon\Http\Requests\Api\Application\Servers\StoreServerRequest;
+use Pteranodon\Http\Controllers\Api\Application\ApplicationApiController;
 
 class ServerController extends ApplicationApiController
 {
@@ -47,11 +47,11 @@ class ServerController extends ApplicationApiController
      *
      * @throws \Throwable
      * @throws \Illuminate\Validation\ValidationException
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Jexactyl\Exceptions\Service\Deployment\NoViableAllocationException
-     * @throws \Jexactyl\Exceptions\Service\Deployment\NoViableNodeException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Service\Deployment\NoViableAllocationException
+     * @throws \Pteranodon\Exceptions\Service\Deployment\NoViableNodeException
      */
     public function store(StoreServerRequest $request): JsonResponse
     {
@@ -75,7 +75,7 @@ class ServerController extends ApplicationApiController
     /**
      * Deletes a server.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     public function delete(ServerWriteRequest $request, Server $server, string $force = ''): Response
     {

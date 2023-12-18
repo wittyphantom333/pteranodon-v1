@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Services\Nests;
+namespace Pteranodon\Services\Nests;
 
-use Jexactyl\Contracts\Repository\NestRepositoryInterface;
+use Pteranodon\Contracts\Repository\NestRepositoryInterface;
 
 class NestUpdateService
 {
@@ -16,8 +16,8 @@ class NestUpdateService
     /**
      * Update a nest and prevent changing the author once it is set.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function handle(int $nest, array $data): void
     {

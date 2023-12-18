@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{{ config('app.name', 'Jexactyl') }} - @yield('title')</title>
+        <title>{{ config('app.name', 'Pteranodon') }} - @yield('title')</title>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <meta name="_token" content="{{ csrf_token() }}">
 
@@ -26,8 +26,8 @@
             {!! Theme::css('vendor/adminlte/colors/skin-blue.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/sweetalert/sweetalert.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
-            <!-- Ability to customize Jexactyl theme -->
-            <link rel="stylesheet" href="/themes/{{ config('theme.admin', 'jexactyl') }}/css/{{ config('theme.admin', 'jexactyl') }}.css">
+            <!-- Ability to customize Pteranodon theme -->
+            <link rel="stylesheet" href="/themes/{{ config('theme.admin', 'pteranodon') }}/css/{{ config('theme.admin', 'pteranodon') }}.css">
 
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -45,7 +45,7 @@
                     <ul class="sidebar-menu">
                         <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.index') ?: 'active' }}">
                             <a href="{{ route('admin.index')}}">
-                                <i data-feather="tool" style="margin-left: 12px;"></i> 
+                                <i data-feather="tool" style="margin-left: 12px;"></i>
                             </a>
                         </li>
                         <li class="{{ ! starts_with(Route::currentRouteName(), 'admin.tickets') ?: 'active' }}">

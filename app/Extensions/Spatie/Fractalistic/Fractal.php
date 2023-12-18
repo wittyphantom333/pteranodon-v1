@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Extensions\Spatie\Fractalistic;
+namespace Pteranodon\Extensions\Spatie\Fractalistic;
 
 use League\Fractal\Scope;
 use League\Fractal\TransformerAbstract;
 use Spatie\Fractal\Fractal as SpatieFractal;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use League\Fractal\Pagination\IlluminatePaginatorAdapter;
-use Jexactyl\Extensions\League\Fractal\Serializers\JexactylSerializer;
+use Pteranodon\Extensions\League\Fractal\Serializers\PteranodonSerializer;
 
 class Fractal extends SpatieFractal
 {
@@ -21,7 +21,7 @@ class Fractal extends SpatieFractal
     {
         // Set the serializer by default.
         if (is_null($this->serializer)) {
-            $this->serializer = new JexactylSerializer();
+            $this->serializer = new PteranodonSerializer();
         }
 
         // Automatically set the paginator on the response object if the

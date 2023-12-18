@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Contracts\Repository;
+namespace Pteranodon\Contracts\Repository;
 
-use Jexactyl\Models\Schedule;
+use Pteranodon\Models\Schedule;
 use Illuminate\Support\Collection;
 
 interface ScheduleRepositoryInterface extends RepositoryInterface
@@ -15,7 +15,7 @@ interface ScheduleRepositoryInterface extends RepositoryInterface
     /**
      * Return a schedule model with all the associated tasks as a relationship.
      *
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function getScheduleWithTasks(int $schedule): Schedule;
 }

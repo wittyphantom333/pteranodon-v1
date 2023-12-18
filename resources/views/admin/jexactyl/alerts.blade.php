@@ -1,23 +1,23 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'alerts'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'alerts'])
 
 @section('title')
     Alert Settings
 @endsection
 
 @section('content-header')
-    <h1>Jexactyl Alerts<small>Send alerts to clients via the UI.</small></h1>
+    <h1>Pteranodon Alerts<small>Send alerts to clients via the UI.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li class="active">Pteranodon</li>
     </ol>
 @endsection
 
 @section('content')
-    @yield('jexactyl::nav')
+    @yield('pteranodon::nav')
     <div class="row">
         <div class="col-xs-12">
-            <form action="{{ route('admin.jexactyl.alerts') }}" method="POST">
+            <form action="{{ route('admin.pteranodon.alerts') }}" method="POST">
                 <div class="box box-info">
                     <div class="box-header with-border">
                         <h3 class="box-title">Alert Settings <small>Configure settings for the current alert.</small></h3>
@@ -49,7 +49,7 @@
                 {!! csrf_field() !!}
                 <button type="submit" name="_method" value="PATCH" class="btn btn-default pull-right">Update Alert</button>
             </form>
-            <form action="{{ route('admin.jexactyl.alerts.remove') }}" method="POST">
+            <form action="{{ route('admin.pteranodon.alerts.remove') }}" method="POST">
                 {!! csrf_field() !!}
                 <button type="submit" name="_method" value="POST" class="btn btn-danger pull-right" style="margin-right: 8px;">Remove Alert</button>
             </form>

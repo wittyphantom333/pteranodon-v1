@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Http\Requests\Admin\Node;
+namespace Pteranodon\Http\Requests\Admin\Node;
 
-use Jexactyl\Http\Requests\Admin\AdminFormRequest;
+use Pteranodon\Http\Requests\Admin\AdminFormRequest;
 
 class AllocationFormRequest extends AdminFormRequest
 {

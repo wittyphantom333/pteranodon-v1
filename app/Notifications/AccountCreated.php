@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Notifications;
+namespace Pteranodon\Notifications;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client\Store;
+namespace Pteranodon\Transformers\Api\Client\Store;
 
-use Jexactyl\Models\Nest;
-use Jexactyl\Transformers\Api\Client\BaseClientTransformer;
+use Pteranodon\Models\Nest;
+use Pteranodon\Transformers\Api\Client\BaseClientTransformer;
 
 class NestTransformer extends BaseClientTransformer
 {

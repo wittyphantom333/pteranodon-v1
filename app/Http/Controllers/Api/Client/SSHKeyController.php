@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client;
+namespace Pteranodon\Http\Controllers\Api\Client;
 
-use Jexactyl\Facades\Activity;
+use Pteranodon\Facades\Activity;
 use Illuminate\Http\JsonResponse;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
-use Jexactyl\Transformers\Api\Client\UserSSHKeyTransformer;
-use Jexactyl\Http\Requests\Api\Client\Account\StoreSSHKeyRequest;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Transformers\Api\Client\UserSSHKeyTransformer;
+use Pteranodon\Http\Requests\Api\Client\Account\StoreSSHKeyRequest;
 
 class SSHKeyController extends ClientApiController
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Exceptions\Service\Allocation;
+namespace Pteranodon\Exceptions\Service\Allocation;
 
-use Jexactyl\Exceptions\DisplayException;
+use Pteranodon\Exceptions\DisplayException;
 
 class ServerUsingAllocationException extends DisplayException
 {

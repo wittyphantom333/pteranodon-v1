@@ -13,7 +13,7 @@ class AddDefaultServerDeletionKeyToSettingsTable extends Migration
     {
         DB::table('settings')->insertOrIgnore(
             [
-                'key' => 'jexactyl::renewal:deletion',
+                'key' => 'pteranodon::renewal:deletion',
                 'value' => 'true',
             ],
         );
@@ -27,7 +27,7 @@ class AddDefaultServerDeletionKeyToSettingsTable extends Migration
     public function down()
     {
         DB::table('settings')
-            ->where('key', 'jexactyl::renewal:deletion')
+            ->where('key', 'pteranodon::renewal:deletion')
             ->delete();
     }
 }

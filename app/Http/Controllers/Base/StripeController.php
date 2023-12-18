@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Base;
+namespace Pteranodon\Http\Controllers\Base;
 
 use Stripe\Stripe;
 use Stripe\Webhook;
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Stripe\Exception\SignatureVerificationException;
 
 class StripeController extends Controller

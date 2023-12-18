@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Models\Filters;
+namespace Pteranodon\Models\Filters;
 
 use Illuminate\Support\Str;
 use Spatie\QueryBuilder\Filters\Filter;

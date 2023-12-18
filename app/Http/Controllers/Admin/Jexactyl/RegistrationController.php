@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
-use Jexactyl\Http\Requests\Admin\Jexactyl\RegistrationFormRequest;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Requests\Admin\Pteranodon\RegistrationFormRequest;
 
 class RegistrationController extends Controller
 {
@@ -21,42 +21,42 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Render the Jexactyl settings interface.
+     * Render the Pteranodon settings interface.
      */
     public function index(): View
     {
-        return view('admin.jexactyl.registration', [
-            'enabled' => $this->settings->get('jexactyl::registration:enabled', false),
-            'verification' => $this->settings->get('jexactyl::registration:verification', false),
+        return view('admin.pteranodon.registration', [
+            'enabled' => $this->settings->get('pteranodon::registration:enabled', false),
+            'verification' => $this->settings->get('pteranodon::registration:verification', false),
 
-            'discord_enabled' => $this->settings->get('jexactyl::discord:enabled', false),
-            'discord_id' => $this->settings->get('jexactyl::discord:id', 0),
-            'discord_secret' => $this->settings->get('jexactyl::discord:secret', 0),
+            'discord_enabled' => $this->settings->get('pteranodon::discord:enabled', false),
+            'discord_id' => $this->settings->get('pteranodon::discord:id', 0),
+            'discord_secret' => $this->settings->get('pteranodon::discord:secret', 0),
 
-            'cpu' => $this->settings->get('jexactyl::registration:cpu', 100),
-            'memory' => $this->settings->get('jexactyl::registration:memory', 1024),
-            'disk' => $this->settings->get('jexactyl::registration:disk', 5120),
-            'slot' => $this->settings->get('jexactyl::registration:slot', 1),
-            'port' => $this->settings->get('jexactyl::registration:port', 1),
-            'backup' => $this->settings->get('jexactyl::registration:backup', 1),
-            'database' => $this->settings->get('jexactyl::registration:database', 0),
+            'cpu' => $this->settings->get('pteranodon::registration:cpu', 100),
+            'memory' => $this->settings->get('pteranodon::registration:memory', 1024),
+            'disk' => $this->settings->get('pteranodon::registration:disk', 5120),
+            'slot' => $this->settings->get('pteranodon::registration:slot', 1),
+            'port' => $this->settings->get('pteranodon::registration:port', 1),
+            'backup' => $this->settings->get('pteranodon::registration:backup', 1),
+            'database' => $this->settings->get('pteranodon::registration:database', 0),
         ]);
     }
 
     /**
      * Handle settings update.
      *
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
      */
     public function update(RegistrationFormRequest $request): RedirectResponse
     {
         foreach ($request->normalize() as $key => $value) {
-            $this->settings->set('jexactyl::' . $key, $value);
+            $this->settings->set('pteranodon::' . $key, $value);
         }
 
-        $this->alert->success('Jexactyl Registration has been updated.')->flash();
+        $this->alert->success('Pteranodon Registration has been updated.')->flash();
 
-        return redirect()->route('admin.jexactyl.registration');
+        return redirect()->route('admin.pteranodon.registration');
     }
 }

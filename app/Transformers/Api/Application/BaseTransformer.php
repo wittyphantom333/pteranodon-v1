@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Application;
+namespace Pteranodon\Transformers\Api\Application;
 
 use Carbon\CarbonImmutable;
 use Carbon\CarbonInterface;
-use Jexactyl\Models\ApiKey;
+use Pteranodon\Models\ApiKey;
 use Illuminate\Http\Request;
 use Webmozart\Assert\Assert;
 use Illuminate\Container\Container;
 use Illuminate\Database\Eloquent\Model;
-use Jexactyl\Services\Acl\Api\AdminAcl;
+use Pteranodon\Services\Acl\Api\AdminAcl;
 use League\Fractal\TransformerAbstract;
 
 /**
@@ -85,13 +85,13 @@ abstract class BaseTransformer extends TransformerAbstract
      * Create a new instance of the transformer and pass along the currently
      * set API key.
      *
-     * @template T of \Jexactyl\Transformers\Api\Application\BaseTransformer
+     * @template T of \Pteranodon\Transformers\Api\Application\BaseTransformer
      *
      * @param class-string<T> $abstract
      *
      * @return T
      *
-     * @throws \Jexactyl\Exceptions\Transformer\InvalidTransformerLevelException
+     * @throws \Pteranodon\Exceptions\Transformer\InvalidTransformerLevelException
      *
      * @noinspection PhpDocSignatureInspection
      */

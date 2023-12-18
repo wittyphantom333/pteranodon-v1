@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Services\Eggs;
+namespace Pteranodon\Services\Eggs;
 
-use Jexactyl\Models\Egg;
+use Pteranodon\Models\Egg;
 use Illuminate\Support\Arr;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use Jexactyl\Exceptions\Service\InvalidFileUploadException;
+use Pteranodon\Exceptions\Service\InvalidFileUploadException;
 
 class EggParserService
 {
@@ -14,7 +14,7 @@ class EggParserService
      * Takes an uploaded file and parses out the egg configuration from within.
      *
      * @throws \JsonException
-     * @throws \Jexactyl\Exceptions\Service\InvalidFileUploadException
+     * @throws \Pteranodon\Exceptions\Service\InvalidFileUploadException
      */
     public function handle(UploadedFile $file): array
     {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Jexactyl\Services\Helpers;
+namespace Pteranodon\Services\Helpers;
 
 use Exception;
 use GuzzleHttp\Client;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Arr;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
-use Jexactyl\Exceptions\Service\Helper\CdnVersionFetchingException;
+use Pteranodon\Exceptions\Service\Helper\CdnVersionFetchingException;
 
 class SoftwareVersionService
 {
-    public const VERSION_CACHE_KEY = 'jexactyl:versioning_data';
+    public const VERSION_CACHE_KEY = 'pteranodon:versioning_data';
 
     private static array $result;
 
@@ -86,9 +86,9 @@ class SoftwareVersionService
      */
     protected function cacheVersionData(): array
     {
-        return $this->cache->remember(self::VERSION_CACHE_KEY, CarbonImmutable::now()->addMinutes(config('jexactyl.cdn.cache_time', 60)), function () {
+        return $this->cache->remember(self::VERSION_CACHE_KEY, CarbonImmutable::now()->addMinutes(config('pteranodon.cdn.cache_time', 60)), function () {
             try {
-                $response = $this->client->request('GET', config('jexactyl.cdn.url'));
+                $response = $this->client->request('GET', config('pteranodon.cdn.url'));
 
                 if ($response->getStatusCode() === 200) {
                     return json_decode($response->getBody(), true);

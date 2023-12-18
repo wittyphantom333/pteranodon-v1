@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Repositories\Wings;
+namespace Pteranodon\Repositories\Wings;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Lcobucci\JWT\Token\Plain;
 use GuzzleHttp\Exception\GuzzleException;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class DaemonTransferRepository extends DaemonRepository
 {
     /**
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function notify(Node $targetNode, Plain $token): void
     {

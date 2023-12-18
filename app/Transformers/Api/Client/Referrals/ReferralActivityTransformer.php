@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Transformers\Api\Client\Referrals;
+namespace Pteranodon\Transformers\Api\Client\Referrals;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\ReferralUses;
-use Jexactyl\Transformers\Api\Client\BaseClientTransformer;
+use Pteranodon\Models\User;
+use Pteranodon\Models\ReferralUses;
+use Pteranodon\Transformers\Api\Client\BaseClientTransformer;
 
 class ReferralActivityTransformer extends BaseClientTransformer
 {

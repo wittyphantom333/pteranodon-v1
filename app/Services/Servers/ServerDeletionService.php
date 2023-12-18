@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Services\Servers;
+namespace Pteranodon\Services\Servers;
 
-use Jexactyl\Models\User;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\ConnectionInterface;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Services\Databases\DatabaseManagementService;
-use Jexactyl\Exceptions\Http\Connection\DaemonConnectionException;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Services\Databases\DatabaseManagementService;
+use Pteranodon\Exceptions\Http\Connection\DaemonConnectionException;
 
 class ServerDeletionService
 {
@@ -52,7 +52,7 @@ class ServerDeletionService
      * Delete a server from the panel and remove any associated databases from hosts.
      *
      * @throws \Throwable
-     * @throws \Jexactyl\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\DisplayException
      */
     public function handle(Server $server): void
     {

@@ -57,7 +57,7 @@ return [
     */
 
     'middleware' => [
-        'verify_csrf_token' => Jexactyl\Http\Middleware\VerifyCsrfToken::class,
-        'encrypt_cookies' => Jexactyl\Http\Middleware\EncryptCookies::class,
+        'verify_csrf_token' => Pteranodon\Http\Middleware\VerifyCsrfToken::class,
+        'encrypt_cookies' => Pteranodon\Http\Middleware\EncryptCookies::class,
     ],
 ];

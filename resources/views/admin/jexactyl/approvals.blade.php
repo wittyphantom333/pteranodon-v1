@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'approvals'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'approvals'])
 
 @section('title')
     User Approvals
@@ -9,13 +9,13 @@
     <h1>User Approvals<small>Allow or deny requests to create accounts.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li class="active">Pteranodon</li>
     </ol>
 @endsection
 
 @section('content')
-    @yield('jexactyl::nav')
-    <form action="{{ route('admin.jexactyl.approvals') }}" method="POST">
+    @yield('pteranodon::nav')
+    <form action="{{ route('admin.pteranodon.approvals') }}" method="POST">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box
@@ -62,11 +62,11 @@
                 <div class="box-header with-border">
                     <i class="fa fa-list"></i>
                     <h3 class="box-title">Approval Requests <small>Allow or deny requests to create accounts.</small></h3>
-                    <form id="massdenyform" action="{{ route('admin.jexactyl.approvals.all', 'deny') }}" method="POST">
+                    <form id="massdenyform" action="{{ route('admin.pteranodon.approvals.all', 'deny') }}" method="POST">
                         {!! csrf_field() !!}
                         <button id="denyAllBtn" class="btn btn-danger pull-right">Deny All</button>
                     </form>
-                    <form id="massapproveform" action="{{ route('admin.jexactyl.approvals.all', 'approve') }}" method="POST">
+                    <form id="massapproveform" action="{{ route('admin.pteranodon.approvals.all', 'approve') }}" method="POST">
                         {!! csrf_field() !!}
                         <button id="approveAllBtn" class="btn btn-success pull-right">Approve All</button>
                     </form>
@@ -97,7 +97,7 @@
                                         {{ $user->created_at->diffForHumans() }}
                                     </td>
                                     <td class="text-center">
-                                        <form id="approveform" action="{{ route('admin.jexactyl.approvals.approve', $user->id) }}" method="POST">
+                                        <form id="approveform" action="{{ route('admin.pteranodon.approvals.approve', $user->id) }}" method="POST">
                                             {!! csrf_field() !!}
                                             <button id="approvalApproveBtn" class="btn btn-xs btn-default">
                                                 <i class="fa fa-check text-success"></i>
@@ -105,7 +105,7 @@
                                         </form>
                                     </td>
                                     <td class="text-center">
-                                        <form id="denyform" action="{{ route('admin.jexactyl.approvals.deny', $user->id) }}" method="POST">
+                                        <form id="denyform" action="{{ route('admin.pteranodon.approvals.deny', $user->id) }}" method="POST">
                                             {!! csrf_field() !!}
                                             <button id="approvalDenyBtn" class="btn btn-xs btn-default">
                                                 <i class="fa fa-times text-danger"></i>

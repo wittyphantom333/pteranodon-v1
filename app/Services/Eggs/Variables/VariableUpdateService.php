@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Services\Eggs\Variables;
+namespace Pteranodon\Services\Eggs\Variables;
 
 use Illuminate\Support\Str;
-use Jexactyl\Models\EggVariable;
-use Jexactyl\Exceptions\DisplayException;
-use Jexactyl\Traits\Services\ValidatesValidationRules;
+use Pteranodon\Models\EggVariable;
+use Pteranodon\Exceptions\DisplayException;
+use Pteranodon\Traits\Services\ValidatesValidationRules;
 use Illuminate\Contracts\Validation\Factory as ValidationFactory;
-use Jexactyl\Contracts\Repository\EggVariableRepositoryInterface;
-use Jexactyl\Exceptions\Service\Egg\Variable\ReservedVariableNameException;
+use Pteranodon\Contracts\Repository\EggVariableRepositoryInterface;
+use Pteranodon\Exceptions\Service\Egg\Variable\ReservedVariableNameException;
 
 class VariableUpdateService
 {
@@ -33,10 +33,10 @@ class VariableUpdateService
     /**
      * Update a specific egg variable.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Model\DataValidationException
-     * @throws \Jexactyl\Exceptions\Repository\RecordNotFoundException
-     * @throws \Jexactyl\Exceptions\Service\Egg\Variable\ReservedVariableNameException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Model\DataValidationException
+     * @throws \Pteranodon\Exceptions\Repository\RecordNotFoundException
+     * @throws \Pteranodon\Exceptions\Service\Egg\Variable\ReservedVariableNameException
      */
     public function handle(EggVariable $variable, array $data): mixed
     {

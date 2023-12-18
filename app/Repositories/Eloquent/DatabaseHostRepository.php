@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Repositories\Eloquent;
+namespace Pteranodon\Repositories\Eloquent;
 
-use Jexactyl\Models\DatabaseHost;
+use Pteranodon\Models\DatabaseHost;
 use Illuminate\Support\Collection;
-use Jexactyl\Contracts\Repository\DatabaseHostRepositoryInterface;
+use Pteranodon\Contracts\Repository\DatabaseHostRepositoryInterface;
 
 class DatabaseHostRepository extends EloquentRepository implements DatabaseHostRepositoryInterface
 {

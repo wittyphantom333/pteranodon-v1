@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Http\Middleware\Api;
+namespace Pteranodon\Http\Middleware\Api;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;

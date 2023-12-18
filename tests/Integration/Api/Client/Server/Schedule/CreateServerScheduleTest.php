@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Client\Server\Schedule;
+namespace Pteranodon\Tests\Integration\Api\Client\Server\Schedule;
 
 use Illuminate\Http\Response;
-use Jexactyl\Models\Schedule;
-use Jexactyl\Models\Permission;
-use Jexactyl\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
+use Pteranodon\Models\Schedule;
+use Pteranodon\Models\Permission;
+use Pteranodon\Tests\Integration\Api\Client\ClientApiIntegrationTestCase;
 
 class CreateServerScheduleTest extends ClientApiIntegrationTestCase
 {
@@ -32,7 +32,7 @@ class CreateServerScheduleTest extends ClientApiIntegrationTestCase
 
         $this->assertNotNull($id = $response->json('attributes.id'));
 
-        /** @var \Jexactyl\Models\Schedule $schedule */
+        /** @var \Pteranodon\Models\Schedule $schedule */
         $schedule = Schedule::query()->findOrFail($id);
         $this->assertFalse($schedule->is_active);
         $this->assertFalse($schedule->is_processing);

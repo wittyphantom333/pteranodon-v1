@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Notifications;
+namespace Pteranodon\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

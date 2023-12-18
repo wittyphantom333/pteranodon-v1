@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Servers;
+namespace Pteranodon\Tests\Integration\Services\Servers;
 
-use Jexactyl\Models\Egg;
-use Jexactyl\Models\User;
+use Pteranodon\Models\Egg;
+use Pteranodon\Models\User;
 use Illuminate\Support\Collection;
 use Illuminate\Validation\ValidationException;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Services\Servers\VariableValidatorService;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Services\Servers\VariableValidatorService;
 
 class VariableValidatorServiceTest extends IntegrationTestCase
 {
@@ -19,7 +19,7 @@ class VariableValidatorServiceTest extends IntegrationTestCase
 
         /* @noinspection PhpFieldAssignmentTypeMismatchInspection */
         $this->egg = Egg::query()
-            ->where('author', 'support@jexactyl.com')
+            ->where('author', 'support@pteranodon.com')
             ->where('name', 'Bungeecord')
             ->firstOrFail();
     }

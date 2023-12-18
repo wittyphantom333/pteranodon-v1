@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
 use Carbon\Carbon;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Cache\Repository;
-use Jexactyl\Transformers\Api\Client\StatsTransformer;
-use Jexactyl\Repositories\Wings\DaemonServerRepository;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Http\Requests\Api\Client\Servers\GetServerRequest;
+use Pteranodon\Transformers\Api\Client\StatsTransformer;
+use Pteranodon\Repositories\Wings\DaemonServerRepository;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Http\Requests\Api\Client\Servers\GetServerRequest;
 
 class ResourceUtilizationController extends ClientApiController
 {
@@ -25,7 +25,7 @@ class ResourceUtilizationController extends ClientApiController
      * 20 seconds at a time to ensure that repeated requests to this endpoint do not cause
      * a flood of unnecessary API calls.
      *
-     * @throws \Jexactyl\Exceptions\Http\Connection\DaemonConnectionException
+     * @throws \Pteranodon\Exceptions\Http\Connection\DaemonConnectionException
      */
     public function __invoke(GetServerRequest $request, Server $server): array
     {

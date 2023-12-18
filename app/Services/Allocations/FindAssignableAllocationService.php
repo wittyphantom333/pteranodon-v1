@@ -1,12 +1,12 @@
 <?php
 
-namespace Jexactyl\Services\Allocations;
+namespace Pteranodon\Services\Allocations;
 
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Webmozart\Assert\Assert;
-use Jexactyl\Models\Allocation;
-use Jexactyl\Exceptions\Service\Allocation\AutoAllocationNotEnabledException;
-use Jexactyl\Exceptions\Service\Allocation\NoAutoAllocationSpaceAvailableException;
+use Pteranodon\Models\Allocation;
+use Pteranodon\Exceptions\Service\Allocation\AutoAllocationNotEnabledException;
+use Pteranodon\Exceptions\Service\Allocation\NoAutoAllocationSpaceAvailableException;
 
 class FindAssignableAllocationService
 {
@@ -22,22 +22,22 @@ class FindAssignableAllocationService
      * no allocation can be found, a new one will be created with a random port between the defined
      * range from the configuration.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\CidrOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\InvalidPortMappingException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\PortOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\TooManyPortsInRangeException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\CidrOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\InvalidPortMappingException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\PortOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\TooManyPortsInRangeException
      */
     public function handle(Server $server): Allocation
     {
-        if (!config('jexactyl.client_features.allocations.enabled')) {
+        if (!config('pteranodon.client_features.allocations.enabled')) {
             throw new AutoAllocationNotEnabledException();
         }
 
         // Attempt to find a given available allocation for a server. If one cannot be found
         // we will fall back to attempting to create a new allocation that can be used for the
         // server.
-        /** @var \Jexactyl\Models\Allocation|null $allocation */
+        /** @var \Pteranodon\Models\Allocation|null $allocation */
         $allocation = $server->node->allocations()
             ->where('ip', $server->allocation->ip)
             ->whereNull('server_id')
@@ -56,16 +56,16 @@ class FindAssignableAllocationService
      * in the settings. If there are no matches in that range, or something is wrong with the
      * range information provided an exception will be raised.
      *
-     * @throws \Jexactyl\Exceptions\DisplayException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\CidrOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\InvalidPortMappingException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\PortOutOfRangeException
-     * @throws \Jexactyl\Exceptions\Service\Allocation\TooManyPortsInRangeException
+     * @throws \Pteranodon\Exceptions\DisplayException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\CidrOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\InvalidPortMappingException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\PortOutOfRangeException
+     * @throws \Pteranodon\Exceptions\Service\Allocation\TooManyPortsInRangeException
      */
     protected function createNewAllocation(Server $server): Allocation
     {
-        $start = config('jexactyl.client_features.allocations.range_start', null);
-        $end = config('jexactyl.client_features.allocations.range_end', null);
+        $start = config('pteranodon.client_features.allocations.range_start', null);
+        $end = config('pteranodon.client_features.allocations.range_end', null);
 
         if (!$start || !$end) {
             throw new NoAutoAllocationSpaceAvailableException();
@@ -100,7 +100,7 @@ class FindAssignableAllocationService
             'allocation_ports' => [$port],
         ]);
 
-        /** @var \Jexactyl\Models\Allocation $allocation */
+        /** @var \Pteranodon\Models\Allocation $allocation */
         $allocation = $server->node->allocations()
             ->where('ip', $server->allocation->ip)
             ->where('port', $port)

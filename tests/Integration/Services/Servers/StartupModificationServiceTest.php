@@ -1,16 +1,16 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Servers;
+namespace Pteranodon\Tests\Integration\Services\Servers;
 
 use Exception;
-use Jexactyl\Models\Nest;
-use Jexactyl\Models\User;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\ServerVariable;
+use Pteranodon\Models\Nest;
+use Pteranodon\Models\User;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\ServerVariable;
 use Illuminate\Validation\ValidationException;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Jexactyl\Services\Servers\StartupModificationService;
+use Pteranodon\Services\Servers\StartupModificationService;
 
 class StartupModificationServiceTest extends IntegrationTestCase
 {
@@ -70,7 +70,7 @@ class StartupModificationServiceTest extends IntegrationTestCase
      */
     public function testServerIsProperlyModifiedAsAdminUser()
     {
-        /** @var \Jexactyl\Models\Egg $nextEgg */
+        /** @var \Pteranodon\Models\Egg $nextEgg */
         $nextEgg = Nest::query()->findOrFail(2)->eggs()->firstOrFail();
 
         $server = $this->createServerModel(['egg_id' => 1]);

@@ -231,7 +231,7 @@
                             </div>
                         </div>
                         <p class="text-muted"><small>
-                            This option allows you to control whether this node is visible via the Server Creation page of the Jexactyl Storefront.
+                            This option allows you to control whether this node is visible via the Server Creation page of the Pteranodon Storefront.
                             If it is set to disabled, users will not be able to deploy on this node.
                         </small></p>
                     </div>

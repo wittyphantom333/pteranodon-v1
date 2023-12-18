@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Api\Application\Location;
+namespace Pteranodon\Tests\Integration\Api\Application\Location;
 
-use Jexactyl\Models\Node;
+use Pteranodon\Models\Node;
 use Illuminate\Http\Response;
-use Jexactyl\Models\Location;
-use Jexactyl\Transformers\Api\Application\NodeTransformer;
-use Jexactyl\Transformers\Api\Application\ServerTransformer;
-use Jexactyl\Transformers\Api\Application\LocationTransformer;
-use Jexactyl\Tests\Integration\Api\Application\ApplicationApiIntegrationTestCase;
+use Pteranodon\Models\Location;
+use Pteranodon\Transformers\Api\Application\NodeTransformer;
+use Pteranodon\Transformers\Api\Application\ServerTransformer;
+use Pteranodon\Transformers\Api\Application\LocationTransformer;
+use Pteranodon\Tests\Integration\Api\Application\ApplicationApiIntegrationTestCase;
 
 class LocationControllerTest extends ApplicationApiIntegrationTestCase
 {

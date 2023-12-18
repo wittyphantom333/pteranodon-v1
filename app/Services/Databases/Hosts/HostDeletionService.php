@@ -1,10 +1,10 @@
 <?php
 
-namespace Jexactyl\Services\Databases\Hosts;
+namespace Pteranodon\Services\Databases\Hosts;
 
-use Jexactyl\Exceptions\Service\HasActiveServersException;
-use Jexactyl\Contracts\Repository\DatabaseRepositoryInterface;
-use Jexactyl\Contracts\Repository\DatabaseHostRepositoryInterface;
+use Pteranodon\Exceptions\Service\HasActiveServersException;
+use Pteranodon\Contracts\Repository\DatabaseRepositoryInterface;
+use Pteranodon\Contracts\Repository\DatabaseHostRepositoryInterface;
 
 class HostDeletionService
 {
@@ -21,7 +21,7 @@ class HostDeletionService
      * Delete a specified host from the Panel if no databases are
      * attached to it.
      *
-     * @throws \Jexactyl\Exceptions\Service\HasActiveServersException
+     * @throws \Pteranodon\Exceptions\Service\HasActiveServersException
      */
     public function handle(int $host): int
     {

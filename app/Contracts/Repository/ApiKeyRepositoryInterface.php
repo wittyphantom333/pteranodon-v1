@@ -1,8 +1,8 @@
 <?php
 
-namespace Jexactyl\Contracts\Repository;
+namespace Pteranodon\Contracts\Repository;
 
-use Jexactyl\Models\User;
+use Pteranodon\Models\User;
 use Illuminate\Support\Collection;
 
 interface ApiKeyRepositoryInterface extends RepositoryInterface

@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Tests\Integration\Services\Deployment;
+namespace Pteranodon\Tests\Integration\Services\Deployment;
 
-use Jexactyl\Models\Node;
-use Jexactyl\Models\Server;
-use Jexactyl\Models\Database;
-use Jexactyl\Models\Location;
+use Pteranodon\Models\Node;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\Database;
+use Pteranodon\Models\Location;
 use Illuminate\Support\Collection;
-use Jexactyl\Tests\Integration\IntegrationTestCase;
-use Jexactyl\Services\Deployment\FindViableNodesService;
-use Jexactyl\Exceptions\Service\Deployment\NoViableNodeException;
+use Pteranodon\Tests\Integration\IntegrationTestCase;
+use Pteranodon\Services\Deployment\FindViableNodesService;
+use Pteranodon\Exceptions\Service\Deployment\NoViableNodeException;
 
 class FindViableNodesServiceTest extends IntegrationTestCase
 {
@@ -68,10 +68,10 @@ class FindViableNodesServiceTest extends IntegrationTestCase
 
     public function testExpectedNodeIsReturnedForLocation()
     {
-        /** @var \Jexactyl\Models\Location[] $locations */
+        /** @var \Pteranodon\Models\Location[] $locations */
         $locations = Location::factory()->times(2)->create();
 
-        /** @var \Jexactyl\Models\Node[] $nodes */
+        /** @var \Pteranodon\Models\Node[] $nodes */
         $nodes = [
             // This node should never be returned once we've completed the initial test which
             // runs without a location filter.

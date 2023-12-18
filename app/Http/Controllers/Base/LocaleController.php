@@ -1,11 +1,11 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Base;
+namespace Pteranodon\Http\Controllers\Base;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Translation\Translator;
-use Jexactyl\Http\Controllers\Controller;
+use Pteranodon\Http\Controllers\Controller;
 use Illuminate\Contracts\Translation\Loader;
 
 class LocaleController extends Controller

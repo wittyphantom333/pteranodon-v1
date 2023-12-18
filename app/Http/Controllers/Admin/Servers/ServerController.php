@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Servers;
+namespace Pteranodon\Http\Controllers\Admin\Servers;
 
 use Illuminate\View\View;
-use Jexactyl\Models\Server;
+use Pteranodon\Models\Server;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\AllowedFilter;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Models\Filters\AdminServerFilter;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Models\Filters\AdminServerFilter;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 
 class ServerController extends Controller
@@ -31,7 +31,7 @@ class ServerController extends Controller
                 AllowedFilter::exact('owner_id'),
                 AllowedFilter::custom('*', new AdminServerFilter()),
             ])
-            ->paginate(config()->get('jexactyl.paginate.admin.servers'));
+            ->paginate(config()->get('pteranodon.paginate.admin.servers'));
 
         return $this->view->make('admin.servers.index', ['servers' => $servers]);
     }

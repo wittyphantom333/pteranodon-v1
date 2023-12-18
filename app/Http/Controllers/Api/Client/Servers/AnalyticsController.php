@@ -1,14 +1,14 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Api\Client\Servers;
+namespace Pteranodon\Http\Controllers\Api\Client\Servers;
 
-use Jexactyl\Models\Server;
-use Jexactyl\Models\AnalyticsData;
-use Jexactyl\Models\AnalyticsMessage;
-use Jexactyl\Http\Requests\Api\Client\ClientApiRequest;
-use Jexactyl\Http\Controllers\Api\Client\ClientApiController;
-use Jexactyl\Transformers\Api\Client\Analytics\MessageTransformer;
-use Jexactyl\Transformers\Api\Client\Analytics\AnalyticsTransformer;
+use Pteranodon\Models\Server;
+use Pteranodon\Models\AnalyticsData;
+use Pteranodon\Models\AnalyticsMessage;
+use Pteranodon\Http\Requests\Api\Client\ClientApiRequest;
+use Pteranodon\Http\Controllers\Api\Client\ClientApiController;
+use Pteranodon\Transformers\Api\Client\Analytics\MessageTransformer;
+use Pteranodon\Transformers\Api\Client\Analytics\AnalyticsTransformer;
 
 class AnalyticsController extends ClientApiController
 {

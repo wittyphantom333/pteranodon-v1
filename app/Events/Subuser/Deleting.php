@@ -1,9 +1,9 @@
 <?php
 
-namespace Jexactyl\Events\Subuser;
+namespace Pteranodon\Events\Subuser;
 
-use Jexactyl\Events\Event;
-use Jexactyl\Models\Subuser;
+use Pteranodon\Events\Event;
+use Pteranodon\Models\Subuser;
 use Illuminate\Queue\SerializesModels;
 
 class Deleting extends Event

@@ -1,6 +1,6 @@
 <?php
 
-namespace Jexactyl\Exceptions;
+namespace Pteranodon\Exceptions;
 
 use Spatie\Ignition\Contracts\Solution;
 use Spatie\Ignition\Contracts\ProvidesSolution;

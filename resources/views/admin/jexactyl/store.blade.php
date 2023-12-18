@@ -1,23 +1,23 @@
 @extends('layouts.admin')
-@include('partials/admin.jexactyl.nav', ['activeTab' => 'store'])
+@include('partials/admin.pteranodon.nav', ['activeTab' => 'store'])
 
 @section('title')
-    Jexactyl Settings
+    Pteranodon Settings
 @endsection
 
 @section('content-header')
-    <h1>Jexactyl Store<small>Configure the Jexactyl storefront.</small></h1>
+    <h1>Pteranodon Store<small>Configure the Pteranodon storefront.</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Jexactyl</li>
+        <li class="active">Pteranodon</li>
     </ol>
 @endsection
 
 @section('content')
-    @yield('jexactyl::nav')
+    @yield('pteranodon::nav')
     <div class="row">
         <div class="col-xs-12">
-            <form action="{{ route('admin.jexactyl.store') }}" method="POST">
+            <form action="{{ route('admin.pteranodon.store') }}" method="POST">
                 <div class="box
                     @if($enabled == 'true')
                         box-success
@@ -26,7 +26,7 @@
                     @endif
                 ">
                     <div class="box-header with-border">
-                        <i class="fa fa-shopping-cart"></i> <h3 class="box-title">Jexactyl Storefront <small>Configure whether certain options for the store are enabled.</small></h3>
+                        <i class="fa fa-shopping-cart"></i> <h3 class="box-title">Pteranodon Storefront <small>Configure whether certain options for the store are enabled.</small></h3>
                     </div>
                     <div class="box-body">
                         <div class="row">
@@ -67,7 +67,7 @@
                                         <option @if ($selected_currency === $currency['code']) selected @endif value="{{ $currency['code'] }}">{{ $currency['name'] }}</option>
                                     @endforeach
                                 </select>
-                                <p class="text-muted"><small>The name of the currency used for Jexactyl.</small></p>
+                                <p class="text-muted"><small>The name of the currency used for Pteranodon.</small></p>
                             </div>
                         </div>
                     </div>

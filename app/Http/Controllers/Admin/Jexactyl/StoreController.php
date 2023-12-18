@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Http\Controllers\Admin\Jexactyl;
+namespace Pteranodon\Http\Controllers\Admin\Pteranodon;
 
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Prologue\Alerts\AlertsMessageBag;
-use Jexactyl\Http\Controllers\Controller;
-use Jexactyl\Exceptions\Model\DataValidationException;
-use Jexactyl\Exceptions\Repository\RecordNotFoundException;
-use Jexactyl\Http\Requests\Admin\Jexactyl\StoreFormRequest;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Http\Controllers\Controller;
+use Pteranodon\Exceptions\Model\DataValidationException;
+use Pteranodon\Exceptions\Repository\RecordNotFoundException;
+use Pteranodon\Http\Requests\Admin\Pteranodon\StoreFormRequest;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 
 class StoreController extends Controller
 {
@@ -23,26 +23,26 @@ class StoreController extends Controller
     }
 
     /**
-     * Render the Jexactyl store settings interface.
+     * Render the Pteranodon store settings interface.
      */
     public function index(): View
     {
-        $prefix = 'jexactyl::store:';
+        $prefix = 'pteranodon::store:';
 
         $currencies = [];
         foreach (config('store.currencies') as $key => $value) {
             $currencies[] = ['code' => $key, 'name' => $value];
         }
 
-        return view('admin.jexactyl.store', [
+        return view('admin.pteranodon.store', [
             'enabled' => $this->settings->get($prefix . 'enabled', false),
             'paypal_enabled' => $this->settings->get($prefix . 'paypal:enabled', false),
             'stripe_enabled' => $this->settings->get($prefix . 'stripe:enabled', false),
             'selected_currency' => $this->settings->get($prefix . 'currency', 'USD'),
             'currencies' => $currencies,
 
-            'earn_enabled' => $this->settings->get('jexactyl::earn:enabled', false),
-            'earn_amount' => $this->settings->get('jexactyl::earn:amount', 1),
+            'earn_enabled' => $this->settings->get('pteranodon::earn:enabled', false),
+            'earn_amount' => $this->settings->get('pteranodon::earn:amount', 1),
 
             'cpu' => $this->settings->get($prefix . 'cost:cpu', 100),
             'memory' => $this->settings->get($prefix . 'cost:memory', 50),
@@ -70,11 +70,11 @@ class StoreController extends Controller
     public function update(StoreFormRequest $request): RedirectResponse
     {
         foreach ($request->normalize() as $key => $value) {
-            $this->settings->set('jexactyl::' . $key, $value);
+            $this->settings->set('pteranodon::' . $key, $value);
         }
 
-        $this->alert->success('If you have enabled a payment gateway, please remember to configure them. <a href="https://docs.jexactyl.com">Documentation</a>')->flash();
+        $this->alert->success('If you have enabled a payment gateway, please remember to configure them. <a href="https://docs.pteranodon.com">Documentation</a>')->flash();
 
-        return redirect()->route('admin.jexactyl.store');
+        return redirect()->route('admin.pteranodon.store');
     }
 }

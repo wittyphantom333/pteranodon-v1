@@ -1,15 +1,15 @@
 <?php
 
-namespace Jexactyl\Console\Commands;
+namespace Pteranodon\Console\Commands;
 
-use Jexactyl\Console\Kernel;
+use Pteranodon\Console\Kernel;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Helper\ProgressBar;
 
 class UpgradeCommand extends Command
 {
-    protected const DEFAULT_URL = 'https://github.com/jexactyl/jexactyl/releases/%s/panel.tar.gz';
+    protected const DEFAULT_URL = 'https://github.com/wittyphantom333/pteranodon/releases/%s/panel.tar.gz';
 
     protected $signature = 'p:upgrade
         {--user= : The user that PHP runs under. All files will be owned by this user.}
@@ -18,11 +18,11 @@ class UpgradeCommand extends Command
         {--release= : A specific version to download from GitHub. Leave blank to use latest.}
         {--skip-download : If set no archive will be downloaded.}';
 
-    protected $description = 'Downloads a new archive from Jexactyl\'s GitHub and executes the upgrade commands.';
+    protected $description = 'Downloads a new archive from Pteranodon\'s GitHub and executes the upgrade commands.';
 
     /**
      * Executes an upgrade command which will run through all of our standard
-     * commands for Jexactyl and enable users to basically just download
+     * commands for Pteranodon and enable users to basically just download
      * the archive and execute this and be done.
      *
      * This places the application in maintenance mode as well while the commands
@@ -133,7 +133,7 @@ class UpgradeCommand extends Command
 
         /** @var \Illuminate\Foundation\Application $app */
         $app = require __DIR__ . '/../../../bootstrap/app.php';
-        /** @var \Jexactyl\Console\Kernel $kernel */
+        /** @var \Pteranodon\Console\Kernel $kernel */
         $kernel = $app->make(Kernel::class);
         $kernel->bootstrap();
         $this->setLaravel($app);

@@ -1,13 +1,13 @@
 <?php
 
-namespace Jexactyl\Providers;
+namespace Pteranodon\Providers;
 
 use Psr\Log\LoggerInterface as Log;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Encryption\Encrypter;
 use Illuminate\Contracts\Encryption\DecryptException;
-use Jexactyl\Contracts\Repository\SettingsRepositoryInterface;
+use Pteranodon\Contracts\Repository\SettingsRepositoryInterface;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 
 class SettingsServiceProvider extends ServiceProvider
@@ -25,12 +25,12 @@ class SettingsServiceProvider extends ServiceProvider
         'recaptcha:secret_key',
         'recaptcha:website_key',
         'theme:user:background',
-        'jexactyl:guzzle:timeout',
-        'jexactyl:auth:2fa_required',
-        'jexactyl:guzzle:connect_timeout',
-        'jexactyl:client_features:allocations:enabled',
-        'jexactyl:client_features:allocations:range_end',
-        'jexactyl:client_features:allocations:range_start',
+        'pteranodon:guzzle:timeout',
+        'pteranodon:auth:2fa_required',
+        'pteranodon:guzzle:connect_timeout',
+        'pteranodon:client_features:allocations:enabled',
+        'pteranodon:client_features:allocations:range_end',
+        'pteranodon:client_features:allocations:range_start',
     ];
 
     /**
